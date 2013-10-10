@@ -1,0 +1,82 @@
+body {
+	width:950px;
+	margin:8px auto;
+	}
+	
+.top {
+	position:relative;
+}
+
+.name {
+	position:relative;
+}
+
+.about {
+	font-family:"pt-sans", georgia;
+	font-size:25px;
+	line-height:28px;
+	position:absolute;
+	top:110px;
+	left:50px;
+}
+
+.work {
+	margin-left:50px;
+	position:relative;
+	margin-top:25px;	
+}
+
+.caption-left {
+	width:100px;
+	font-family:"pt-sans";
+	margin-right:65px;
+	margin-left:5px;
+	height:140px;
+}
+
+.title {
+	font-size:18px;
+	line-height:20px;
+	
+}
+
+.medium {
+	font-size:14px;
+	font-weight:bold;
+	color:#585858;
+}
+.sub-medium {
+	font-size:14px;
+	font-weight:italic;
+	color:#585858;
+}
+
+.pub-date {
+	font-size:14px;
+	color:#696969;
+	font-family:"le-havre";
+}
+
+.img-link {
+	width:140px;
+	vertical-align:top;
+}
+
+.table-row {
+	margin-bottom:45px;
+}
+
+.link-text {
+	text-decoration:none;
+	font-weight:bold;
+	color:#585858;
+}
+
+
+
+
+
+
+
+
+

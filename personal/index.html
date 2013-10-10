@@ -1,66 +1,246 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="css/normalize.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<body>
-<script src="js/d3.min.js"></script>
-<h1>Ritchie S. King</h1>
-<div id="top-row">
-	<div class="col">
-		<h2>COORDINATES</h2>
-		<p class="list-items"><a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a></p>
-		<p class="list-items"><a href="http://www.twitter.com/ritchiesking">@ritchiesking</a></p>
-		<p class="list-items">new york, ny</p>
-		<p class="list-items">347.300.6475</p>
-	</div>
-	<div class="col">
-		<h2>JOBS</h2>
-		<p class="list-items"><strong>1</strong> reporting, visualizing data</p>
-		<p class="list-items">quartz | <a href="http://www.qz.com">qz.com</a></p>
-		<p class="list-items"><a href="http://www.qz.com/author/rskingqz">portfolio</a></p>
-		<p class="list-items"><strong>2</strong> writing a textbook</p>
-		<p class="list-items"><em>visual storytelling with d3</em></p>
-		<p class="list-items"><a href="http://www.amazon.com/Visual-Storytelling-Introduction-Visualization-JavaScript/dp/0321933176/ref=sr_1_1?ie=UTF8&qid=1381082235&sr=8-1&keywords=visual+storytelling+with+D3">link</a></p>
-	</div>
-	<div class="col">
-		<h2>SKILLS</h2>
-		<p class="list-items">reporting</p>
-		<p class="list-items">writing</p>
-		<p class="list-items">data analysis</p>
-		<p class="list-items">infographic design</p>
-		<p class="list-items">responsive web design</p>
-	</div>
-	<div class="col">
-		<h2>TOOLS</h2>
-		<p class="list-items">adobe creative suite</p>
-		<p class="list-items">excel</p>
-		<p class="list-items">r</p>
-		<p class="list-items">html/css</p>
-		<p class="list-items">d3.js</p>
-	</div>
-	<div class="clearfix"></div>
-</div>
-<div id="bottom-row">
-	<h2 class="underline">TIMELINE</h2>
-	<div id="timeline"></div>
-	<div id="detail"></div>
-	<div class="clearfix"></div>
-</div>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script src="js/scripts.js"></script>
-	
-
-</body>
-
-
-
-
-
-
-
-
-
-
-
+<html>
+	<head>
+		<title>Ritchie S. King</title>
+		<script type="text/javascript" src="http://use.typekit.com/ose6ehg.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<style type="text/css"></style>		
+		<link href="/assets/stylesheets/RitchieSKing_style.css" rel="stylesheet">	
+	</head>
+	<body>
+		<div class="top">
+			<div class="name">
+				<img src="/assets/images/Name.gif" style="position:relative">
+			</div>
+			<div class="about">
+				<p>An engineer turned journalist who has written stories, wrangled data, and made graphics for <a class="link-text" href="http://www.nytimes.com">The New York Times</a>, <a class="link-text" href="http://www.spectrum.ieee.org">IEEE Spectrum</a>, and <a class="link-text" href="http://www.popsci.com">Popular Science</a>. Feel free to contact me at <span style="color:rgb(159,0,97)">RitchieSKing[at]gmail.com</span>, or if you'd like, take a look at my <a class="link-text" href="Resume.pdf">resume</a>.</p>
+			</div>
+		</div>
+		<div class ="work">
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/interactive/2012/03/01/realestate/manhattans-population-density-past-and-present.html?scp=22&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/manhattan-density.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Manhattan's Population Density</span><br/><span class="pub-date">New York Times<br/>01.MAR.12</span><br/><span class="medium">GRAPHIC</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?scp=6&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/cavity.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Microcavities and their Overtreatment</span><br/><span class="pub-date">New York Times<br/>29.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/interactive/2012/02/04/sports/football/most-mentioned-players-on-espn.html?scp=19&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/football-mentions.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Football Player Mentions</span><br/><span class="pub-date">New York Times<br/>04.FEB.12</span><br/><span class="medium">GRAPHIC </span><span class="sub-medium">Analysis</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/interactive/2012/02/04/sports/football/a-compilation-of-sportscenter-cliches.html?scp=23&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/sports-war-memoir.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">A Sports Cliche War Memoir</span><br/><span class="pub-date">New York Times<br/>04.FEB.12</span><br/><span class="medium">GRAPHIC</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?scp=1&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/acorn.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">A Dearth of Acorns</span><br/><span class="pub-date">New York Times<br/>03.DEC.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/imagepages/2012/01/07/world/middleeast/07irangraphic3.html?scp=2&sq=iran's%20oil%20exports&st=cse"><img src="/assets/images/iran-oil.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Iran's Oil Exports</span><br/><span class="pub-date">New York Times<br/>07.JAN.12</span><br/><span class="medium">GRAPHIC</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://spectrum.ieee.org/at-work/tech-careers/the-top-10-programming-languages"><img src="/assets/images/programming-languages.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">The Top 10 Programming Languages</span><br/><span class="pub-date">IEEE Spectrum<br/>October 2011</span><br/><span class="medium">GRAPHIC </span><span class="sub-medium">Research</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://cityroom.blogs.nytimes.com/2011/10/24/for-quiet-moments-between-protests-a-growing-library/?scp=5&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/ows-library.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Occupy Wall Street's Library</span><br/><span class="pub-date">New York Times<br/>24.OCT.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://spectrum.ieee.org/telecom/internet/building-a-subversive-grassroots-network"><img src="/assets/images/grassroots-network.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Building a Subversive Grassroots Network</span><br/><span class="pub-date">IEEE Spectrum<br/>July 2011</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?scp=1&sq=african%20lungfish&st=cse"><img src="/assets/images/lungfish.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">The Evolution of Walking</span><br/><span class="pub-date">New York Times<br/>20.DEC.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.popsci.com/node/58214/"><img src="/assets/images/computing-power.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">The Growth of Computing Power</span><br/><span class="pub-date">Popular Science</span><br/><span class="medium">GRAPHIC </span><span class="sub-medium">Research</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?scp=18&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/fish-hooks.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Ancient Fish Hooks</span><br/><span class="pub-date">New York Times<br/>29.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?scp=13&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/bacteria-fungi.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">A Bacterium and Fungus Cooperate</span><br/><span class="pub-date">New York Times<br/>29.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?scp=8&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/preg-dolphin.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">How Pregnant Dolphins Swim</span><br/><span class="pub-date">New York Times<br/>29.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/12/20/science/forecast-for-sagittarius-a-black-hole-a-cold-gas-cloud.html?scp=17&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/black-hole.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">A Black Hole in Action</span><br/><span class="pub-date">New York Times<br/>20.DEC.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?scp=12&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/mosquito-cooling.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">A Mosquito Cooling System</span><br/><span class="pub-date">New York Times<br/>20.DEC.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?scp=14&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/muriqui-monkeys.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Monkey Mamma's Boys</span><br/><span class="pub-date">New York Times<br/>15.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/15/science/recipe-for-the-moons-long-ago-magnetic-field-spin-and-stir.html?scp=15&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/moon-formation.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">The Moon's Magnetic Field</span><br/><span class="pub-date">New York Times<br/>15.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/15/science/cloaks-of-invisibility-switched-in-a-flash.html?scp=16&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/camoflage-squid.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Squid Camouflage</span><br/><span class="pub-date">New York Times<br/>15.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/08/science/fat-shapes-big-cats-vocal-cords-for-roaring.html?scp=11&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/roaring.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Big Cats, Vocal Cord Fat</span><br/><span class="pub-date">New York Times<br/>08.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/11/08/science/andean-plain-tailed-wrens-sing-duet-as-a-continuous-song.html?scp=3&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/wren-duet.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Two Wrens Sing in Concert</span><br/><span class="pub-date">New York Times<br/>08.NOV.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="table-row">
+				<tr>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?scp=2&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/bio-hacking.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Do-It-Yourself Biologists</span><br/><span class="pub-date">New York Times<br/>17.JAN.12</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://www.nytimes.com/2011/10/25/science/25shirt.html?scp=7&sq=%22ritchie%20s.%20king%22&st=cse"><img src="/assets/images/wearable-shirt.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Smart Textiles</span><br/><span class="pub-date">New York Times<br/>25.OCT.11</span><br/><span class="medium">STORY</span></p>
+						</div>
+					</td>
+					<td class="img-cell">
+						<a href="http://spectrum.ieee.org/static/the-postfukushima-world"><img src="/assets/images/post-fuku.gif" class="img-link"/></a>
+					</td>
+					<td>
+						<div class="caption-left">
+							<p><span class="title">Post-Fukushima Nuclear Policy</span><br/><span class="pub-date">IEEE Spectrum<br/>Fall 2011</span><br/><span class="medium">GRAPHIC </span><span class="sub-medium">Research</span></p>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
 
