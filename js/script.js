@@ -25,19 +25,36 @@ var data = [{"Link":"http://qz.com/37639/check-your-us-tax-rate-for-2012-and-eve
 {"Link":"http://qz.com/138150/the-us-jobs-report-for-september-in-two-simple-charts/","Category":"charts","hed":"The US jobs report for September in two simple charts","pub":"Quartz","date":"10.22.13","img":"Screen Shot 2013-11-02 at 10.48.56 PM"},
 {"Link":"http://qz.com/115121/americans-are-starting-to-cut-the-cable-tv-cord-and-heres-what-it-looks-like/","Category":"charts","hed":"Americans are starting to cut the cable TV cord, and here’s what it looks like","pub":"Quartz","date":"08.14.13","img":"Screen Shot 2013-11-02 at 10.50.22 PM"},
 {"Link":"http://qz.com/110911/america-imports-three-times-more-russian-crab-than-vodka-and-other-items-that-make-more-sense-to-boycott-than-stoli/","Category":"charts","hed":"America imports three times more Russian crab than vodka, and other items that make more sense to boycott than Stoli","pub":"Quartz","date":"08.03.13","img":"Screen Shot 2013-11-02 at 10.53.32 PM"},
-{"Link":"http://qz.com/107351/apples-35-billion-quarter-in-three-charts/","Category":"charts","hed":"Apple’s $35 billion quarter in three charts","pub":"Quartz","date":"07.23.13","img":"Screen Shot 2013-11-02 at 10.55.33 PM"}];
+{"Link":"http://qz.com/107351/apples-35-billion-quarter-in-three-charts/","Category":"charts","hed":"Apple’s $35 billion quarter in three charts","pub":"Quartz","date":"07.23.13","img":"Screen Shot 2013-11-02 at 10.55.33 PM"},
+{"Link":"http://qz.com/140576/how-to-fix-global-warming-before-its-too-late/","Category":"charts","hed":"How to fix global warming before it’s too late","pub":"Quartz","date":"11.10.13","img":"Screen Shot 2013-11-12 at 11.51.28 PM"},
+{"Link":"http://qz.com/96521/what-america-will-look-like-with-immigration-reform-and-without-it/","Category":"charts","hed":"What America will look like with immigration reform—and without it","pub":"Quartz","date":"06.21.13","img":"Screen Shot 2013-11-12 at 11.55.39 PM"},
+{"Link":"http://qz.com/79764/going-to-a-more-expensive-college-is-worth-it-for-the-most-part/","Category":"charts","hed":"College’s return on investment: Is it worth going to an expensive school?","pub":"Quartz","date":"05.02.13","img":"Screen Shot 2013-11-12 at 11.59.57 PM"},
+{"Link":"http://qz.com/33404/brazils-growth-is-a-foothill-next-to-the-soaring-peaks-of-other-brics/","Category":"charts","hed":"Brazil’s growth is a foothill next to the soaring peaks of other BRICs","pub":"Quartz","date":"12.03.13","img":"Screen Shot 2013-11-13 at 12.06.56 AM"},
+{"Link":"http://www.nytimes.com/interactive/2012/02/04/sports/football/most-mentioned-players-on-espn.html?scp=19&sq=%22ritchie%20s.%20king%22&st=cse&_r=0","Category":"charts","hed":"The N.F.L. Players Mentioned Most on “SportsCenter”","pub":"New York Times","date":"02.04.12","img":"Screen Shot 2013-11-13 at 12.15.24 AM"},
+{"Link":"http://www.nytimes.com/interactive/2012/03/01/realestate/manhattans-population-density-past-and-present.html?scp=22&sq=%22ritchie%20s.%20king%22&st=cse","Category":"diagrams","hed":"Manhattan’s Population Density, Past and Present","pub":"New York Times","date":"03.01.12","img":"Screen Shot 2013-11-13 at 12.17.24 AM"},
+{"Link":"http://qz.com/76047/all-the-paths-to-us-citizenship-in-the-senates-immigration-bill-visualized/","Category":"diagrams","hed":"All the paths to US citizenship in the Senate’s immigration bill, visualized","pub":"Quartz","date":"04.18.13","img":"Screen Shot 2013-11-13 at 12.26.30 AM"},
+{"Link":"http://qz.com/70866/its-hard-to-explain-what-abenomics-is-so-we-drew-you-a-picture/","Category":"diagrams","hed":"It’s hard to explain what Abenomics is, so we drew you a picture","pub":"Quartz","date":"04.04.13","img":"Screen Shot 2013-11-13 at 12.27.53 AM"},
+{"Link":"http://qz.com/97918/the-family-tree-of-qatars-new-emir-the-fourth-oldest-son-who-has-23-brothers-and-sisters/","Category":"diagrams","hed":"The family tree of Qatar’s new emir, the fourth-oldest son, who has 23 brothers and sisters","pub":"Quartz","date":"06.26.13","img":"Screen Shot 2013-11-13 at 12.32.05 AM"},
+{"Link":"http://qz.com/87989/at-the-altar-of-the-big-green-egg-how-a-product-becomes-a-cult/","Category":"writing","hed":"At the altar of the Big Green Egg: How a product becomes a cult","pub":"Quartz","date":"05.24.13","img":"Screen Shot 2013-11-13 at 12.36.49 AM"},
+{"Link":"http://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?scp=6&sq=%22ritchie%20s.%20king%22&st=cse","Category":"writing","hed":"A Closer Look at Teeth May Mean More Fillings","pub":"New York Times","date":"11.28.11","img":"Screen Shot 2013-11-13 at 12.41.45 AM"},
+{"Link":"http://www.nytimes.com/interactive/2012/02/04/sports/football/a-compilation-of-sportscenter-cliches.html?scp=23&sq=%22ritchie%20s.%20king%22&st=cse","Category":"writing","hed":"A Compilation of ESPN ‘SportsCenter’ Clichés","pub":"New York Times","date":"02.04.12","img":"Screen Shot 2013-11-13 at 12.43.07 AM"},
+{"Link":"http://cityroom.blogs.nytimes.com/2011/10/24/for-quiet-moments-between-protests-a-growing-library/?scp=5&sq=%22ritchie%20s.%20king%22&st=cse","Category":"writing","hed":"For Quiet Moments Between Protests, a Growing Library","pub":"New York Times","date":"10.24.11","img":"Screen Shot 2013-11-13 at 12.44.32 AM"},
+{"Link":"http://spectrum.ieee.org/telecom/internet/building-a-subversive-grassroots-network","Category":"writing","hed":"Building a subversive grassroots network","pub":"IEEE Spectrum","date":"06.11.13","img":"Screen Shot 2013-11-13 at 12.54.28 AM"},
+{"Link":"http://qz.com/15321/inside-the-epic-all-night-goldman-sachs-scavenger-hunt/","Category":"diagrams","hed":"Inside the epic, all-night, Goldman Sachs scavenger hunt","pub":"Quartz","date":"06.27.13","img":"Screen Shot 2013-11-13 at 12.58.00 AM"}];
 
-var container = d3.select("#gallery-container"),
-    hed = d3.select("#story-hed"),
-    pub = d3.select("#story-pub"),
-    date = d3.select("#story-date");
+var container = d3.select("#gallery-container");
 
 var side = 60;
+
+hed = d3.select("#story-hed")
+pub = d3.select("#story-pub")
+date = d3.select("#story-date")
 
 var interactives = data.filter(function(d) { return d.Category == "interactives"; }),
 	maps = data.filter(function(d) { return d.Category == "maps"; }),
 	charts = data.filter(function(d) { return d.Category == "charts"; }),
-	writing = data.filter(function(d) { return d.Category == "writing"; });
+	writing = data.filter(function(d) { return d.Category == "writing"; }),
+	diagrams = data.filter(function(d) { return d.Category == "diagrams"; });
 
 // INTERACTIVES
 
@@ -47,21 +64,21 @@ var interactivesLabel = container.append("div")
 
 interactivesLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2-15)
+	.attr("y",side/2-10)
 	.attr("text-anchor","middle")
 	.text("inter-")
 	.attr("class","cat-labels")
 
 interactivesLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2-3)
+	.attr("y",side/2+2)
 	.attr("text-anchor","middle")
 	.text("actives")
 	.attr("class","cat-labels")
 
 interactivesLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2+10)
+	.attr("y",side/2+14)
 	.attr("text-anchor","middle")
 	.text("▶")
 	.attr("class","cat-labels")
@@ -71,14 +88,33 @@ container.selectAll(".interactives")
   .enter().append("div")
   	.attr("class","box-div img-div")
   	.html(function(d) { 
-  		return "<a href='" + d.Link + "'><img class='inline-images' src='imgs/" + d.img + ".jpg'/></a>" ; 
+  		return "<a href='" + d.Link + "'><svg><image xlink:href='imgs/" + d.img + ".jpg' x='0' y='0' width='" + side + "px' height='" + side + "px'/><rect x='0' y='0' width='" + side + "px' height='" + side + "px' fill='#FF4CF4' opacity='0'</svg></a>" ; 
   	})
   	.on("mouseover", function(d) {
-  		console.log(this)
+
+  		selected = d3.select(".selected")
+
+  		if (selected[0][0]) {
+  			
+  			selected.transition()
+  				.attr("opacity", 0)
+
+  			selected.classed("selected",false)
+
+  		};
+
+  		rect = d3.select(this).select("rect")
+  			.classed("selected",true)
+
+  		rect.transition()
+  			.attr("opacity",0.5)
+  			
+
   		hed.text(d.hed)
   		pub.text(d.pub)
   		date.text(d.date)
-  	});
+  	})
+
 
 // MAPS
 
@@ -88,14 +124,14 @@ var mapsLabel = container.append("div")
 
 mapsLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2-7)
+	.attr("y",side/2-5)
 	.attr("text-anchor","middle")
 	.text("maps")
 	.attr("class","cat-labels")
 
 mapsLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2+7)
+	.attr("y",side/2+9)
 	.attr("text-anchor","middle")
 	.text("▶")
 	.attr("class","cat-labels")
@@ -105,14 +141,33 @@ container.selectAll(".maps")
   .enter().append("div")
   	.attr("class","box-div img-div")
   	.html(function(d) { 
-  		return "<a href='" + d.Link + "'><img class='inline-images' src='imgs/" + d.img + ".jpg'/></a>" ; 
+  		return "<a href='" + d.Link + "'><svg><image xlink:href='imgs/" + d.img + ".jpg' x='0' y='0' width='" + side + "px' height='" + side + "px'/><rect x='0' y='0' width='" + side + "px' height='" + side + "px' fill='#FF4CF4' opacity='0'</svg></a>" ; 
   	})
   	.on("mouseover", function(d) {
-  		console.log(this)
+
+  		selected = d3.select(".selected")
+
+  		if (selected[0][0]) {
+  			
+  			selected.transition()
+  				.attr("opacity", 0)
+
+  			selected.classed("selected",false)
+
+  		};
+
+  		rect = d3.select(this).select("rect")
+  			.classed("selected",true)
+
+  		rect.transition()
+  			.attr("opacity",0.5)
+  			
+
   		hed.text(d.hed)
   		pub.text(d.pub)
   		date.text(d.date)
-  	});
+  	})
+
 
 // CHARTS
 
@@ -122,14 +177,14 @@ var chartsLabel = container.append("div")
 
 chartsLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2-7)
+	.attr("y",side/2-5)
 	.attr("text-anchor","middle")
 	.text("charts")
 	.attr("class","cat-labels")
 
 chartsLabel.append("text")
 	.attr("x",side/2)
-	.attr("y",side/2+7)
+	.attr("y",side/2+9)
 	.attr("text-anchor","middle")
 	.text("▶")
 	.attr("class","cat-labels")
@@ -139,14 +194,139 @@ container.selectAll(".charts")
   .enter().append("div")
   	.attr("class","box-div img-div")
   	.html(function(d) { 
-  		return "<a href='" + d.Link + "'><img class='inline-images' src='imgs/" + d.img + ".jpg'/></a>" ; 
+  		return "<a href='" + d.Link + "'><svg><image xlink:href='imgs/" + d.img + ".jpg' x='0' y='0' width='" + side + "px' height='" + side + "px'/><rect x='0' y='0' width='" + side + "px' height='" + side + "px' fill='#FF4CF4' opacity='0'</svg></a>" ; 
   	})
   	.on("mouseover", function(d) {
-  		console.log(this)
+
+  		selected = d3.select(".selected")
+
+  		if (selected[0][0]) {
+  			
+  			selected.transition()
+  				.attr("opacity", 0)
+
+  			selected.classed("selected",false)
+
+  		};
+
+  		rect = d3.select(this).select("rect")
+  			.classed("selected",true)
+
+  		rect.transition()
+  			.attr("opacity",0.5)
+  			
+
   		hed.text(d.hed)
   		pub.text(d.pub)
   		date.text(d.date)
-  	});
+  	})
+
+
+// DIAGRAMS
+
+var diagramsLabel = container.append("div")
+	.attr("class","box-div")
+	.append("svg").attr("width",side).attr("height",side)
+
+diagramsLabel.append("text")
+	.attr("x",side/2)
+	.attr("y",side/2-5)
+	.attr("text-anchor","middle")
+	.text("diagrams")
+	.attr("class","cat-labels")
+
+diagramsLabel.append("text")
+	.attr("x",side/2)
+	.attr("y",side/2+9)
+	.attr("text-anchor","middle")
+	.text("▶")
+	.attr("class","cat-labels")
+
+container.selectAll(".diagrams")
+	.data(diagrams)
+  .enter().append("div")
+  	.attr("class","box-div img-div")
+  	.html(function(d) { 
+  		return "<a href='" + d.Link + "'><svg><image xlink:href='imgs/" + d.img + ".jpg' x='0' y='0' width='" + side + "px' height='" + side + "px'/><rect x='0' y='0' width='" + side + "px' height='" + side + "px' fill='#FF4CF4' opacity='0'</svg></a>" ; 
+  	})
+  	.on("mouseover", function(d) {
+
+  		selected = d3.select(".selected")
+
+  		if (selected[0][0]) {
+  			
+  			selected.transition()
+  				.attr("opacity", 0)
+
+  			selected.classed("selected",false)
+
+  		};
+
+  		rect = d3.select(this).select("rect")
+  			.classed("selected",true)
+
+  		rect.transition()
+  			.attr("opacity",0.5)
+  			
+
+  		hed.text(d.hed)
+  		pub.text(d.pub)
+  		date.text(d.date)
+  	})
+
+
+// WRITING
+
+var writingLabel = container.append("div")
+	.attr("class","box-div")
+	.append("svg").attr("width",side).attr("height",side)
+
+writingLabel.append("text")
+	.attr("x",side/2)
+	.attr("y",side/2-5)
+	.attr("text-anchor","middle")
+	.text("writing")
+	.attr("class","cat-labels")
+
+writingLabel.append("text")
+	.attr("x",side/2)
+	.attr("y",side/2+9)
+	.attr("text-anchor","middle")
+	.text("▶")
+	.attr("class","cat-labels")
+
+container.selectAll(".writing")
+	.data(writing)
+  .enter().append("div")
+  	.attr("class","box-div img-div")
+  	.html(function(d) { 
+  		return "<a href='" + d.Link + "'><svg><image xlink:href='imgs/" + d.img + ".jpg' x='0' y='0' width='" + side + "px' height='" + side + "px'/><rect x='0' y='0' width='" + side + "px' height='" + side + "px' fill='#FF4CF4' opacity='0'</svg></a>" ; 
+  	})
+  	.on("mouseover", function(d) {
+
+  		selected = d3.select(".selected")
+
+  		if (selected[0][0]) {
+  			
+  			selected.transition()
+  				.attr("opacity", 0)
+
+  			selected.classed("selected",false)
+
+  		};
+
+  		rect = d3.select(this).select("rect")
+  			.classed("selected",true)
+
+  		rect.transition()
+  			.attr("opacity",0.5)
+  			
+
+  		hed.text(d.hed)
+  		pub.text(d.pub)
+  		date.text(d.date)
+  	})
+
 
 
 
