@@ -1,2 +1,2 @@
-ritchieking.github.com-wedding
+ritchieking.github.io
 ==============================
