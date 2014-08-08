@@ -1,0 +1,73 @@
+@font-face {
+  font-family: DINPro;
+  src: url('./fonts/DINPro.otf') format('truetype');       
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: DINPro;
+  src: url('./fonts/DINPro-Bold.otf') format('truetype');       
+  font-style: bold;
+  font-weight: 700;
+}
+
+body {
+	margin: 0 auto 200px auto;
+	max-width:900px;
+	font-family: 'DINPro';
+}
+h1 {
+	font-size: 50px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+}
+h2 {
+	margin-top: 0;
+	font-size: 28px;
+	font-weight: normal;
+	border-bottom: 2px solid #008da0;
+	padding-bottom: 20px;
+}
+h3 {
+	font-weight: normal;
+	text-transform: uppercase;
+    margin-top:0;
+    font-size: 23px;
+}
+.with {
+	font-weight: normal;
+}
+.left-col {
+	width: 30%;
+	float: left;
+}
+.right-col {
+    float: left;
+    margin-left: 50px;
+    margin-top: 0;
+    width: 60%;
+}
+img {
+    width:100%;
+}
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.row {
+
+    width:100%;
+    margin-top: 50px;
+
+}
+a {
+    text-decoration: none;
+    color: #008da0;
+    font-weight: bold;
+}
+.clearfix {
+
+    clear: both;
+}
