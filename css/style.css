@@ -38,6 +38,14 @@ p {
 #description-row a:hover {
 	color:white;
 	background-color: #FF4CF4;
+}#book-row a:link, a:visited {
+	font-weight:bold;
+	color: #666666;
+	text-decoration: none;
+}
+#book-row a:hover {
+	color:white;
+	background-color: #FF4CF4;
 }
 #description-row{
 	margin-bottom:35px;
@@ -81,3 +89,18 @@ p {
 /*.img-div:hover{
 	background-color: #FF4CF4;
 }*/
+
+
+.book {
+	width: 170px;
+	float:left;
+	margin-right: 20px;
+}
+
+#book-row a {
+	width: 170px;
+	margin-bottom: 10px;
+}
+#book-row {
+	margin-bottom: 50px;
+}
