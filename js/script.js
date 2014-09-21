@@ -149,8 +149,7 @@ container.selectAll(".maps")
 
   		if (selected[0][0]) {
   			
-  			selected.transition()
-  				.attr("opacity", 0)
+  			selected.attr("opacity", 0)
 
   			selected.classed("selected",false)
 
@@ -159,8 +158,7 @@ container.selectAll(".maps")
   		rect = d3.select(this).select("rect")
   			.classed("selected",true)
 
-  		rect.transition()
-  			.attr("opacity",0.5)
+  		rect.attr("opacity",0.5)
   			
 
   		hed.text(d.hed)
@@ -202,8 +200,7 @@ container.selectAll(".charts")
 
   		if (selected[0][0]) {
   			
-  			selected.transition()
-  				.attr("opacity", 0)
+  			selected.attr("opacity", 0)
 
   			selected.classed("selected",false)
 
@@ -212,8 +209,7 @@ container.selectAll(".charts")
   		rect = d3.select(this).select("rect")
   			.classed("selected",true)
 
-  		rect.transition()
-  			.attr("opacity",0.5)
+  		rect.attr("opacity",0.5)
   			
 
   		hed.text(d.hed)
