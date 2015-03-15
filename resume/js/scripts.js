@@ -6,7 +6,7 @@ var detail = $("#detail");
 	detailWidth = detail.width()
 	detailHeight = detail.height()
 
-var selected = 4;
+var selected = 9;
 
 var margin = {top: 25, right: 50, bottom: 10, left: 100};
     width = divWidth - margin.left - margin.right,
@@ -53,7 +53,9 @@ var axisPoints = [
 	{year:"10", date:"1-Jan-10"},
 	{year:"11", date:"1-Jan-11"},
 	{year:"12", date:"1-Jan-12"},
-	{year:"13", date:"1-Jan-13"}
+	{year:"13", date:"1-Jan-13"},
+	{year:"14", date:"1-Jan-14"},
+	{year:"15", date:"1-Jan-15"}
 ]
 
 var textBumper = 5,

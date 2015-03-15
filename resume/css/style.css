@@ -9,24 +9,28 @@ body {
 /*+++++++++++++++++++++++++++++++++++++*/
 h1 {
 	font-weight:200;
-	font-size:25px;
-	border-bottom: solid 3px #B3B3B3;
+	font-size:40px;
+	border-bottom: solid 2px black;
+	padding-bottom: 10px;
+	font-family: 'Montserrat', sans-serif;
 }
 a {
 	text-decoration: none;
 	color: IndianRed;
 }
 h2{
-	font-size: 16px;
-	font-weight:500;
+	font-size: 12px;
+	font-weight:800;
 	margin-bottom: 8px;
 	margin-top:0px;
+	font-family: 'Montserrat', sans-serif;
 }
 h3 {
 	font-size:18px;
 	font-weight:500;
 	margin-bottom:0px;
 	margin-top:0;
+	font-family: 'Montserrat', sans-serif;
 }
 h4 {
 	font-size: 15px;
@@ -88,12 +92,15 @@ p{
 	font-size: 10px;
 }
 .underline{
-	border-bottom: 2px solid #B3B3B3;
+	border-bottom: 1px solid black;
 	margin-bottom: 20px;
 	margin-top:20px;
+	padding-bottom: 5px;
 }
 .categoryLabels{
-	font-size: 15px;
+	font-size: 12px;
+	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
 }
 
 
