@@ -7,42 +7,119 @@
 </head>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-
-<div id="name-row">
-	<svg width="500px">
-		<text class="name" x="0" y="90">Ritchie S. King</text>
-	</svg>
-</div>
-<div id='book-row'>
-    <img class='book' src="book/imgs/bookcover.jpg">
-    <h2><em>Visual Storytelling with D3</em> is out!</h2>
-    <p><a class='pure-button' href="http://ritchiesking.com/book/">More information</a></p>
-
-    <p><a class='pure-button' href="https://github.com/ritchieking/d3-book">Supplemental materials</a></p>
-
-    <p><a class='pure-button' href="http://click.linksynergy.com/fs-bin/click?id=8ZnJ3AlKfZ0&offerid=145238.10000463&type=3&subid=0">Buy on InformIT</a></p>
-
-    <p><a class='pure-button' href="http://www.amazon.com/Visual-Storytelling-Introduction-Visualization-Addison-Wesley/dp/0321933176/ref=sr_1_1?ie=UTF8&qid=1407371209&sr=8-1&keywords=visual+storytelling+with+d3">Buy on Amazon</a></p>
-
-</div>
-
-<div class="clearfix"></div>
+<h1>Ritchie S. King</h1>
 <div id="description-row">
     
 
-	<p class="description">I'm a reporter who mostly makes charts, maps, and other kinds of data visualizations. I work at <a href="http://fivethirtyeight.com/">FiveThirtyEight</a> and I just finished writing a textbook about JavaScript's excellent <a href="http://d3js.org">D3 library</a>.
+    <p class="description">I'm a reporter who mostly makes charts, maps, and other kinds of data visualizations. I work at <a href="http://fivethirtyeight.com/">FiveThirtyEight</a> and I recently finished writing a textbook about JavaScript's excellent <a href="http://d3js.org">D3 library</a>.
 
     <p><br></p>
 
     <p class='description'>Check out some of my work below or look at my <a href="http://ritchiesking.com/resume">interactive resume</a>. On Twitter at <a href="https://twitter.com/RitchieSKing">@RitchieSKing</a>. Email at RitchieSKing[at]gmail.com.</p>
 </div>
-<div id="gallery-container"></div>
-<div id="story-line">
-	<p id="story-hed"></p>
-	<p id="story-pub"></p>
-	<p id="story-date"></p>
-</div>
-<div class="clearfix"></div>
+<div id='book-row'>
+    <h2>BOOK</h2>
+    <div class="first col">
+        <img class='book' src="book/imgs/bookcover.jpg">
+    </div>
+    <div class="second col">
+        <p><a class='pure-button' href="http://ritchiesking.com/book/">More information</a></p>
 
-<script src="js/script.js"></script>
+        <p><a class='pure-button' href="https://github.com/ritchieking/d3-book">Supplemental materials</a></p>
+
+        <p><a class='pure-button' href="http://click.linksynergy.com/fs-bin/click?id=8ZnJ3AlKfZ0&offerid=145238.10000463&type=3&subid=0">Buy on InformIT</a></p>
+
+        <p><a class='pure-button' href="http://www.amazon.com/Visual-Storytelling-Introduction-Visualization-Addison-Wesley/dp/0321933176/ref=sr_1_1?ie=UTF8&qid=1407371209&sr=8-1&keywords=visual+storytelling+with+d3">Buy on Amazon</a></p>
+    </div>
+    
+    <div class="third col">
+        <p class="readin">From Amazon reviewers</p>
+        <p class='quote'>&ldquo;This book is very well written, it provides a tutorial on how to design charts and data visualizations by taking the reader through a complete project step by step.&rdquo;</p>
+        <p class="quote">&ldquo;I have read several D3 books and this is still a favourite.&rdquo;</p>
+        <p class="quote">&ldquo;I'll buy Ritchie a beer if I ever run into him.&rdquo;</p>
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+<div id="work-row">
+    <h2>SELECTED WORK</h2>
+
+    <!--  -->
+    <div class='work'>
+        <div class="first col">
+            <a href='http://fivethirtyeight.com/interactives/flights/'><img class='book' src="https://espnfivethirtyeight.files.wordpress.com/2015/03/screen-shot-2015-03-11-at-1-16-58-pm.png"></a>
+        </div>
+        <div class="second col">
+            <a href='http://fivethirtyeight.com/interactives/flights/'><h3>Which flight will get you there fastest?</h3></a>
+            <p class="pub">Fivethirtyeight</p>
+            <p>Which airports, airlines, and routes get you to your destination on time and which which ones leave you waiting.</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <!--  -->
+
+    <!--  -->
+    <div class='work'>
+        <div class="first col">
+            <a href='http://fivethirtyeight.com/interactives/senate-forecast/'><img class='book' src="http://cl.ly/image/3x2B1V0X1J2T/Image%202015-03-19%20at%207.23.40%20PM.png"></a>
+        </div>
+        <div class="second col">
+            <a href='http://fivethirtyeight.com/interactives/senate-forecast/'><h3>FiveThirtyEight's 2014 Senate forecast</h3></a>
+            <p class="pub">Fivethirtyeight</p>
+            <p>A visualization of Nate Silver's predictive model of the midterm elections</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <!--  -->
+
+    <!--  -->
+    <div class='work'>
+        <div class="first col">
+            <a href='http://fivethirtyeight.com/datalab/a-chart-for-predicting-penalty-shootout-odds-in-real-time/'><img class='book' src="https://espnfivethirtyeight.files.wordpress.com/2014/07/silver-penalty-kick-odds-1.png?w=300&h=225&crop=1"></a>
+        </div>
+        <div class="second col">
+            <a href='http://fivethirtyeight.com/datalab/a-chart-for-predicting-penalty-shootout-odds-in-real-time/'><h3>A chart for predicting penalty-shootout odds in real time</h3></a>
+            <p class="pub">Fivethirtyeight</p>
+            <p>What are the chances of each team winning after evey kick in a penalty shootout</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <!--  -->
+
+    <!--  -->
+    <div class='work'>
+        <div class="first col">
+            <a href='http://fivethirtyeight.com/interactives/world-cup/'><img class='book' src="https://espnfivethirtyeight.files.wordpress.com/2014/06/world-cup-interactive-promo-art.png"></a>
+        </div>
+        <div class="second col">
+            <a href='http://fivethirtyeight.com/interactives/world-cup/'><h3>FiveThirtyEight's World Cup predictions</h3></a>
+            <p class="pub">Fivethirtyeight</p>
+            <p>Who has the best chance of winning evey game in the 2014 World Cup</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <!--  -->
+<!--  -->
+    <div class='work'>
+        <div class="first col">
+            <a href='http://qz.com/154877/by-reading-this-page-you-are-mining-bitcoins/'><img class='book' src="http://cl.ly/image/0Y2i3R3P2V35/Image%202015-03-22%20at%209.34.38%20AM.png"></a>
+        </div>
+        <div class="second col">
+            <a href='http://qz.com/154877/by-reading-this-page-you-are-mining-bitcoins/'><h3>By reading this article, you're mining bitcoins</h3></a>
+            <p class="pub">quartz</p>
+            <p>An explanation of how bitcoin works — with a twist</p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    
+    <!--  -->
+
+    
+</div>
+
 </body>
