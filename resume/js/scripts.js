@@ -22,7 +22,7 @@ var desGroup = d3.select("#detail").append("svg")
 	.attr("width",detailWidth)
 	.attr("height",detailHeight)
 	.attr("opacity",1)
-  
+
 var desDiv = desGroup.append("foreignObject")
 	.attr("x",0)
 	.attr("y",0)
@@ -55,7 +55,8 @@ var axisPoints = [
 	{year:"12", date:"1-Jan-12"},
 	{year:"13", date:"1-Jan-13"},
 	{year:"14", date:"1-Jan-14"},
-	{year:"15", date:"1-Jan-15"}
+	{year:"15", date:"1-Jan-15"},
+	{year:"15", date:"1-Jan-16"},
 ]
 
 var textBumper = 5,
@@ -108,7 +109,7 @@ d3.csv("data/timeline.csv", function(error, data){
 
 	x.domain([
 		d3.min(data, function(d) { return d.beg; }),
-		d3.max(data, function(d) { return d.end; })	
+		d3.max(data, function(d) { return d.end; })
 	])
 
 	svg.selectAll(".axis")
@@ -135,25 +136,25 @@ d3.csv("data/timeline.csv", function(error, data){
 		.text("ENGINEERING")
 		.attr("x", x(parseDate("01-Jul-07")))
 		.attr("y", y("engineering") - 3)
-	
+
 	svg.append("text")
 		.attr("class","axisLabels")
 		.text("UNDERGRAD")
 		.attr("x", x(parseDate("01-Sep-06")))
 		.attr("y", y("school") - 3)
-	
+
 	svg.append("text")
 		.attr("class","axisLabels")
 		.text("J-SCHOOL")
 		.attr("x", x(parseDate("01-Sep-10")))
 		.attr("y", y("school") - 3)
-		
+
 	svg.append("text")
 		.attr("class","axisLabels")
 		.text("WRITING")
 		.attr("x", x(parseDate("01-Sep-11")))
 		.attr("y", y("writing") - 3)
-		
+
 	svg.append("text")
 		.attr("class","axisLabels")
 		.text("GRAPHICS")
@@ -165,7 +166,7 @@ d3.csv("data/timeline.csv", function(error, data){
 		.text("BOTH")
 		.attr("x", x(parseDate("01-Aug-12")))
 		.attr("y", y("wandg") - 3)
-	
+
 	svg.append("text")
 		.attr("class","axisLabels")
 		.text("SKI BUMMING")
@@ -181,7 +182,7 @@ d3.csv("data/timeline.csv", function(error, data){
 	    .attr("width", function(d) { return x(d.end)-x(d.beg); })
 	    .attr("y", function(d) { return y(d.cat); })
 	    .attr("height", 7 )
-	    .attr("fill", function(d, i) { 
+	    .attr("fill", function(d, i) {
 	    	if (i==selected) {
 	    		return "#000000"
 	    	}
@@ -201,7 +202,7 @@ d3.csv("data/timeline.csv", function(error, data){
 		.data(data)
 	  .enter().append("div")
 	  	.html(function(d) { return d.des; })
-	  	.attr("class", function(d, i) { 
+	  	.attr("class", function(d, i) {
 	  		if (i == selected) {
 	  			return "shown"
 	  		}
@@ -228,7 +229,7 @@ d3.csv("data/timeline.csv", function(error, data){
 
 		des.transition()
 			.delay(200)
-			.attr("class",function(d, i) { 
+			.attr("class",function(d, i) {
 				if (i==selected) {
 					return "shown"
 				}
@@ -242,5 +243,4 @@ d3.csv("data/timeline.csv", function(error, data){
 			.duration(200)
 			.attr("opacity",1);
 	}
-})	
-
+})
