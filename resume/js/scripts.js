@@ -157,7 +157,7 @@ d3.csv("data/timeline.csv", function(error, data){
 
 	svg.append("text")
 		.attr("class","axisLabels")
-		.text("GRAPHICS")
+		.text("DATA VIZ")
 		.attr("x", x(parseDate("01-Dec-11")))
 		.attr("y", y("graphics") + 17)
 
