@@ -56,7 +56,7 @@ var axisPoints = [
 	{year:"13", date:"1-Jan-13"},
 	{year:"14", date:"1-Jan-14"},
 	{year:"15", date:"1-Jan-15"},
-	{year:"15", date:"1-Jan-16"},
+	{year:"16", date:"1-Jan-16"},
 ]
 
 var textBumper = 5,
