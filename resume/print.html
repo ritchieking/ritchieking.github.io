@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ritchie S. King — résumé (printable)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 7.5in;
+      padding: 40px 24px;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 13.5px;
+      line-height: 1.45;
+      color: #111;
+      background: #fff;
+    }
+    header {
+      border-bottom: 2px solid #111;
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 26px;
+      font-weight: 800;
+      margin: 0 0 4px;
+      letter-spacing: -0.01em;
+    }
+    .contact {
+      font-size: 12.5px;
+      color: #444;
+    }
+    .contact a {
+      color: #444;
+      text-decoration: none;
+    }
+    h2 {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-bottom: 1px solid #bbb;
+      padding-bottom: 3px;
+      margin: 20px 0 10px;
+    }
+    .job {
+      margin-bottom: 12px;
+      page-break-inside: avoid;
+    }
+    .job-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .job-head .org {
+      font-weight: 700;
+      font-size: 14.5px;
+    }
+    .job-head .dates {
+      color: #666;
+      font-size: 12.5px;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+    .role {
+      font-style: italic;
+      color: #333;
+    }
+    .role .dates {
+      font-style: normal;
+      color: #666;
+      font-size: 12px;
+    }
+    ul {
+      margin: 4px 0 0;
+      padding-left: 18px;
+    }
+    li {
+      margin-bottom: 2px;
+    }
+    .two-col {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .two-col > div {
+      flex: 1;
+      min-width: 220px;
+    }
+    .print-button {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      font-size: 13px;
+      padding: 8px 14px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      background: #f6f6f4;
+      cursor: pointer;
+    }
+    .back-link {
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+    @media print {
+      body {
+        padding: 0;
+        font-size: 12px;
+      }
+      .print-button,
+      .back-link {
+        display: none;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      @page {
+        margin: 0.75in;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-button" onclick="window.print()">Print / save PDF</button>
+  <p class="back-link"><a href="./">&larr; interactive version</a></p>
+
+  <header>
+    <h1>Ritchie S. King</h1>
+    <p class="contact">
+      <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> ·
+      <a href="https://ritchiesking.com">ritchiesking.com</a> ·
+      <a href="https://www.linkedin.com/in/ritchieking/">linkedin.com/in/ritchieking</a> ·
+      <a href="https://github.com/ritchieking">github.com/ritchieking</a>
+    </p>
+  </header>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">Netflix</span>
+      <span class="dates">Oct 2018 – present</span>
+    </div>
+    <p class="role">
+      Staff Data Visualization Engineer <span class="dates">(Apr 2025 – present)</span><br />
+      Senior Data Visualization Engineer <span class="dates">(Oct 2018 – Apr 2025)</span>
+    </p>
+    <ul>
+      <li>
+        Design and build data visualization tools and interactive analytics
+        products used across Netflix.
+      </li>
+      <li>
+        Lead visualization engineering work spanning design, data, and
+        front-end architecture.
+      </li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">FiveThirtyEight</span>
+      <span class="dates">Feb 2014 – Sep 2018</span>
+    </div>
+    <p class="role">
+      Senior Editor, Data Visualization <span class="dates">(May 2016 – Sep 2018)</span><br />
+      Visual Journalist → Senior Visual Journalist <span class="dates">(Feb 2014 – Apr 2016)</span>
+    </p>
+    <ul>
+      <li>
+        Led data visualization coverage and the viz team; edited and
+        coordinated major interactive projects, including
+        <em>The Atlas of Redistricting</em>.
+      </li>
+      <li>
+        Designed and built interactive graphics and newsroom tools, including
+        the 2016 election forecast, a Reddit Ngram viewer, and the p-hacking
+        interactive &ldquo;Hack Your Way to Scientific Glory.&rdquo;
+      </li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">Quartz</span>
+      <span class="dates">Aug 2012 – Feb 2014</span>
+    </div>
+    <p class="role">Reporter</p>
+    <ul>
+      <li>
+        Covered business and economics with data-driven stories and static and
+        interactive graphics, including the animated explainer
+        &ldquo;By reading this page, you are mining bitcoins.&rdquo;
+      </li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">Bloomberg Businessweek</span>
+      <span class="dates">Jun 2012 – Aug 2012</span>
+    </div>
+    <p class="role">Freelance Graphics Editor</p>
+    <ul>
+      <li>Made infographics for the print magazine and the web.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">The New York Times</span>
+      <span class="dates">Sep 2011 – Jun 2012</span>
+    </div>
+    <p class="role">
+      Science Desk Intern; Graphics Desk Intern; Freelance Graphics Editor
+    </p>
+    <ul>
+      <li>
+        Wrote for Science Times and made graphics for the paper and the web.
+      </li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <span class="org">Mascoma Corp.</span>
+      <span class="dates">Jul 2007 – Jul 2009</span>
+    </div>
+    <p class="role">Chemical Process Engineer</p>
+    <ul>
+      <li>
+        Scale-up crew at a cellulosic-biofuels startup; ran fermentation
+        experiments at a pilot plant.
+      </li>
+    </ul>
+  </div>
+
+  <h2>Book</h2>
+  <p>
+    <em>Visual Storytelling with D3: An Introduction to Data Visualization in
+    JavaScript</em> — Addison-Wesley, 2014.
+  </p>
+
+  <div class="two-col">
+    <div>
+      <h2>Education</h2>
+      <p>
+        <strong>NYU</strong> — M.A., Journalism; Science, Health and
+        Environmental Reporting Program (2011)
+      </p>
+      <p>
+        <strong>Dartmouth College</strong> — B.E., Engineering (2007); B.S.,
+        Engineering &amp; Environmental Science (2006)
+      </p>
+    </div>
+    <div>
+      <h2>Skills &amp; Tools</h2>
+      <p>
+        Interactive data visualization · information design · data analysis ·
+        editing &amp; storytelling
+      </p>
+      <p>JavaScript / TypeScript · D3 · React · SVG &amp; Canvas · Python · R</p>
+    </div>
+  </div>
+</body>
+</html>

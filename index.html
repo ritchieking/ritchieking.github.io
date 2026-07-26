@@ -1,177 +1,283 @@
 <!DOCTYPE html>
-<meta charset="utf-8" />
+<html lang="en">
 <head>
-  <link
-    rel="stylesheet"
-    href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css"
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ritchie S. King — data visualization</title>
+  <meta
+    name="description"
+    content="Ritchie S. King is a staff data visualization engineer at Netflix, formerly of FiveThirtyEight, Quartz, and The New York Times, and the author of Visual Storytelling with D3."
   />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="http://fonts.googleapis.com/css?family=Montserrat"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
     rel="stylesheet"
-    type="text/css"
   />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <h1>Ritchie S. King</h1>
-  <div id="description-row">
-    <p class="description">
-      Currently, I'm a data visualization engineer at Netflix. Previously, I was
-      a visual journalist and data viz editor at
-      <a href="http://fivethirtyeight.com/">FiveThirtyEight</a>. I’ve also
-      written a textbook about JavaScript's excellent
-      <a href="http://d3js.org">D3 library</a>.
+  <header>
+    <h1>Ritchie S. King</h1>
+    <p class="lede">
+      I make charts and the tools that make charts. Currently a
+      <strong>staff data visualization engineer at Netflix</strong>; before
+      that, a decade in journalism as senior editor for data visualization at
+      <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>, a reporter at
+      Quartz, and a science writer at The New York Times. I also wrote
+      <a href="book/"><em>Visual Storytelling with D3</em></a
+      >, an introduction to making charts for the web.
     </p>
-
-    <p><br /></p>
-
-    <p class="description">
-      Check out some of my work below. On Twitter at
-      <a href="https://twitter.com/RitchieSKing">@RitchieSKing</a>. Email at
-      RitchieSKing[at]gmail.com. LinkedIn profile
-      <a href="https://www.linkedin.com/in/ritchieking/">here</a>.
+    <p class="contact-links">
+      <a href="mailto:ritchiesking@gmail.com">Email</a><span>·</span
+      ><a href="https://github.com/ritchieking">GitHub</a><span>·</span
+      ><a href="https://www.linkedin.com/in/ritchieking/">LinkedIn</a
+      ><span>·</span><a href="resume/">R&eacute;sum&eacute;</a>
     </p>
-  </div>
-  <div id="book-row">
-    <h2>BOOK</h2>
-    <div class="first col">
-      <img class="book" src="book/imgs/bookcover.jpg" />
+  </header>
+
+  <figure id="strip-figure">
+    <div id="strip">
+      <div id="strip-tooltip"></div>
     </div>
-    <div class="second col">
+    <ul class="strip-legend">
+      <li style="--chip: var(--cat-school)">school</li>
+      <li style="--chip: var(--cat-engineering)">engineering</li>
+      <li style="--chip: var(--cat-play)">ski bumming</li>
+      <li style="--chip: var(--cat-journalism)">journalism</li>
+      <li style="--chip: var(--cat-vizeng)">data viz engineering</li>
+    </ul>
+    <ul class="visually-hidden">
+      <li>Dartmouth, engineering major, 2002–2007</li>
+      <li>Mascoma, chemical process engineer, 2007–2009</li>
+      <li>Deer Valley, line cook, 2009–2010</li>
+      <li>NYU, M.A. in science journalism, 2010–2011</li>
+      <li>The New York Times, intern then freelance graphics editor, 2011–2012</li>
+      <li>Businessweek, freelance graphics editor, 2012</li>
+      <li>Quartz, reporter, 2012–2014</li>
+      <li>
+        FiveThirtyEight, visual journalist then senior editor for data
+        visualization, 2014–2018
+      </li>
+      <li>
+        Netflix, senior then staff data visualization engineer, 2018–present
+      </li>
+    </ul>
+    <figcaption class="strip-caption">
+      Twenty years, one chart. <a href="resume/">Explore the full interactive
+      r&eacute;sum&eacute; &rarr;</a>
+    </figcaption>
+  </figure>
+
+  <section>
+    <h2>Interactive Projects</h2>
+
+    <article class="clip">
+      <a class="clip-title" href="2016-election-forecast/"
+        >2016 Election Forecast</a
+      >
+      <span class="clip-meta">FiveThirtyEight · 2016</span>
       <p>
-        <a class="pure-button" href="http://ritchiesking.com/book/"
-          >More information</a
-        >
+        FiveThirtyEight&rsquo;s forecast of the presidential election:
+        state-by-state win probabilities, polls, and the many ways it could go.
       </p>
+    </article>
 
+    <article class="clip">
+      <a class="clip-title" href="p-hacking/"
+        >Hack Your Way to Scientific Glory</a
+      >
+      <span class="clip-meta">FiveThirtyEight · 2015</span>
       <p>
-        <a class="pure-button" href="https://github.com/ritchieking/d3-book"
-          >Supplemental materials</a
-        >
+        A hands-on demonstration of p-hacking: prove that either Republicans or
+        Democrats are better for the economy, just by tweaking your variables.
       </p>
+    </article>
 
+    <article class="clip">
+      <a
+        class="clip-title"
+        href="https://web.archive.org/web/20160412221137/http://projects.fivethirtyeight.com/flights/"
+        >Which Flight Will Get You There Fastest?</a
+      >
+      <span class="clip-meta">FiveThirtyEight · 2015 · archived</span>
       <p>
-        <a
-          class="pure-button"
-          href="http://click.linksynergy.com/fs-bin/click?id=8ZnJ3AlKfZ0&offerid=145238.10000463&type=3&subid=0"
-          >Buy on InformIT</a
-        >
+        The fastest airline on every domestic route, mined from millions of
+        flight records — plus a lookup for your own itinerary.
       </p>
+    </article>
 
+    <article class="clip">
+      <a
+        class="clip-title"
+        href="https://web.archive.org/web/2015/http://projects.fivethirtyeight.com/reddit-ngram/"
+        >How The Internet* Talks</a
+      >
+      <span class="clip-meta">FiveThirtyEight · 2015 · archived</span>
       <p>
-        <a
-          class="pure-button"
-          href="http://www.amazon.com/Visual-Storytelling-Introduction-Visualization-Addison-Wesley/dp/0321933176/ref=sr_1_1?ie=UTF8&qid=1407371209&sr=8-1&keywords=visual+storytelling+with+d3"
-          >Buy on Amazon</a
-        >
+        *Well, Reddit anyway. An Ngram viewer charting the rise and fall of
+        words and phrases across seven years of comments.
       </p>
-    </div>
+    </article>
 
-    <div class="third col">
-      <p class="readin">From Amazon reviewers</p>
-      <p class="quote">
-        &ldquo;This book is very well written, it provides a tutorial on how to
-        design charts and data visualizations by taking the reader through a
-        complete project step by step.&rdquo;
+    <article class="clip">
+      <a
+        class="clip-title"
+        href="https://web.archive.org/web/20180823135659/https://projects.fivethirtyeight.com/redistricting-maps/"
+        >The Atlas of Redistricting</a
+      >
+      <span class="clip-meta"
+        >FiveThirtyEight · 2018 · <span class="role-badge">editor</span> ·
+        archived</span
+      >
+      <p>
+        Seven ways to redraw every congressional district in America. I edited
+        this one — coordinating the cartography, data, and design that built
+        it.
       </p>
-      <p class="quote">
-        &ldquo;I have read several D3 books and this is still a
-        favourite.&rdquo;
+    </article>
+  </section>
+
+  <section>
+    <h2>Graphics-Driven Explainers</h2>
+
+    <article class="clip">
+      <a
+        class="clip-title"
+        href="https://web.archive.org/web/2014/http://qz.com/154877/by-reading-this-page-you-are-mining-bitcoins/"
+        >By reading this page, you are mining bitcoins</a
+      >
+      <span class="clip-meta">Quartz · 2013 · archived</span>
+      <p>
+        How bitcoin actually works, explained with animated graphics — and a
+        twist: the article itself &ldquo;mines&rdquo; as you read.
       </p>
-      <p class="quote">
-        &ldquo;I'll buy Ritchie a beer if I ever run into him.&rdquo;
-      </p>
-    </div>
+    </article>
+  </section>
 
-    <div class="clearfix"></div>
-  </div>
-  <div id="work-row">
-    <h2>SELECTED WORK</h2>
-
-    <!--  -->
-    <div class="work">
-      <div class="second col">
-        <a href="http://projects.fivethirtyeight.com/2016-election-forecast/"
-          ><h3>2016 General Election Forecast</h3></a
-        >
-        <p class="pub">Fivethirtyeight</p>
-        <p>
-          A web app showing Nate Silver's forecasts for the presidential
-          election, state-by-state win probabilities, and the latest polls.
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <!--  -->
-    <!--  -->
-    <div class="work">
-      <div class="second col">
+  <section>
+    <h2>Writing</h2>
+    <p class="group-note">
+      The New York Times, 2011&ndash;2012 &mdash; gift links, free to read.
+    </p>
+    <ul class="writing-list">
+      <li>
         <a
-          href="http://projects.fivethirtyeight.com/election-2016/primary-forecast/california-democratic/"
-          ><h3>2016 Primary Elections Forecast</h3></a
+          href="https://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?unlocked_article_code=1.0lA.pzpm.joRpZQa6Cft6&smid=url-share"
+          >For Bio-Hackers, Lab Work Often Begins at Home</a
         >
-        <p class="pub">Fivethirtyeight</p>
-        <p>
-          A web app showing Nate Silver's forecasts for the primary elections
-          and the latest polls and polling averages in each state.
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <!--  -->
-
-    <!--  -->
-    <!--  -->
-    <div class="work">
-      <div class="second col">
+      </li>
+      <li>
         <a
-          href="http://projects.fivethirtyeight.com/reddit-ngram/?keyword=omg.cute.fail.wtf&start=20071015&end=20150831&smoothing=10"
-          ><h3>How The Internet Talks*</h3></a
+          href="https://www.nytimes.com/2011/10/11/health/11brain.html?unlocked_article_code=1.0lA.SH-t.aZA5n6Nly4eu&smid=url-share"
+          >Chemical Cocktail Turns Brain&rsquo;s Gray Matter Transparent</a
         >
-        <p class="pub">Fivethirtyeight</p>
-        <p>
-          *Or Reddit, anyway. Like the Google Ngram Viewer, but shows the
-          relative frequency of words and phrases used on Reddit, instead of in
-          books.
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <!--  -->
-    <!--  -->
-    <div class="work">
-      <div class="second col">
-        <a href="http://fivethirtyeight.com/features/science-isnt-broken/#part2"
-          ><h3>Hack Your Way To Scientific Glory</h3></a
-        >
-        <p class="pub">Fivethirtyeight</p>
-        <p>
-          In this demonstration of "p-hacking," you can show that either
-          Republicans or Democrats are better for the economy just by tweaking
-          which political offices you include and how you define "economy."
-        </p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
-
-    <!--  -->
-    <!--  -->
-    <div class="work">
-      <div class="second col">
+      </li>
+      <li>
         <a
-          href="http://qz.com/154877/by-reading-this-page-you-are-mining-bitcoins/"
-          ><h3>By reading this article, you're mining bitcoins</h3></a
+          href="https://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?unlocked_article_code=1.0lA.vEbN.DvZsqC4mAG-x&smid=url-share"
+          >Boom and Bust in Acorns Will Affect Many Creatures, Including
+          Humans</a
         >
-        <p class="pub">quartz</p>
-        <p>An explanation of how bitcoin works — with a twist</p>
-      </div>
-      <div class="clearfix"></div>
-    </div>
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?unlocked_article_code=1.0lA.2gJ_.Bbi3tGEL7B7E&smid=url-share"
+          >A Closer Look at Teeth May Mean More Fillings by Dentists</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/10/11/science/11cricket.html?unlocked_article_code=1.0lA.ry4D.agLmGjZaKhCn&smid=url-share"
+          >Male Cricket Hovers After Sex to Ensure Mate&rsquo;s Safety</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?unlocked_article_code=1.0lA.XGju.EPrtpILZBVcP&smid=url-share"
+          >Lungfish Study Suggests Walking Evolved in the Water</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?unlocked_article_code=1.0lA.hXKu.BiQEUq8R-mxu&smid=url-share"
+          >How Hungry Mosquitoes Cool Themselves</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?unlocked_article_code=1.0lA.XH9k.7X6Rppsv6bRy&smid=url-share"
+          >A Bacterial Platoon With Fungi Engineers</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?unlocked_article_code=1.0lA.Weqi.jQpMqMauyFX2&smid=url-share"
+          >Fishhooks Show the Advanced Maritime Skills of Another Age</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?unlocked_article_code=1.0lA.VIg_.KJlU-ZvPEyRb&smid=url-share"
+          >Different Strokes for Pregnant Dolphins</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?unlocked_article_code=1.0lA.bPds.Cds6yJfif2ac&smid=url-share"
+          >A Busy Love Life, Built With a Mother&rsquo;s Help</a
+        >
+      </li>
+      <li>
+        <a href="https://nyti.ms/3RBWgZs"
+          >For Quiet Moments Between Protests, a Growing Library</a
+        >
+        <span class="pub-note">City Room</span>
+      </li>
+    </ul>
+  </section>
 
-    <!--  -->
-  </div>
+  <section>
+    <h2>The Book</h2>
+    <div id="book-section">
+      <a href="book/"><img src="book/imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" /></a>
+      <div class="book-text">
+        <p>
+          <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) is an
+          introduction to data visualization for the web — walking through a
+          complete project, from raw data to a finished interactive, with
+          JavaScript&rsquo;s D3 library.
+        </p>
+        <p class="book-links">
+          <a href="book/">About the book</a>
+          <a href="https://github.com/ritchieking/d3-book">Supplemental code</a>
+          <a
+            href="https://www.amazon.com/Visual-Storytelling-Introduction-Visualization-Addison-Wesley/dp/0321933176"
+            >Buy on Amazon</a
+          >
+        </p>
+        <blockquote>
+          &ldquo;I have read several D3 books and this is still a
+          favourite.&rdquo;
+          <cite>— Amazon reviewer</cite>
+        </blockquote>
+        <br />
+        <blockquote>
+          &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run into him.&rdquo;
+          <cite>— another Amazon reviewer</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Ritchie S. King &mdash;
+      <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> &mdash;
+      several older projects here are preserved via the
+      <a href="https://web.archive.org/">Internet Archive</a>.
+    </p>
+  </footer>
+
+  <script src="js/strip.js"></script>
 </body>
+</html>

@@ -1,12 +1,12 @@
-var timeline = $("#timeline")
-	divWidth = timeline.width()
-	divHeight = timeline.height()
+var timelineEl = document.getElementById("timeline"),
+	divWidth = timelineEl.clientWidth,
+	divHeight = timelineEl.clientHeight;
 
-var detail = $("#detail");
-	detailWidth = detail.width()
-	detailHeight = detail.height()
+var detailEl = document.getElementById("detail"),
+	detailWidth = detailEl.clientWidth,
+	detailHeight = detailEl.clientHeight;
 
-var selected = 9;
+var selected; // set to the most recent entry once the data loads
 
 var margin = {top: 25, right: 50, bottom: 10, left: 100};
     width = divWidth - margin.left - margin.right,
@@ -46,18 +46,14 @@ var y = d3.scale.ordinal()
 		height/2+1.5*bumper,
 		height-10]);
 
-var axisPoints = [
-	{year:"2007", date:"1-Jan-07"},
-	{year:"08", date:"1-Jan-08"},
-	{year:"09", date:"1-Jan-09"},
-	{year:"10", date:"1-Jan-10"},
-	{year:"11", date:"1-Jan-11"},
-	{year:"12", date:"1-Jan-12"},
-	{year:"13", date:"1-Jan-13"},
-	{year:"14", date:"1-Jan-14"},
-	{year:"15", date:"1-Jan-15"},
-	{year:"16", date:"1-Jan-16"},
-]
+// yearly gridlines 2007-2026, labels every other year
+var axisPoints = [];
+for (var yr = 2007; yr <= 2026; yr++) {
+	axisPoints.push({
+		year: yr % 2 === 1 ? (yr === 2007 ? "2007" : String(yr).slice(2)) : "",
+		date: "1-Jan-" + String(yr).slice(2)
+	});
+}
 
 var textBumper = 5,
 	lineBumper = 25;
@@ -96,16 +92,14 @@ svg.append("text")
 	.attr("x",-margin.left)
 	.attr("y", height-10+textBumper)
 
-
-
-
-
 d3.csv("data/timeline.csv", function(error, data){
 
 	data.forEach(function(d){
 		d.beg = parseDate(d.beg)
-		d.end = parseDate(d.end)
+		d.end = d.end === "present" ? new Date() : parseDate(d.end)
 	})
+
+	selected = data.length - 1;
 
 	x.domain([
 		d3.min(data, function(d) { return d.beg; }),
@@ -123,11 +117,11 @@ d3.csv("data/timeline.csv", function(error, data){
 		.attr("stroke-width", 1)
 
 	svg.selectAll(".axisLabels")
-		.data(axisPoints)
+		.data(axisPoints.filter(function(d) { return d.year !== ""; }))
 	  .enter().append("text")
 	  	.attr("class","axisLabels")
 	  	.attr("x", function(d) { return x(parseDate(d.date)); })
-	  	.attr("y", function(d, i) { return -15; })
+	  	.attr("y", -15)
 	  	.attr("text-anchor","middle")
 	  	.text(function(d) { return d.year; })
 
@@ -166,6 +160,12 @@ d3.csv("data/timeline.csv", function(error, data){
 		.text("BOTH")
 		.attr("x", x(parseDate("01-Aug-12")))
 		.attr("y", y("wandg") - 3)
+
+	svg.append("text")
+		.attr("class","axisLabels")
+		.text("DATA VIZ ENGINEERING")
+		.attr("x", x(parseDate("01-Oct-18")))
+		.attr("y", y("graphics") + 17)
 
 	svg.append("text")
 		.attr("class","axisLabels")
