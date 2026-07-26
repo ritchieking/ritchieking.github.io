@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ritchie S. King — résumé</title>
@@ -6,8 +8,8 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 <body>
-<script src="js/d3.min.js"></script>
 <p class="top-nav"><a href="../">&larr; ritchiesking.com</a> &nbsp;&middot;&nbsp; <a href="print.html">printable version</a></p>
 <h1>Ritchie S. King</h1>
 <div id="top-row">
@@ -48,11 +50,136 @@
 	</div>
 	<div class="clearfix"></div>
 </div>
-<div id="bottom-row">
+<div id="history">
 	<h2 class="underline">HISTORY</h2>
-	<div id="timeline"></div>
-	<div id="detail"></div>
-	<div class="clearfix"></div>
+	<p class="history-hint">scroll &darr; &mdash; most recent first</p>
+	<div id="history-scroll">
+		<div class="tl-col">
+			<div class="tl-sticky">
+				<div class="tl-lane-heads" aria-hidden="true">
+					<span class="lh-school">school</span><span class="lh-work">work</span><span class="lh-play">play</span>
+				</div>
+				<div class="tl-window">
+					<div class="tl-track" id="tl-track" aria-hidden="true"></div>
+				</div>
+			</div>
+		</div>
+		<div class="cards" id="cards">
+
+			<article class="card cat-vizeng" style="view-timeline-name: --c1" data-lane="graphics" data-beg="2025-04" data-end="present">
+				<h3>netflix</h3>
+				<h4>staff data visualization engineer</h4>
+				<h5>apr.25-present</h5>
+				<p>leading the design and engineering of data visualization products</p>
+				<p class="placeLabel">REMOTE</p>
+			</article>
+
+			<article class="card cat-vizeng" style="view-timeline-name: --c2" data-lane="graphics" data-beg="2018-10" data-end="2025-04">
+				<h3>netflix</h3>
+				<h4>senior data visualization engineer</h4>
+				<h5>oct.18-apr.25</h5>
+				<p>designed and built data visualization tools and interactive analytics products</p>
+				<p class="placeLabel">LOS GATOS, CA</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c3" data-lane="graphics" data-beg="2016-05" data-end="2018-09">
+				<h3>fivethirtyeight</h3>
+				<h4>senior editor, data visualization</h4>
+				<h5>may.16-sep.18</h5>
+				<p>led data visualization coverage and the viz team</p>
+				<p>edited and coordinated major interactive projects, including the atlas of redistricting</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c4" data-lane="wandg" data-beg="2014-02" data-end="2016-04">
+				<h3>fivethirtyeight</h3>
+				<h4>visual journalist &rarr; senior visual journalist</h4>
+				<h5>feb.14-apr.16</h5>
+				<p>built interactive data visualizations and custom tools for the fivethirtyeight newsroom, including the 2016 election forecast</p>
+				<p>reported and wrote stories</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c5" data-lane="wandg" data-beg="2012-08" data-end="2014-02">
+				<h3>quartz</h3>
+				<h4>reporter</h4>
+				<h5>aug.12-feb.14</h5>
+				<p>reporting and writing stories about business and economics</p>
+				<p>making static and interactive data visualizations</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c6" data-lane="graphics" data-beg="2012-06" data-end="2012-08">
+				<h3>businessweek</h3>
+				<h4>freelance graphics editor</h4>
+				<h5>jun.12-aug.12</h5>
+				<p>made graphics for the magazine as a full-time freelancer</p>
+				<p>worked with bw's intensely creative art team</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c7" data-lane="graphics" data-beg="2012-03" data-end="2012-06">
+				<h3>new york times</h3>
+				<h4>freelance graphics editor</h4>
+				<h5>mar.12-jun.12</h5>
+				<p>continued to work at the times on a full-time basis after my internship</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c8" data-lane="graphics" data-beg="2011-12" data-end="2012-03">
+				<h3>new york times</h3>
+				<h4>graphics intern</h4>
+				<h5>dec.11-mar.12</h5>
+				<p>made graphics for the paper and the web</p>
+				<p>trained with some of the best data viz experts in the world</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-journalism" style="view-timeline-name: --c9" data-lane="writing" data-beg="2011-09" data-end="2011-12">
+				<h3>new york times</h3>
+				<h4>science desk intern</h4>
+				<h5>sep.11-dec.11</h5>
+				<p>wrote stories for the science times, both the paper and the web</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-school" style="view-timeline-name: --c10" data-lane="school" data-beg="2010-09" data-end="2011-12">
+				<h3>nyu</h3>
+				<h4>journalism m.a.</h4>
+				<h5>sep.10-dec.11</h5>
+				<p>completed the science, health, and environmental reporting program (sherp)</p>
+				<p class="placeLabel">NEW YORK</p>
+			</article>
+
+			<article class="card cat-play" style="view-timeline-name: --c11" data-lane="play" data-beg="2009-11" data-end="2010-05">
+				<h3>deer valley</h3>
+				<h4>line cook</h4>
+				<h5>nov.09-apr.10</h5>
+				<p>chopped vegetables, shredded powder</p>
+				<p class="placeLabel">PARK CITY, UT</p>
+			</article>
+
+			<article class="card cat-engineering" style="view-timeline-name: --c12" data-lane="engineering" data-beg="2007-07" data-end="2009-07">
+				<h3>mascoma corp.</h3>
+				<h4>chemical process engineer</h4>
+				<h5>jul.07-jul.09</h5>
+				<p>worked on the scale-up crew at a biofuels start-up</p>
+				<p>conducted fermentation experiments at a pilot plant</p>
+				<p class="placeLabel">BOSTON</p>
+			</article>
+
+			<article class="card cat-school" style="view-timeline-name: --c13" data-lane="school" data-beg="2006-09" data-end="2007-06">
+				<h3>dartmouth college</h3>
+				<h4>engineering major</h4>
+				<h5>sep.02-jun.07</h5>
+				<p>2007: b.e. in engineering (gpa: 3.67)</p>
+				<p>2006: b.s. in engineering and environmental science (gpa: 3.44)</p>
+				<p class="placeLabel">HANOVER, NH</p>
+			</article>
+
+		</div>
+	</div>
 </div>
-	<script src="js/scripts.js"></script>
+<script src="js/vertical.js"></script>
 </body>
+</html>
