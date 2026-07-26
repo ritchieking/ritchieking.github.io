@@ -3,7 +3,7 @@
 // (see style.css). Falls back to IntersectionObserver where scroll-driven
 // animations are unsupported.
 (function () {
-	var LANES = ['school', 'engineering', 'writing', 'wandg', 'graphics', 'play'];
+	var LANES = ['school', 'engineering', 'wandg', 'graphics', 'play'];
 	// with parallax on, the track is this multiple of the sticky window, so the
 	// visible slice always covers most of the 20 years and the highlighted bar
 	// stays in frame even through the dense 2011-12 stretch
@@ -13,8 +13,7 @@
 	var ERAS = [
 		{ label: 'DATA VIZ ENGINEERING', lane: 'graphics', date: 'present' },
 		{ label: 'BOTH', lane: 'wandg', date: '2016-04' },
-		{ label: 'DATA VIZ', lane: 'graphics', date: '2012-08' },
-		{ label: 'WRITING', lane: 'writing', date: '2011-12' },
+		{ label: 'INTERNSHIPS + FREELANCING', lane: 'graphics', date: '2012-08' },
 		{ label: 'J-SCHOOL', lane: 'school', date: '2011-12' },
 		{ label: 'SKI BUMMING', lane: 'play', date: '2010-05' },
 		{ label: 'ENGINEERING', lane: 'engineering', date: '2009-07' },
