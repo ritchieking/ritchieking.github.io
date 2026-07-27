@@ -1,111 +1,163 @@
+/* résumé — shares the design system of the main page (css/style.css) */
+
+:root {
+	color-scheme: light;
+	--page: #f9f9f7;
+	--surface: #fcfcfb;
+	--ink: #0b0b0b;
+	--ink-2: #52514e;
+	--muted: #898781;
+	--hairline: #e1e0d9;
+	--baseline: #c3c2b7;
+	--border: rgba(11, 11, 11, 0.1);
+	--link: #1c5cab;
+	--idle: #d5d4ce;
+	--cat-school: #2a78d6;
+	--cat-engineering: #eb6834;
+	--cat-play: #1baf7a;
+	--cat-journalism: #eda100;
+	--cat-vizeng: #e87ba4;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--page: #0d0d0d;
+		--surface: #1a1a19;
+		--ink: #ffffff;
+		--ink-2: #c3c2b7;
+		--muted: #898781;
+		--hairline: #2c2c2a;
+		--baseline: #383835;
+		--border: rgba(255, 255, 255, 0.1);
+		--link: #86b6ef;
+		--idle: #3a3a37;
+		--cat-school: #3987e5;
+		--cat-engineering: #d95926;
+		--cat-play: #199e70;
+		--cat-journalism: #c98500;
+		--cat-vizeng: #d55181;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
 body {
-	margin: auto;
-	font-family: Helvetica;
-	font-weight: 100;
-	max-width: 800px;
-	padding: 0 20px;
+	margin: 0 auto;
+	max-width: 860px;
+	padding: 0 24px 64px;
+	background: var(--page);
+	color: var(--ink);
+	font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+	font-size: 16px;
+	line-height: 1.55;
 }
 
 .top-nav {
-	font-size: 12px;
-	font-family: 'Montserrat', sans-serif;
-	margin: 15px 0 0 0;
+	font-size: 14px;
+	color: var(--muted);
+	margin: 24px 0 0;
 }
-
-/* TAG FORMATTING */
-/*+++++++++++++++++++++++++++++++++++++*/
 h1 {
-	font-weight: 200;
+	font-family: 'Montserrat', system-ui, sans-serif;
 	font-size: 40px;
-	border-bottom: solid 2px black;
-	padding-bottom: 10px;
-	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	letter-spacing: -0.01em;
+	margin: 24px 0 32px;
 }
 a {
+	color: var(--link);
 	text-decoration: none;
-	color: IndianRed;
+}
+a:hover {
+	text-decoration: underline;
 }
 h2 {
-	font-size: 12px;
+	font-family: 'Montserrat', system-ui, sans-serif;
+	font-size: 14px;
 	font-weight: 800;
-	margin-bottom: 8px;
-	margin-top: 0px;
-	font-family: 'Montserrat', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+	border-bottom: 1px solid var(--baseline);
+	padding-bottom: 8px;
+	margin: 0 0 16px;
 }
 h3 {
-	font-size: 18px;
-	font-weight: 500;
-	margin-bottom: 0px;
-	margin-top: 0;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', system-ui, sans-serif;
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0;
 }
 h4 {
-	font-size: 15px;
-	font-weight: 100;
-	margin-top: 0;
-	margin-bottom: 3px;
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--ink-2);
+	margin: 2px 0 3px;
 }
 h5 {
-	margin-top: 0;
-	margin-bottom: 20px;
 	font-size: 13px;
 	font-style: italic;
-	font-weight: 100;
+	font-weight: 400;
+	color: var(--muted);
+	margin: 0 0 18px;
 }
 p {
-	margin-top: 0px;
-	font-size: 13px;
+	font-size: 15px;
+	color: var(--ink-2);
+	margin: 0 0 8px;
 }
 .placeLabel {
-	margin-top: 20px;
-	font-size: 10px;
+	font-size: 12px;
+	letter-spacing: 0.06em;
+	color: var(--muted);
+	margin-top: 14px;
 }
 
 /* TOP-ROW LAYOUT */
 /*+++++++++++++++++++++++++++++++++++++*/
+#top-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
 .col {
-	float: left;
-	width: 25%;
-	height: 100%;
+	flex: 1;
+	min-width: 150px;
 }
 .list-items {
-	margin-top: 5px;
-	margin-bottom: 5px;
+	font-size: 15px;
+	margin: 0 0 6px;
 }
 .clearfix {
 	clear: both;
 }
 .underline {
-	border-bottom: 1px solid black;
-	margin-bottom: 8px;
-	margin-top: 20px;
-	padding-bottom: 5px;
+	margin-top: 48px;
 }
 
 /* HISTORY — vertical scrollytelling timeline */
 /*+++++++++++++++++++++++++++++++++++++*/
 
-/* category colors (match the homepage strip) */
 .cat-school {
-	--cat: #2a78d6;
+	--cat: var(--cat-school);
 }
 .cat-engineering {
-	--cat: #eb6834;
+	--cat: var(--cat-engineering);
 }
 .cat-play {
-	--cat: #1baf7a;
+	--cat: var(--cat-play);
 }
 .cat-journalism {
-	--cat: #eda100;
+	--cat: var(--cat-journalism);
 }
 .cat-vizeng {
-	--cat: #e87ba4;
+	--cat: var(--cat-vizeng);
 }
 
 .history-hint {
-	font-size: 11px;
-	color: #999;
-	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	color: var(--muted);
+	font-family: 'Montserrat', system-ui, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	margin-bottom: 24px;
@@ -131,12 +183,12 @@ p {
 .tl-lane-heads {
 	position: relative;
 	height: 20px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', system-ui, sans-serif;
 	font-size: 10px;
 	font-weight: 800;
 	text-transform: uppercase;
 	letter-spacing: 0.06em;
-	color: #666;
+	color: var(--ink-2);
 }
 .tl-lane-heads span {
 	position: absolute;
@@ -171,29 +223,29 @@ p {
 	position: absolute;
 	left: 34px;
 	right: 0;
-	border-top: 1px solid #ecebe6;
+	border-top: 1px solid var(--hairline);
 }
 .tl-year {
 	position: absolute;
 	left: 0;
 	transform: translateY(-50%);
 	font-size: 10px;
-	color: #999;
+	color: var(--muted);
 }
 .tl-era {
 	position: absolute;
 	writing-mode: vertical-rl;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', system-ui, sans-serif;
 	font-size: 9px;
 	letter-spacing: 0.08em;
-	color: #8a8983;
+	color: var(--muted);
 	white-space: nowrap;
 }
 
 .tl-bar {
 	position: absolute;
 	border-radius: 4px;
-	background: #d5d4ce;
+	background: var(--idle);
 	cursor: pointer;
 	animation-name: bar-active;
 	animation-timing-function: linear;
@@ -204,14 +256,14 @@ p {
 }
 @keyframes bar-active {
 	0% {
-		background-color: #d5d4ce;
+		background-color: var(--idle);
 	}
 	12%,
 	88% {
 		background-color: var(--cat);
 	}
 	100% {
-		background-color: #d5d4ce;
+		background-color: var(--idle);
 	}
 }
 
@@ -254,6 +306,10 @@ p {
 	background: var(--cat);
 	margin-right: 8px;
 }
+.card strong {
+	color: var(--ink);
+	font-weight: 600;
+}
 
 /* fallback: no scroll-driven animations (e.g. firefox), or reduced motion */
 .no-sda .tl-track,
@@ -293,9 +349,15 @@ p {
 }
 
 @media (max-width: 680px) {
+	h1 {
+		font-size: 32px;
+	}
+	#top-row {
+		gap: 16px;
+	}
 	.col {
-		width: 50%;
-		margin-bottom: 16px;
+		flex: none;
+		width: calc(50% - 8px);
 	}
 	#history-scroll {
 		gap: 16px;
