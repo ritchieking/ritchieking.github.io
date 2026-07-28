@@ -4,19 +4,18 @@
 // animations are unsupported.
 (function () {
 	var LANES = ['school', 'engineering', 'wandg', 'graphics', 'play'];
-	// with parallax on, the track is this multiple of the sticky window, so the
-	// visible slice always covers most of the 20 years and the highlighted bar
+	// with parallax on, the track is this multiple of the sticky window — kept
+	// low so most of the 24 years is visible at once and the highlighted bar
 	// stays in frame even through the dense 2011-12 stretch
-	var TRACK_RATIO = 1.6;
+	var TRACK_RATIO = 1.25;
 
 	// era labels; date marks the era's most recent edge (= top, reverse chron)
 	var ERAS = [
 		{ label: 'DATA VIZ ENGINEERING', lane: 'graphics', date: 'present' },
-		{ label: 'BOTH', lane: 'wandg', date: '2016-04' },
-		{ label: 'INTERNSHIPS + FREELANCING', lane: 'graphics', date: '2012-08' },
+		{ label: 'VISUAL JOURNALISM', lane: 'graphics', date: '2018-09' },
 		{ label: 'J-SCHOOL', lane: 'school', date: '2011-12' },
 		{ label: 'SKI BUMMING', lane: 'play', date: '2010-05' },
-		{ label: 'ENGINEERING', lane: 'engineering', date: '2009-07' },
+		{ label: 'BIOFUELS ENGINEERING', lane: 'engineering', date: '2009-07' },
 		{ label: 'UNDERGRAD', lane: 'school', date: '2007-06' }
 	];
 
@@ -35,7 +34,7 @@
 	var parallax = sda && !reducedMotion;
 	if (!sda) scrollWrap.classList.add('no-sda');
 
-	var MIN_DATE = parseDate('2006-09');
+	var MIN_DATE = parseDate('2002-09');
 
 	function parseDate(str) {
 		if (str === 'present') return new Date();
@@ -84,21 +83,27 @@
 			pos(heads.querySelector('.lh-play'), laneX('play'));
 		}
 
-		// year ticks
-		for (var yr = 2007; yr <= maxDate.getFullYear(); yr++) {
+		// year ticks — every year, full label
+		for (var yr = 2003; yr <= maxDate.getFullYear(); yr++) {
 			var ty = y(new Date(yr, 0, 1));
 			var tick = document.createElement('div');
 			tick.className = 'tl-tick';
 			tick.style.top = ty + 'px';
 			track.appendChild(tick);
-			if (yr % 2 === 1) {
-				var lab = document.createElement('div');
-				lab.className = 'tl-year';
-				lab.textContent = yr === 2007 ? '2007' : String(yr).slice(2);
-				lab.style.top = ty + 'px';
-				track.appendChild(lab);
-			}
+			var lab = document.createElement('div');
+			lab.className = 'tl-year';
+			lab.textContent = yr;
+			lab.style.top = ty + 'px';
+			track.appendChild(lab);
 		}
+
+		// dividers between the lane groups (school | work | play)
+		[1, 4].forEach(function (idx) {
+			var div = document.createElement('div');
+			div.className = 'tl-lane-div';
+			div.style.left = axisW + idx * laneStep + 'px';
+			track.appendChild(div);
+		});
 
 		// era labels
 		ERAS.forEach(function (era) {

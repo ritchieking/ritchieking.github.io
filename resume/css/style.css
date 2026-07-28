@@ -242,11 +242,25 @@ p {
 .tl-era {
 	position: absolute;
 	writing-mode: vertical-rl;
+	transform: rotate(180deg); /* read bottom-to-top */
 	font-family: var(--font-mono);
 	font-size: 9px;
 	letter-spacing: 0.08em;
 	color: var(--muted);
 	white-space: nowrap;
+}
+@supports (writing-mode: sideways-lr) {
+	.tl-era {
+		writing-mode: sideways-lr;
+		transform: none;
+	}
+}
+
+.tl-lane-div {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	border-left: 1px dashed var(--baseline);
 }
 
 .tl-bar {
