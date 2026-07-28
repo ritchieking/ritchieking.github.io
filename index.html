@@ -10,28 +10,27 @@
   />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
   <header>
-    <h1>Ritchie S. King</h1>
+    <h1><span class="hi">Ritchie S. King</span></h1>
     <p class="lede">
       I make charts and the tools that make charts. Currently a
       <strong>staff data visualization engineer at Netflix</strong>; before
       that, a decade in journalism as senior editor for data visualization at
-      <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>, a reporter at
-      Quartz, and a science writer at The New York Times. I also wrote
-      <a href="book/"><em>Visual Storytelling with D3</em></a
-      >, an introduction to making charts for the web.
+      FiveThirtyEight, a reporter at Quartz, and a science writer at The New
+      York Times. I also wrote <em>Visual Storytelling with D3</em>, an
+      introduction to making charts for the web.
     </p>
     <p class="contact-links">
-      <a href="mailto:ritchiesking@gmail.com">Email</a><span>·</span
-      ><a href="https://github.com/ritchieking">GitHub</a><span>·</span
-      ><a href="https://www.linkedin.com/in/ritchieking/">LinkedIn</a
-      ><span>·</span><a href="resume/">R&eacute;sum&eacute;</a>
+      <a href="mailto:ritchiesking@gmail.com">email</a><span>·</span
+      ><a href="https://github.com/ritchieking">github</a><span>·</span
+      ><a href="https://www.linkedin.com/in/ritchieking/">linkedin</a
+      ><span>·</span><a href="resume/">r&eacute;sum&eacute;</a>
     </p>
   </header>
 
@@ -39,27 +38,18 @@
     <div id="strip">
       <div id="strip-tooltip"></div>
     </div>
-    <ul class="strip-legend">
-      <li style="--chip: var(--cat-school)">school</li>
-      <li style="--chip: var(--cat-engineering)">engineering</li>
-      <li style="--chip: var(--cat-play)">ski bumming</li>
-      <li style="--chip: var(--cat-journalism)">journalism</li>
-      <li style="--chip: var(--cat-vizeng)">data viz engineering</li>
-    </ul>
     <ul class="visually-hidden">
-      <li>Dartmouth, engineering major, 2002–2007</li>
-      <li>Mascoma, chemical process engineer, 2007–2009</li>
-      <li>Deer Valley, line cook, 2009–2010</li>
-      <li>NYU, M.A. in science journalism, 2010–2011</li>
-      <li>The New York Times, intern then freelance graphics editor, 2011–2012</li>
-      <li>Businessweek, freelance graphics editor, 2012</li>
-      <li>Quartz, reporter, 2012–2014</li>
+      <li>School: Dartmouth engineering, 2002–2007; NYU science journalism, 2010–2011</li>
+      <li>Biofuels engineering: Mascoma, 2007–2009</li>
+      <li>Writing: New York Times science desk, 2011</li>
       <li>
-        FiveThirtyEight, visual journalist then senior editor for data
-        visualization, 2014–2018
+        Visual journalism: New York Times, Businessweek, Quartz, and
+        FiveThirtyEight (through senior editor for data visualization),
+        2011–2018
       </li>
       <li>
-        Netflix, senior then staff data visualization engineer, 2018–present
+        Data viz engineering: Netflix, senior then staff data visualization
+        engineer, 2018–present
       </li>
     </ul>
     <figcaption class="strip-caption">
@@ -69,73 +59,93 @@
   </figure>
 
   <section>
-    <h2>Interactive Projects</h2>
+    <h2 style="--chip: var(--cat-visjourn)">Interactive Projects</h2>
 
-    <article class="clip">
-      <a class="clip-title" href="2016-election-forecast/"
-        >2016 Election Forecast</a
-      >
-      <span class="clip-meta">FiveThirtyEight · 2016</span>
-      <p>
-        FiveThirtyEight&rsquo;s forecast of the presidential election:
-        state-by-state win probabilities, polls, and the many ways it could go.
-      </p>
-    </article>
+    <div class="clip-grid">
+      <!-- to add real screenshots: replace each .shot-ph div with
+           <img src="imgs/shots/<slug>.png" alt="Screenshot of ..."> -->
+      <article class="clip">
+        <a class="shot" href="2016-election-forecast/" tabindex="-1" aria-hidden="true">
+          <span class="shot-ph"><span>screenshot soon</span></span>
+        </a>
+        <a class="clip-title" href="2016-election-forecast/"
+          >2016 Election Forecast</a
+        >
+        <span class="clip-meta">FiveThirtyEight · 2016</span>
+        <p>
+          State-by-state win probabilities, polls, and the many ways the
+          presidential election could go.
+        </p>
+      </article>
 
-    <article class="clip">
-      <a class="clip-title" href="p-hacking/"
-        >Hack Your Way to Scientific Glory</a
-      >
-      <span class="clip-meta">FiveThirtyEight · 2015</span>
-      <p>
-        A hands-on demonstration of p-hacking: prove that either Republicans or
-        Democrats are better for the economy, just by tweaking your variables.
-      </p>
-    </article>
+      <article class="clip">
+        <a class="shot" href="p-hacking/" tabindex="-1" aria-hidden="true">
+          <span class="shot-ph"><span>screenshot soon</span></span>
+        </a>
+        <a class="clip-title" href="p-hacking/"
+          >Hack Your Way to Scientific Glory</a
+        >
+        <span class="clip-meta">FiveThirtyEight · 2015</span>
+        <p>
+          A hands-on demonstration of p-hacking: prove either party is better
+          for the economy, just by tweaking your variables.
+        </p>
+      </article>
 
-    <article class="clip">
-      <a class="clip-title" href="flights/"
-        >Which Flight Will Get You There Fastest?</a
-      >
-      <span class="clip-meta">FiveThirtyEight · 2015</span>
-      <p>
-        The fastest airline on every domestic route, mined from millions of
-        flight records — plus a lookup for your own itinerary.
-      </p>
-    </article>
+      <article class="clip">
+        <a class="shot" href="flights/" tabindex="-1" aria-hidden="true">
+          <span class="shot-ph"><span>screenshot soon</span></span>
+        </a>
+        <a class="clip-title" href="flights/"
+          >Which Flight Will Get You There Fastest?</a
+        >
+        <span class="clip-meta">FiveThirtyEight · 2015</span>
+        <p>
+          The fastest airline on every domestic route, mined from millions of
+          flight records.
+        </p>
+      </article>
 
-    <article class="clip">
-      <a class="clip-title" href="redistricting-maps/"
-        >The Atlas of Redistricting</a
-      >
-      <span class="clip-meta"
-        >FiveThirtyEight · 2018 · <span class="role-badge">editor</span></span
-      >
-      <p>
-        Seven ways to redraw every congressional district in America. I edited
-        this one — coordinating the cartography, data, and design that built
-        it.
-      </p>
-    </article>
+      <article class="clip">
+        <a class="shot" href="redistricting-maps/" tabindex="-1" aria-hidden="true">
+          <span class="shot-ph"><span>screenshot soon</span></span>
+        </a>
+        <a class="clip-title" href="redistricting-maps/"
+          >The Atlas of Redistricting</a
+        >
+        <span class="clip-meta"
+          >FiveThirtyEight · 2018 · <span class="role-badge">editor</span></span
+        >
+        <p>
+          Seven ways to redraw every congressional district in America. I
+          edited this one — coordinating the cartography, data, and design.
+        </p>
+      </article>
+    </div>
   </section>
 
   <section>
-    <h2>Graphics-Driven Explainers</h2>
+    <h2 style="--chip: var(--cat-biofuels)">Graphics-Driven Explainers</h2>
 
-    <article class="clip">
-      <a class="clip-title" href="bitcoin-mining/"
-        >By reading this page, you are mining bitcoins</a
-      >
-      <span class="clip-meta">Quartz · 2013</span>
-      <p>
-        How bitcoin actually works, explained with animated graphics — and a
-        twist: the article itself &ldquo;mines&rdquo; as you read.
-      </p>
-    </article>
+    <div class="clip-grid">
+      <article class="clip">
+        <a class="shot" href="bitcoin-mining/" tabindex="-1" aria-hidden="true">
+          <span class="shot-ph"><span>screenshot soon</span></span>
+        </a>
+        <a class="clip-title" href="bitcoin-mining/"
+          >By reading this page, you are mining bitcoins</a
+        >
+        <span class="clip-meta">Quartz · 2013</span>
+        <p>
+          How bitcoin actually works, explained with animated graphics — and a
+          twist: the article itself &ldquo;mines&rdquo; as you read.
+        </p>
+      </article>
+    </div>
   </section>
 
   <section>
-    <h2>Writing</h2>
+    <h2 style="--chip: var(--cat-writing)">Writing</h2>
     <p class="group-note">
       The New York Times, 2011&ndash;2012 &mdash; gift links, free to read.
     </p>
@@ -217,33 +227,18 @@
   </section>
 
   <section>
-    <h2>The Book</h2>
+    <h2 style="--chip: var(--cat-vizeng)">The Book</h2>
     <div id="book-section">
-      <a href="book/"><img src="book/imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" /></a>
+      <img src="imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" />
       <div class="book-text">
         <p>
-          <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) is an
-          introduction to data visualization for the web — walking through a
-          complete project, from raw data to a finished interactive, with
-          JavaScript&rsquo;s D3 library.
+          <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) — an
+          introduction to data visualization for the web, walking through a
+          complete project from raw data to a finished interactive.
         </p>
-        <p class="book-links">
-          <a href="book/">About the book</a>
-          <a href="https://github.com/ritchieking/d3-book">Supplemental code</a>
-          <a
-            href="https://www.amazon.com/Visual-Storytelling-Introduction-Visualization-Addison-Wesley/dp/0321933176"
-            >Buy on Amazon</a
-          >
-        </p>
-        <blockquote>
-          &ldquo;I have read several D3 books and this is still a
-          favourite.&rdquo;
-          <cite>— Amazon reviewer</cite>
-        </blockquote>
-        <br />
         <blockquote>
           &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run into him.&rdquo;
-          <cite>— another Amazon reviewer</cite>
+          <cite>— an Amazon reviewer</cite>
         </blockquote>
       </div>
     </div>

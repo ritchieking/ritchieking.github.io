@@ -2,9 +2,9 @@
 (function () {
   var CAT_COLORS = {
     school: "--cat-school",
-    engineering: "--cat-engineering",
-    play: "--cat-play",
-    journalism: "--cat-journalism",
+    biofuels: "--cat-biofuels",
+    writing: "--cat-writing",
+    visjourn: "--cat-visjourn",
     vizeng: "--cat-vizeng",
   };
 
@@ -18,7 +18,6 @@
       lane: 0,
       beg: new Date(2006, 8, 1),
       end: new Date(2007, 5, 1),
-      label: "DARTMOUTH",
     },
     {
       org: "NYU",
@@ -28,67 +27,60 @@
       lane: 0,
       beg: new Date(2010, 8, 1),
       end: new Date(2011, 11, 1),
-      label: "NYU",
     },
     {
       org: "Mascoma",
-      role: "Chemical process engineer",
+      role: "Chemical process engineer at a biofuels start-up",
       dates: "2007–2009",
-      cat: "engineering",
+      cat: "biofuels",
       lane: 1,
       beg: new Date(2007, 6, 1),
       end: new Date(2009, 6, 1),
-      label: "MASCOMA",
-    },
-    {
-      org: "Deer Valley",
-      role: "Line cook, ski bum",
-      dates: "2009–2010",
-      cat: "play",
-      lane: 1,
-      beg: new Date(2009, 10, 1),
-      end: new Date(2010, 4, 1),
-      label: "SKI",
     },
     {
       org: "The New York Times",
-      role: "Science + graphics intern, then freelance graphics editor",
-      dates: "2011–2012",
-      cat: "journalism",
+      role: "Science desk intern",
+      dates: "2011",
+      cat: "writing",
       lane: 1,
       beg: new Date(2011, 8, 1),
+      end: new Date(2011, 11, 1),
+    },
+    {
+      org: "The New York Times",
+      role: "Graphics intern, then freelance graphics editor",
+      dates: "2011–2012",
+      cat: "visjourn",
+      lane: 1,
+      beg: new Date(2011, 11, 1),
       end: new Date(2012, 5, 1),
-      label: "NYT",
     },
     {
       org: "Businessweek",
       role: "Freelance graphics editor",
       dates: "2012",
-      cat: "journalism",
+      cat: "visjourn",
       lane: 1,
       beg: new Date(2012, 5, 1),
       end: new Date(2012, 7, 1),
-      label: "BW",
     },
     {
       org: "Quartz",
       role: "Reporter",
       dates: "2012–2014",
-      cat: "journalism",
+      cat: "visjourn",
       lane: 1,
       beg: new Date(2012, 7, 1),
       end: new Date(2014, 1, 1),
-      label: "QUARTZ",
     },
     {
       org: "FiveThirtyEight",
       role: "Visual journalist, then senior editor for data visualization",
       dates: "2014–2018",
-      cat: "journalism",
+      cat: "visjourn",
       lane: 1,
       beg: new Date(2014, 1, 1),
       end: new Date(2018, 8, 1),
-      label: "FIVETHIRTYEIGHT",
     },
     {
       org: "Netflix",
@@ -98,8 +90,16 @@
       lane: 1,
       beg: new Date(2018, 9, 1),
       end: new Date(),
-      label: "NETFLIX",
     },
+  ];
+
+  // one label per category, anchored where the category begins
+  var LABELS = [
+    { text: "SCHOOL", cat: "school", lane: 0, at: new Date(2006, 8, 1) },
+    { text: "BIOFUELS ENGINEERING", cat: "biofuels", lane: 1, at: new Date(2007, 6, 1) },
+    { text: "WRITING", cat: "writing", lane: 1, at: new Date(2011, 8, 1), prefer: "below" },
+    { text: "VISUAL JOURNALISM", cat: "visjourn", lane: 1, at: new Date(2011, 11, 1) },
+    { text: "DATA VIZ ENGINEERING", cat: "vizeng", lane: 1, at: new Date(2018, 9, 1) },
   ];
 
   var YEAR_TICKS = [2010, 2015, 2020, 2025];
@@ -108,17 +108,18 @@
   if (!container) return;
   var tooltip = document.getElementById("strip-tooltip");
 
-  var LAYOUT = {
+  var L = {
     padTop: 6,
-    schoolLabelY: 16,
-    schoolY: 22,
-    schoolH: 10,
-    workLabelY: 56,
-    workY: 62,
+    topLabelY: 14,
+    schoolY: 20,
+    schoolH: 9,
+    aboveLabelY: 46,
+    workY: 52,
     workH: 16,
-    baselineY: 96,
-    tickLabelY: 112,
-    height: 118,
+    belowLabelY: [84, 98],
+    baselineY: 108,
+    tickLabelY: 122,
+    height: 128,
   };
 
   function render() {
@@ -131,9 +132,7 @@
     var domainBeg = new Date(2006, 8, 1);
     var domainEnd = new Date();
     var x = function (date) {
-      return (
-        ((date - domainBeg) / (domainEnd - domainBeg)) * width
-      );
+      return ((date - domainBeg) / (domainEnd - domainBeg)) * width;
     };
 
     var NS = "http://www.w3.org/2000/svg";
@@ -141,7 +140,7 @@
     // attach before drawing so getComputedTextLength() measures real widths
     container.insertBefore(svg, tooltip);
     svg.setAttribute("width", width);
-    svg.setAttribute("height", LAYOUT.height);
+    svg.setAttribute("height", L.height);
     svg.setAttribute("role", "img");
     svg.setAttribute(
       "aria-label",
@@ -161,17 +160,18 @@
       make("line", {
         x1: tx,
         x2: tx,
-        y1: LAYOUT.padTop,
-        y2: LAYOUT.baselineY,
+        y1: L.padTop,
+        y2: L.baselineY,
         stroke: "var(--hairline)",
         "stroke-width": 1,
       });
       var lbl = make("text", {
         x: tx,
-        y: LAYOUT.tickLabelY,
+        y: L.tickLabelY,
         "text-anchor": "middle",
         fill: "var(--muted)",
-        "font-size": "11px",
+        "font-size": "10.5px",
+        "font-family": "ui-monospace, Menlo, Consolas, monospace",
       });
       lbl.textContent = year;
     });
@@ -180,17 +180,18 @@
     make("line", {
       x1: 0,
       x2: width,
-      y1: LAYOUT.baselineY,
-      y2: LAYOUT.baselineY,
+      y1: L.baselineY,
+      y2: L.baselineY,
       stroke: "var(--baseline)",
       "stroke-width": 1,
     });
 
+    // segment bars
     SEGMENTS.forEach(function (seg) {
       var x0 = x(seg.beg) + 1;
       var w = Math.max(x(seg.end) - x(seg.beg) - 2, 2);
-      var y0 = seg.lane === 0 ? LAYOUT.schoolY : LAYOUT.workY;
-      var h = seg.lane === 0 ? LAYOUT.schoolH : LAYOUT.workH;
+      var y0 = seg.lane === 0 ? L.schoolY : L.workY;
+      var h = seg.lane === 0 ? L.schoolH : L.workH;
 
       var rect = make("rect", {
         x: x0,
@@ -205,22 +206,7 @@
           seg.org + " — " + seg.role + ", " + seg.dates + ". Opens the full resume.",
       });
 
-      // direct label (dropped if it doesn't fit)
-      var labelY = seg.lane === 0 ? LAYOUT.schoolLabelY : LAYOUT.workLabelY;
-      var text = make("text", {
-        x: x0,
-        y: labelY,
-        fill: "var(--ink-2)",
-        "font-size": "10.5px",
-        "font-family": "Montserrat, system-ui, sans-serif",
-        "font-weight": 700,
-        "letter-spacing": "0.06em",
-        "pointer-events": "none",
-      });
-      text.textContent = seg.label;
-      if (text.getComputedTextLength() > w + 6) text.remove();
-
-      function showTip(evt) {
+      function showTip() {
         rect.setAttribute("stroke", "var(--ink)");
         rect.setAttribute("stroke-width", 1.25);
         tooltip.innerHTML =
@@ -253,6 +239,66 @@
           window.location.href = "resume/";
         }
       });
+    });
+
+    // category labels with greedy row placement (rows never overlap)
+    var rows = { top: [], above: [], below0: [], below1: [] };
+    function fits(row, x0, x1) {
+      return row.every(function (r) {
+        return x1 < r[0] - 8 || x0 > r[1] + 8;
+      });
+    }
+    LABELS.forEach(function (lab) {
+      var anchor = x(lab.at);
+      var text = make("text", {
+        x: anchor,
+        y: 0,
+        fill: "var(--ink-2)",
+        "font-size": "10px",
+        "font-family": "ui-monospace, Menlo, Consolas, monospace",
+        "font-weight": 700,
+        "letter-spacing": "0.07em",
+        "pointer-events": "none",
+      });
+      text.textContent = lab.text;
+      var w = text.getComputedTextLength();
+      var x0 = Math.min(anchor, width - w - 2);
+      text.setAttribute("x", x0);
+
+      var placed = null;
+      if (lab.lane === 0) {
+        placed = { y: L.topLabelY, row: "top" };
+      } else {
+        var tryRows =
+          lab.prefer === "below"
+            ? ["below0", "above", "below1"]
+            : ["above", "below0", "below1"];
+        for (var i = 0; i < tryRows.length; i++) {
+          var key = tryRows[i];
+          if (fits(rows[key], x0, x0 + w)) {
+            placed = {
+              y: key === "above" ? L.aboveLabelY : L.belowLabelY[+key.slice(5)],
+              row: key,
+            };
+            break;
+          }
+        }
+        if (!placed) placed = { y: L.belowLabelY[1], row: "below1" };
+      }
+      rows[placed.row].push([x0, x0 + w]);
+      text.setAttribute("y", placed.y);
+
+      // connector tick for labels pushed under the lane
+      if (placed.row === "below0" || placed.row === "below1") {
+        make("line", {
+          x1: anchor + 1,
+          x2: anchor + 1,
+          y1: L.workY + L.workH + 2,
+          y2: placed.y - 9,
+          stroke: "var(--baseline)",
+          "stroke-width": 1,
+        });
+      }
     });
   }
 
