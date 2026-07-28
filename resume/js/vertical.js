@@ -3,20 +3,26 @@
 // (see style.css). Falls back to IntersectionObserver where scroll-driven
 // animations are unsupported.
 (function () {
-	var LANES = ['school', 'engineering', 'wandg', 'graphics', 'play'];
+	// one column per career category; jobs within a category never overlap,
+	// so each column is a clean stack of bars
+	var LANES = ['school', 'engineering', 'journalism', 'vizeng', 'play'];
 	// with parallax on, the track is this multiple of the sticky window — kept
 	// low so most of the 24 years is visible at once and the highlighted bar
 	// stays in frame even through the dense 2011-12 stretch
 	var TRACK_RATIO = 1.25;
+	// room above the "present" edge for the today dot + column labels
+	var TOP_PAD = 44;
 
-	// era labels; date marks the era's most recent edge (= top, reverse chron)
+	// era labels sit horizontally just above the top of the run of bars they
+	// describe; date marks that top edge (reverse chron)
 	var ERAS = [
-		{ label: 'DATA VIZ ENGINEERING', lane: 'graphics', date: 'present' },
-		{ label: 'VISUAL JOURNALISM', lane: 'graphics', date: '2018-09' },
+		{ label: 'DATA VIZ\nENGINEERING', lane: 'vizeng', date: 'present' },
+		{ label: 'VISUAL\nJOURNALISM', lane: 'journalism', date: '2018-09' },
 		{ label: 'J-SCHOOL', lane: 'school', date: '2011-12' },
-		{ label: 'SKI BUMMING', lane: 'play', date: '2010-05' },
-		{ label: 'BIOFUELS ENGINEERING', lane: 'engineering', date: '2009-07' },
-		{ label: 'UNDERGRAD', lane: 'school', date: '2007-06' }
+		{ label: 'SKI\nBUMMING', lane: 'play', date: '2010-05' },
+		{ label: 'BIOFUELS\nENGINEERING', lane: 'engineering', date: '2009-07' },
+		// overhangs the (empty) axis gutter instead of the mascoma bar
+		{ label: 'UNDERGRAD', lane: 'school', date: '2007-06', minLeft: 2, lift: 2 }
 	];
 
 	var scrollWrap = document.getElementById('history-scroll');
@@ -59,7 +65,7 @@
 		track.style.setProperty('--tl-shift', -(Math.max(trackH - winH, 0)) + 'px');
 
 		var y = function (d) {
-			return ((maxDate - d) / span) * trackH;
+			return TOP_PAD + ((maxDate - d) / span) * (trackH - TOP_PAD);
 		};
 
 		var axisW = 34;
@@ -69,18 +75,15 @@
 			return axisW + LANES.indexOf(lane) * laneStep + 2;
 		};
 
-		// lane group headers
+		// lane group headers — centered within their divider-bounded band
 		var heads = document.querySelector('.tl-lane-heads');
 		if (heads) {
 			var pos = function (el, x) {
-				if (el) el.style.left = x + barW / 2 + 'px';
+				if (el) el.style.left = x + 'px';
 			};
-			pos(heads.querySelector('.lh-school'), laneX('school'));
-			pos(
-				heads.querySelector('.lh-work'),
-				(laneX('engineering') + laneX('graphics')) / 2
-			);
-			pos(heads.querySelector('.lh-play'), laneX('play'));
+			pos(heads.querySelector('.lh-school'), axisW + laneStep * 0.5);
+			pos(heads.querySelector('.lh-work'), axisW + laneStep * 2.5);
+			pos(heads.querySelector('.lh-play'), axisW + laneStep * 4.5);
 		}
 
 		// year ticks — every year, full label
@@ -97,22 +100,47 @@
 			track.appendChild(lab);
 		}
 
-		// dividers between the lane groups (school | work | play)
+		// dividers between the lane groups (school | work | play); they start
+		// just below the today marker so the header strip stays clean
 		[1, 4].forEach(function (idx) {
 			var div = document.createElement('div');
 			div.className = 'tl-lane-div';
 			div.style.left = axisW + idx * laneStep + 'px';
+			div.style.top = TOP_PAD - 2 + 'px';
 			track.appendChild(div);
 		});
 
-		// era labels
+		// today marker — a dot capping the "present" edge of the timeline
+		var now = new Date();
+		var MONTHS = 'JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC'.split(' ');
+		var dot = document.createElement('div');
+		dot.className = 'tl-today-dot';
+		dot.style.left = laneX('vizeng') + barW / 2 + 'px';
+		dot.style.top = TOP_PAD + 'px';
+		track.appendChild(dot);
+		var tdy = document.createElement('div');
+		tdy.className = 'tl-today';
+		tdy.textContent =
+			'TODAY · ' +
+			MONTHS[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+		track.appendChild(tdy);
+		tdy.style.left = laneX('vizeng') - 9 - tdy.offsetWidth + 'px';
+		tdy.style.top = TOP_PAD - tdy.offsetHeight / 2 + 'px';
+
+		// era labels — horizontal, centered above their column of bars
 		ERAS.forEach(function (era) {
 			var el = document.createElement('div');
 			el.className = 'tl-era';
 			el.textContent = era.label;
-			el.style.left = laneX(era.lane) + barW + 1 + 'px';
-			el.style.top = y(parseDate(era.date)) + 3 + 'px';
 			track.appendChild(el);
+			var cx = laneX(era.lane) + barW / 2;
+			var minLeft = era.minLeft != null ? era.minLeft : axisW + 2;
+			var left = Math.max(cx - el.offsetWidth / 2, minLeft);
+			left = Math.min(left, trackW - el.offsetWidth);
+			el.style.left = left + 'px';
+			// present-edge label sits above the today dot, others hug their bar
+			var lift = era.lift != null ? era.lift : era.date === 'present' ? 14 : 5;
+			el.style.top = y(parseDate(era.date)) - el.offsetHeight - lift + 'px';
 		});
 
 		// bars — one per card, sharing the card's view timeline
