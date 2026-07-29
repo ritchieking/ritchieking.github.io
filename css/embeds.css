@@ -1,0 +1,835 @@
+/* Native project teasers: each embed is the project's own component (built
+   by scripts/build-embeds.mjs) sitting directly on the band background.
+   Data colors stay archival; chrome text picks up the site's ink tokens so
+   dark mode reads properly. Fonts are served same-origin from the rescued
+   project repos. */
+
+@font-face {
+  font-family: "AtlasGrotesk";
+  font-weight: 400;
+  font-display: swap;
+  src: url("/redistricting-maps/_ext/fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/AtlasGrotesk-Regular-Web.woff2")
+      format("woff2"),
+    url("/redistricting-maps/_ext/fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/AtlasGrotesk-Regular-Web.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "AtlasGrotesk";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/redistricting-maps/_ext/fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/AtlasGrotesk-Bold-Web.woff2")
+      format("woff2"),
+    url("/redistricting-maps/_ext/fivethirtyeight.com/wp-content/themes/espn-fivethirtyeight/assets/fonts/AtlasGrotesk-Bold-Web.woff")
+      format("woff");
+}
+@font-face {
+  font-family: "DecimaMonoPro";
+  font-weight: 400;
+  font-display: swap;
+  src: url("/p-hacking/_shared/fonts/DecimaMonoPro.woff2") format("woff2"),
+    url("/p-hacking/_shared/fonts/DecimaMonoPro.woff") format("woff");
+}
+@font-face {
+  font-family: "DecimaMonoPro";
+  font-weight: 700;
+  font-display: swap;
+  src: url("/p-hacking/_shared/fonts/DecimaMonoPro-Bold.woff2") format("woff2"),
+    url("/p-hacking/_shared/fonts/DecimaMonoPro-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Decima";
+  font-weight: 400;
+  font-display: swap;
+  src: url("/p-hacking/_shared/fonts/Decima.woff2") format("woff2"),
+    url("/p-hacking/_shared/fonts/Decima.woff") format("woff");
+}
+
+.embed-native {
+  position: relative;
+}
+.embed-native .embed-fallback {
+  position: static; /* style.css absolutely positions the iframe-peek variant */
+  inset: auto;
+  display: block;
+  aspect-ratio: 16 / 10; /* holds the band open until the fragment lands */
+  border-radius: 12px;
+  overflow: hidden;
+}
+.embed-native.is-ready .embed-fallback {
+  display: none;
+}
+
+/* ---- Atlas of Redistricting: expected-seat-split table (.ae-) ---- */
+.ae-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "AtlasGrotesk", "Helvetica Neue", sans-serif;
+  color: var(--ink);
+}
+.ae-table th {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--ink-2);
+  text-align: left;
+  padding: 0 0 7px;
+  vertical-align: bottom;
+}
+.ae-h1 th.ae-split {
+  text-align: center;
+  border-bottom: 1px solid var(--ink);
+  padding: 0 0 4px;
+}
+.ae-h2 th {
+  border-bottom: 1px solid var(--ink);
+  padding-top: 8px;
+}
+.ae-h2 th.ae-bar {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ae-h2 .ae-bar {
+  position: relative;
+}
+.ae-h2 .ae-bar span {
+  position: absolute;
+  bottom: 7px;
+  white-space: nowrap;
+}
+.ae-h2 .ae-bar span:nth-child(1) {
+  left: 12px;
+}
+.ae-h2 .ae-bar span:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.ae-h2 .ae-bar span:nth-child(3) {
+  right: 12px;
+}
+.ae-h2 th.ae-dem,
+.ae-h2 th.ae-gop,
+.ae-row td.ae-dem,
+.ae-row td.ae-gop {
+  text-align: right;
+}
+.ae-row td {
+  border-top: 1px solid var(--hairline);
+  padding: 10px 0;
+  vertical-align: middle;
+}
+.ae-row:first-child td {
+  border-top: none;
+}
+.ae-name {
+  font-size: 15px;
+  padding-right: 16px;
+  width: 21%;
+  min-width: 150px;
+}
+.ae-row.ae-hl {
+  background: var(--surface);
+}
+.ae-row.ae-hl .ae-name {
+  font-weight: 700;
+}
+td.ae-bar {
+  width: 58%;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ae-counts {
+  position: relative;
+  height: 19px;
+  font-family: "DecimaMonoPro", monospace;
+  font-size: 14px;
+}
+.ae-counts span {
+  position: absolute;
+  bottom: 2px;
+}
+.ae-counts .ae-c-dem {
+  left: 0;
+}
+.ae-counts .ae-c-comp {
+  transform: translateX(-50%);
+}
+.ae-counts .ae-c-gop {
+  right: 0;
+}
+td.ae-bar img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ae-dem,
+.ae-gop {
+  font-family: "DecimaMonoPro", monospace;
+  font-size: 17px;
+  width: 76px;
+  padding-left: 8px;
+  white-space: nowrap;
+}
+.ae-dem {
+  color: #5078ff;
+}
+.ae-gop {
+  color: #f8463e;
+}
+@media (prefers-color-scheme: dark) {
+  .ae-dem {
+    color: #7d9bff;
+  }
+  .ae-gop {
+    color: #fa7069;
+  }
+}
+@media (max-width: 719px) {
+  .ae-name {
+    font-size: 13px;
+    min-width: 0;
+  }
+  .ae-counts {
+    font-size: 11px;
+  }
+  .ae-dem,
+  .ae-gop {
+    font-size: 13px;
+    width: 48px;
+  }
+  .ae-h2 .ae-bar span:nth-child(2) {
+    display: none;
+  }
+}
+@media (max-width: 479px) {
+  .ae-h2 .ae-bar span {
+    display: none;
+  }
+}
+
+/* ---- 2016 forecast: chance-of-winning bar + map (.fe-) ---- */
+.fe-embed {
+  font-family: "AtlasGrotesk", "Helvetica Neue", sans-serif;
+}
+.fe-bar .top-powerbar {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.fe-bar .candidates.heads {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0;
+}
+.fe-bar .candidate {
+  display: flex;
+  align-items: flex-end;
+}
+.fe-bar .candidate .candidate-head img {
+  display: block;
+  width: 74px;
+  height: auto;
+}
+.fe-bar .candidate .candidate-head img.left-head {
+  margin-right: 12px;
+}
+.fe-bar .candidate .candidate-head img.right-head {
+  margin-left: 12px;
+}
+.fe-bar .candidate:last-of-type .candidate-text {
+  text-align: right;
+}
+.fe-bar .label-head {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.fe-bar .candidate-val.winprob {
+  margin: 0 0 4px;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+.fe-bar .candidate.dem .winprob {
+  color: #179ee0;
+}
+.fe-bar .candidate.rep .winprob {
+  color: #ff5d40;
+}
+.fe-bar .candidate-percent-sign {
+  font-size: 22px;
+  vertical-align: 14px;
+  margin-left: 1px;
+}
+.fe-bar .powerbar.heads {
+  height: 14px;
+  margin-top: 8px;
+  border-radius: 3px;
+}
+@media (max-width: 719px) {
+  .fe-bar .candidate .candidate-head img {
+    width: 46px;
+  }
+  .fe-bar .candidate .candidate-head img.left-head {
+    margin-right: 8px;
+  }
+  .fe-bar .candidate .candidate-head img.right-head {
+    margin-left: 8px;
+  }
+  .fe-bar .candidate-val.winprob {
+    font-size: 29px;
+  }
+  .fe-bar .candidate-percent-sign {
+    font-size: 14px;
+    vertical-align: 9px;
+  }
+}
+.fe-map {
+  position: relative;
+  margin-top: 18px;
+}
+.fe-map svg.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fe-map .state {
+  cursor: pointer;
+}
+.fe-map .state-border {
+  stroke: var(--page);
+  fill: none;
+}
+.fe-map .us-border path {
+  fill: none;
+  stroke: none;
+}
+.fe-map .labels text.label,
+.fe-map .boxes text.label {
+  font-size: 15px;
+  fill: #222; /* sits on the map's own data colors in both themes */
+  pointer-events: none;
+}
+.fe-map .label-line {
+  stroke: var(--muted);
+  stroke-width: 1px;
+}
+.fe-map .fe-hover-outline {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  pointer-events: none;
+}
+/* legend */
+.fe-map .map-key {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  font-size: 10px;
+  color: var(--ink-2);
+  pointer-events: none;
+}
+.fe-map .map-key .row {
+  display: flex;
+  align-items: center;
+  height: 15px;
+}
+.fe-map .map-key .cand-name {
+  width: 52px;
+  margin: 0;
+  font-weight: 700;
+}
+.fe-map .map-key .scale-container {
+  display: flex;
+}
+.fe-map .map-key .key-box {
+  width: 9px;
+  height: 9px;
+}
+.fe-map .map-key .numbers-container {
+  display: flex;
+  margin: 0 0 2px 52px;
+  font-family: "DecimaMonoPro", monospace;
+}
+.fe-map .map-key .lab-container {
+  width: 18px;
+}
+.fe-map .map-key .lab-container p {
+  margin: 0;
+  text-align: center;
+}
+.fe-map .map-key p {
+  margin: 0;
+}
+.fe-map .map-key .tossup-container,
+.fe-map .map-key p.keylabel {
+  display: none;
+}
+/* tooltip */
+.fe-tooltip {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  width: 220px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.18);
+  padding: 12px 14px;
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.fe-tooltip.on {
+  opacity: 1;
+}
+.fe-tooltip h6 {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.fe-tooltip p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--ink-2);
+}
+.fe-tooltip .candidates.heads {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 4px 0 6px;
+}
+.fe-tooltip .candidate .candidate-head {
+  display: none;
+}
+.fe-tooltip .candidate:last-of-type .candidate-text {
+  text-align: right;
+}
+.fe-tooltip .label-head {
+  font-size: 11px;
+}
+.fe-tooltip .winprob {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+.fe-tooltip .candidate.dem .winprob {
+  color: #179ee0;
+}
+.fe-tooltip .candidate.rep .winprob {
+  color: #ff5d40;
+}
+.fe-tooltip .candidate.ind .winprob {
+  color: #e48ae8;
+}
+.fe-tooltip .candidate-percent-sign {
+  font-size: 12px;
+  vertical-align: 7px;
+}
+.fe-tooltip .powerbar {
+  height: 8px;
+  border-radius: 2px;
+  margin: 2px 0 0;
+}
+.fe-tooltip .ev {
+  margin-top: 8px;
+  font-family: "DecimaMonoPro", monospace;
+}
+.fe-tooltip .evnote {
+  margin-top: 4px;
+  line-height: 1.3;
+}
+
+/* ---- p-hacking: the scatterplot (.ph-) ---- */
+.ph-embed svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ph-embed svg line.axis {
+  fill: none;
+  stroke: var(--ink-2);
+  stroke-width: 1px;
+}
+.ph-embed svg text {
+  font-family: "Decima", "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  fill: var(--ink-2);
+}
+.ph-embed svg line.reg-line {
+  stroke-width: 2px;
+  stroke: var(--ink);
+}
+
+/* ---- flights: the tilted result-card stack (.fl-) ---- */
+.fl-embed {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.fl-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 18px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.fl-picker select {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 5px 8px;
+  max-width: 170px;
+}
+.fl-picker .fl-status {
+  flex-basis: 100%;
+  font-size: 11px;
+  color: var(--muted);
+}
+.fl-stage {
+  position: relative;
+}
+.fl-stack {
+  position: relative;
+  transform-origin: 0 0;
+}
+.fl-stack .cards {
+  position: absolute;
+  box-sizing: content-box;
+  border: 1px solid #999;
+  background-color: #f0f0f0;
+  width: 90%;
+  left: 0;
+  padding: 5%;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.fl-stack .cards.obscured {
+  background-color: #fafafa;
+  border-color: #cdcdcd;
+}
+.fl-stack .cards.obscured h3,
+.fl-stack .cards.obscured p,
+.fl-stack .cards.obscured td,
+.fl-stack .cards.obscured th,
+.fl-stack .cards.obscured div {
+  opacity: 0.5;
+}
+.fl-stack .cards.nation-container {
+  top: 0;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.22);
+}
+.fl-stack .cards.terminal-container {
+  top: 12px;
+  transform: rotate(-3deg);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.22);
+}
+.fl-stack .cards.route-container {
+  top: 26px;
+  transform: rotate(3deg);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.22);
+}
+.fl-stack h3 {
+  margin: 0 0 8px;
+  font-family: "AtlasGrotesk", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #3c3c3c;
+  line-height: 1.1;
+}
+.fl-stack h3 span {
+  font-weight: 400;
+}
+.fl-stack .top-div {
+  position: relative;
+  height: 30px;
+}
+.fl-stack .route-container .top-div {
+  margin-bottom: 10px;
+}
+.fl-stack .top-div .header-container {
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #999;
+}
+.fl-stack .top-div .close-out {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  background-color: #cdcdcd;
+  border-radius: 15px;
+  text-align: center;
+  pointer-events: none;
+}
+.fl-stack .top-div .close-out p {
+  margin: 0;
+  line-height: 20px;
+  font-size: 13px;
+  color: #fff;
+}
+.fl-stack .read-in {
+  border-bottom: 1px solid #3c3c3c;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+.fl-stack .flight-count {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #3c3c3c;
+}
+.fl-stack .table-label {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+.fl-stack .table-label.unbold {
+  border-bottom: 1px solid #ccc;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+.fl-stack .table-label.second {
+  margin-top: 30px;
+}
+.fl-stack table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.fl-stack table th {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 13px;
+  padding-bottom: 7px;
+  vertical-align: bottom;
+  text-align: left;
+  padding-right: 10px;
+}
+.fl-stack table td {
+  padding-right: 10px;
+  text-align: left;
+  height: 22px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.fl-stack table th.number,
+.fl-stack table td.number {
+  text-align: right;
+  font-family: "DecimaMonoPro", monospace;
+}
+.fl-stack table td.number {
+  padding-right: 0;
+}
+.fl-stack table td.white-text {
+  color: #f0f0f0;
+}
+.fl-stack .nation-container table td.borderleft {
+  border-left: 1px solid #f0f0f0;
+}
+.fl-stack .nation-container table .unbold {
+  font-weight: 400;
+}
+.fl-stack .nation-container table th.center {
+  text-align: center;
+}
+.fl-stack .nation-container table .code {
+  font-size: 12px;
+}
+.fl-stack .nation-container table td .city-name {
+  font-size: 14px;
+}
+.fl-stack td.bold,
+.fl-stack th.bold {
+  font-weight: 700;
+}
+.fl-stack .terminal-container td.time-added,
+.fl-stack .terminal-container th.time-added {
+  width: 50px;
+  border: 1px solid #f0f0f0;
+  padding-left: 4px;
+  padding-right: 4px !important;
+  text-align: center !important;
+}
+.fl-stack .route-container table .row1,
+.fl-stack .route-container table .row4 {
+  font-weight: 700;
+}
+.fl-stack .route-container table tr.row2 td.text {
+  padding-left: 3%;
+}
+.fl-stack .route-container table tr.row3 td.text {
+  padding-left: 6%;
+}
+.fl-stack .route-container table tr.row3 td.number {
+  border-bottom: 1px solid #3c3c3c;
+}
+.fl-stack .route-container table tr.row4 td.text {
+  padding-left: 9%;
+}
+/* route chart svg */
+.fl-stack .chart-container svg {
+  display: block;
+  overflow: visible;
+}
+.fl-stack svg text {
+  font-family: "AtlasGrotesk", sans-serif;
+  fill: #3c3c3c;
+}
+.fl-stack .dot-plot .scheduled-time {
+  fill: #5b5e5f;
+  opacity: 0.4;
+}
+.fl-stack .dot-plot line.actual-time {
+  stroke-width: 4px;
+}
+.fl-stack .dot-plot.green .actual-time {
+  fill: #006d2c;
+  stroke: #006d2c;
+}
+.fl-stack .dot-plot.yellow .actual-time {
+  fill: #f6b900;
+  stroke: #f6b900;
+}
+.fl-stack .dot-plot.red .actual-time {
+  fill: #ff2700;
+  stroke: #ff2700;
+}
+.fl-stack .axis path.domain {
+  display: none;
+}
+.fl-stack .axis.x line {
+  stroke-width: 1px;
+  stroke: #cdcdcd;
+}
+.fl-stack .axis.x text {
+  font-size: 12px;
+  font-family: "DecimaMonoPro", monospace;
+}
+.fl-stack .axis .zero line {
+  stroke: #3c3c3c;
+}
+.fl-stack .axis .zero text {
+  font-family: "AtlasGrotesk", sans-serif;
+  font-size: 10px;
+}
+.fl-stack .axis.y line {
+  stroke: #3c3c3c;
+  stroke-width: 1px;
+}
+.fl-stack .axis.y text {
+  font-weight: 700;
+  font-size: 13px;
+}
+.fl-stack .expected text,
+.fl-stack .typical text {
+  font-size: 10px;
+}
+.fl-stack .typical line {
+  stroke: #666;
+  stroke-width: 1px;
+}
+.fl-stack .expected line {
+  stroke: #666;
+  stroke-width: 1.5px;
+  stroke-dasharray: 0.001 3;
+  stroke-linecap: round;
+  fill: none;
+}
+.fl-stack .chart-label text {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.fl-stack .chart-label line {
+  stroke: #3c3c3c;
+  stroke-width: 1px;
+}
+.fl-stack .delay-text {
+  font-family: "DecimaMonoPro", monospace;
+  font-size: 14px;
+}
+.fl-stack .hover-rect {
+  cursor: crosshair;
+  opacity: 0;
+}
+.fl-stack .sched-time-label,
+.fl-stack .act-time-label {
+  font-family: "DecimaMonoPro", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+/* crosshair hover: fade context, reveal per-airline times */
+.fl-stack .delay-text,
+.fl-stack .expected,
+.fl-stack .typical,
+.fl-stack .axis.x .tick.non-zero,
+.fl-stack .dot-plot line.actual-time {
+  transition: opacity 0.15s;
+}
+.fl-stack svg.fl-peek .delay-text,
+.fl-stack svg.fl-peek .expected,
+.fl-stack svg.fl-peek .typical,
+.fl-stack svg.fl-peek .axis.x .tick.non-zero,
+.fl-stack svg.fl-peek .dot-plot line.actual-time {
+  opacity: 0 !important;
+}
+.fl-stack svg.fl-peek .sched-time-label,
+.fl-stack svg.fl-peek .act-time-label {
+  opacity: 1;
+}
+.fl-stack .sched-time-label {
+  fill: #fff;
+}
+.fl-stack .dot-plot.green .act-time-label {
+  fill: #006d2c;
+}
+.fl-stack .dot-plot.yellow .act-time-label {
+  fill: #d9a300;
+}
+.fl-stack .dot-plot.red .act-time-label {
+  fill: #ff2700;
+}
+@media (prefers-color-scheme: dark) {
+  .fl-stack .cards {
+    background-color: #d9d5cd;
+    border-color: #6b675f;
+  }
+  .fl-stack .cards.obscured {
+    background-color: #cfccc5;
+    border-color: #8a867e;
+  }
+  .fl-stack .nation-container table td.borderleft {
+    border-color: #d9d5cd;
+  }
+  .fl-stack .terminal-container td.time-added,
+  .fl-stack .terminal-container th.time-added {
+    border-color: #d9d5cd;
+  }
+  /* doubles as an invisible spacer on the card bg and as light text on the
+     saturated delay cells — must track the dark card color exactly */
+  .fl-stack table td.white-text {
+    color: #d9d5cd;
+  }
+}

@@ -5,37 +5,9 @@
 (function () {
   "use strict";
 
+  /* The interactive-project teasers moved to native embeds (js/teasers.js);
+     iframes remain only for the two article reading peeks. */
   var CONFIGS = {
-    "redistricting-maps": {
-      src: "redistricting-maps/",
-      width: 1200, // internal viewport width: desktop layout
-      top: "#top", // state selector + map-style buttons
-      bottom: [".powerbar-wrap.national-only"],
-      hbox: [".maptype-wrap.desktop"], // buttons row runs full width
-      interactive: true,
-    },
-    "2016-election-forecast": {
-      src: "2016-election-forecast/",
-      width: 1100,
-      top: '[data-card-id="US-winprob-sentence"]',
-      bottom: ['[data-card-id="US-racemap"]'],
-      interactive: true,
-    },
-    "p-hacking": {
-      src: "p-hacking/",
-      width: 1024,
-      top: "#question",
-      bottom: ["#chart", "#bottom-col"], // chart column runs deepest
-      interactive: true,
-    },
-    flights: {
-      src: "flights/",
-      width: 1024,
-      top: "#map", // the route inputs overlay the map's top edge
-      bottom: ["#map", "#results"],
-      hbox: ["#delays"],
-      interactive: true,
-    },
     "bitcoin-mining": {
       src: "bitcoin-mining/",
       width: 1100,

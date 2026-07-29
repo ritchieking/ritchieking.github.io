@@ -14,6 +14,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" type="text/css" href="css/style.css?v=2" />
+  <link rel="stylesheet" type="text/css" href="css/embeds.css" />
 </head>
 <body class="home">
   <div class="wrap">
@@ -73,35 +74,122 @@
     </div>
 
     <div class="features">
-      <article class="feature" style="--band-c: var(--cat-visjourn)">
+      <article class="feature feature--stack" style="--band-c: var(--cat-visjourn)">
         <div class="feature-inner">
           <div class="feature-embed">
-            <div class="embed-window" data-embed="redistricting-maps">
-              <a class="embed-fallback" href="redistricting-maps/">
-                <span class="shot-ph"><span>open the interactive</span></span>
-              </a>
+            <div class="embed-native ae-embed">
+          <table class="ae-table">
+                <thead>
+                  <tr class="ae-h1">
+                    <th></th><th></th>
+                    <th class="ae-split" colspan="2">Expected seat split</th>
+                  </tr>
+                  <tr class="ae-h2">
+                    <th class="ae-name">Map</th>
+                    <th class="ae-bar"><span>Usually Dem. districts</span><span>Highly competitive</span><span>Usually Republican</span></th>
+                    <th class="ae-dem">Dem.</th>
+                    <th class="ae-gop">GOP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr class="ae-row">
+                  <td class="ae-name">Democratic gerrymander</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">263</span><span class="ae-c-comp" style="left:63.6%">27</span><span class="ae-c-gop">145</span></div>
+                    <img src="/redistricting-maps/images/Dem.png" alt="District partisan breakdown: Democratic gerrymander" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">250.6</td>
+                  <td class="ae-gop">184.4</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Proportionally partisan</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">174</span><span class="ae-c-comp" style="left:49.4%">82</span><span class="ae-c-gop">179</span></div>
+                    <img src="/redistricting-maps/images/Proportional.png" alt="District partisan breakdown: Proportionally partisan" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">214.0</td>
+                  <td class="ae-gop">221.0</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Majority minority</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">169</span><span class="ae-c-comp" style="left:48.3%">82</span><span class="ae-c-gop">184</span></div>
+                    <img src="/redistricting-maps/images/MajMin.png" alt="District partisan breakdown: Majority minority" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">209.8</td>
+                  <td class="ae-gop">225.2</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Highly competitive</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">94</span><span class="ae-c-comp" style="left:49.4%">242</span><span class="ae-c-gop">99</span></div>
+                    <img src="/redistricting-maps/images/Competitive.png" alt="District partisan breakdown: Highly competitive" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">209.4</td>
+                  <td class="ae-gop">225.6</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Compact (borders)</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">155</span><span class="ae-c-comp" style="left:47.0%">99</span><span class="ae-c-gop">181</span></div>
+                    <img src="/redistricting-maps/images/Compact.png" alt="District partisan breakdown: Compact (borders)" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">203.9</td>
+                  <td class="ae-gop">231.1</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Compact (algorithmic)</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">151</span><span class="ae-c-comp" style="left:46.7%">104</span><span class="ae-c-gop">180</span></div>
+                    <img src="/redistricting-maps/images/algorithmic-compact.png" alt="District partisan breakdown: Compact (algorithmic)" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">202.8</td>
+                  <td class="ae-gop">232.2</td>
+                </tr>
+                <tr class="ae-row ae-hl">
+                  <td class="ae-name">Current</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">168</span><span class="ae-c-comp" style="left:46.9%">72</span><span class="ae-c-gop">195</span></div>
+                    <img src="/redistricting-maps/images/current.png" alt="District partisan breakdown: Current" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">200.6</td>
+                  <td class="ae-gop">234.4</td>
+                </tr>
+                <tr class="ae-row">
+                  <td class="ae-name">Republican gerrymander</td>
+                  <td class="ae-bar">
+                    <div class="ae-counts"><span class="ae-c-dem">139</span><span class="ae-c-comp" style="left:34.4%">21</span><span class="ae-c-gop">275</span></div>
+                    <img src="/redistricting-maps/images/GOP.png" alt="District partisan breakdown: Republican gerrymander" loading="lazy" />
+                  </td>
+                  <td class="ae-dem">171.3</td>
+                  <td class="ae-gop">263.7</td>
+                </tr>
+                </tbody>
+              </table>
             </div>
-            <p
-              class="embed-caption"
-              data-live-caption="live &mdash; try all seven ways to draw the map"
-              data-tap-caption="live thumbnail &mdash; tap to open"
-              hidden
-            ></p>
+            <p class="embed-caption">
+              all 435 districts, redrawn seven ways &mdash; the current map for
+              comparison
+            </p>
           </div>
           <div class="feature-info">
-            <h3><a href="redistricting-maps/">The Atlas of Redistricting</a></h3>
-            <span class="clip-meta"
-              >FiveThirtyEight · Jan 2018 ·
-              <span class="role-badge">editor</span></span
-            >
-            <p>
-              Seven ways to redraw every congressional district in America. I
-              edited this one &mdash; coordinating the cartography, data, and
-              design.
-            </p>
-            <a class="cta" href="redistricting-maps/"
-              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
-            >
+            <div>
+              <h3><a href="redistricting-maps/">The Atlas of Redistricting</a></h3>
+              <span class="clip-meta"
+                >FiveThirtyEight · Jan 2018 ·
+                <span class="role-badge">editor</span></span
+              >
+            </div>
+            <div>
+              <p>
+                Seven ways to redraw every congressional district in America. I
+                edited this one &mdash; coordinating the cartography, data, and
+                design.
+              </p>
+              <a class="cta" href="redistricting-maps/"
+                >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
+              >
+            </div>
           </div>
         </div>
       </article>
@@ -109,17 +197,14 @@
       <article class="feature" style="--band-c: var(--cat-school)">
         <div class="feature-inner">
           <div class="feature-embed">
-            <div class="embed-window" data-embed="2016-election-forecast">
+            <div class="embed-native fe-embed" data-teaser="forecast">
               <a class="embed-fallback" href="2016-election-forecast/">
                 <span class="shot-ph"><span>open the interactive</span></span>
               </a>
             </div>
-            <p
-              class="embed-caption"
-              data-live-caption="live &mdash; hover the map for state odds"
-              data-tap-caption="live thumbnail &mdash; tap to open"
-              hidden
-            ></p>
+            <p class="embed-caption live">
+              live &mdash; hover the map for state odds
+            </p>
           </div>
           <div class="feature-info">
             <h3><a href="2016-election-forecast/">2016 Election Forecast</a></h3>
@@ -139,17 +224,14 @@
       <article class="feature" style="--band-c: var(--cat-vizeng)">
         <div class="feature-inner">
           <div class="feature-embed">
-            <div class="embed-window" data-embed="p-hacking">
+            <div class="embed-native ph-embed" data-teaser="phack">
               <a class="embed-fallback" href="p-hacking/">
                 <span class="shot-ph"><span>open the interactive</span></span>
               </a>
             </div>
-            <p
-              class="embed-caption"
-              data-live-caption="live &mdash; go ahead, p-hack"
-              data-tap-caption="live thumbnail &mdash; tap to open"
-              hidden
-            ></p>
+            <p class="embed-caption">
+              the scatterplot, before you start hacking
+            </p>
           </div>
           <div class="feature-info">
             <h3>
@@ -167,20 +249,17 @@
         </div>
       </article>
 
-      <article class="feature" style="--band-c: var(--cat-writing)">
+      <article class="feature feature--narrow" style="--band-c: var(--cat-writing)">
         <div class="feature-inner">
           <div class="feature-embed">
-            <div class="embed-window" data-embed="flights">
+            <div class="embed-native fl-embed" data-teaser="flights">
               <a class="embed-fallback" href="flights/">
                 <span class="shot-ph"><span>open the interactive</span></span>
               </a>
             </div>
-            <p
-              class="embed-caption"
-              data-live-caption="live &mdash; pick a route"
-              data-tap-caption="live thumbnail &mdash; tap to open"
-              hidden
-            ></p>
+            <p class="embed-caption live">
+              live &mdash; pick any route
+            </p>
           </div>
           <div class="feature-info">
             <h3>
@@ -348,5 +427,6 @@
 
   <script src="js/strip.js"></script>
   <script src="js/embeds.js"></script>
+  <script src="js/teasers.js"></script>
 </body>
 </html>

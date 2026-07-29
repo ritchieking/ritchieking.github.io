@@ -222,23 +222,22 @@ body.home {
   margin: -6px 0 20px;
 }
 
-/* ---- live teaser features ---- */
+/* ---- native teaser features: full-bleed tinted bands ---- */
 .features {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 36px;
+  margin-top: 28px;
 }
 .feature {
   --band-pct: 14%;
-  width: min(1140px, 100% - 32px);
-  margin-inline: auto;
-  background: var(--surface);
-  background: color-mix(
+  --band-bg: color-mix(
     in oklab,
     var(--band-c, var(--baseline)) var(--band-pct),
     var(--page)
   );
-  border-radius: 18px;
+  width: 100%;
+  background: var(--band-bg);
 }
 @media (prefers-color-scheme: dark) {
   .feature {
@@ -247,10 +246,33 @@ body.home {
 }
 .feature-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 56px;
   align-items: center;
-  padding: 32px 36px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 44px clamp(24px, 4vw, 64px);
+}
+.feature--narrow .feature-inner {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+}
+.feature--narrow .fl-stage {
+  max-width: 520px;
+  margin: 0 auto;
+}
+/* stacked variant: the graphic runs the full band width, info sits below */
+.feature--stack .feature-inner {
+  display: block;
+}
+.feature--stack .feature-info {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 20px 56px;
+  align-items: start;
+  margin-top: 26px;
+}
+.feature--stack .feature-info p {
+  margin-top: 0;
 }
 .feature-info h3 {
   font-size: 27px;
@@ -363,6 +385,9 @@ body.home {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
+}
+.reading-row + .reading-row {
+  margin-top: 20px;
 }
 .reading-row .embed-window {
   aspect-ratio: 4 / 3;
@@ -497,10 +522,16 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .feature-inner {
+  .feature-inner,
+  .feature--narrow .feature-inner {
     grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 22px;
+    gap: 24px;
+    padding: 26px 22px;
+  }
+  .feature--stack .feature-info {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 18px;
   }
   .feature-info h3 {
     font-size: 24px;
@@ -526,10 +557,6 @@ footer {
   }
   h2 {
     margin-top: 56px;
-  }
-  .feature {
-    width: calc(100% - 20px);
-    border-radius: 14px;
   }
   .writing-list {
     columns: 1;
