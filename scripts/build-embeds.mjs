@@ -66,7 +66,8 @@ async function atlas() {
   const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
   // Pin the competitive count above its segment: the strips are unit charts
   // reading left to right (Dem, competitive, GOP), so the segment's center
-  // is (dem + comp/2) / total of the way across.
+  // is (dem + comp/2) / total of the way across. The seat-split columns are
+  // dropped so the table fits the side-by-side feature layout.
   const row = (r) => {
     const n = r.counts.map(Number);
     const mid = ((n[0] + n[1] / 2) / (n[0] + n[1] + n[2])) * 100;
@@ -76,21 +77,13 @@ async function atlas() {
           <div class="ae-counts"><span class="ae-c-dem">${r.counts[0]}</span><span class="ae-c-comp" style="left:${mid.toFixed(1)}%">${r.counts[1]}</span><span class="ae-c-gop">${r.counts[2]}</span></div>
           <img src="${r.img.replace(/\?.*$/, "")}" alt="District partisan breakdown: ${esc(r.name)}" loading="lazy" />
         </td>
-        <td class="ae-dem">${r.dem}</td>
-        <td class="ae-gop">${r.gop}</td>
       </tr>`;
   };
   const html = `<table class="ae-table">
       <thead>
-        <tr class="ae-h1">
-          <th></th><th></th>
-          <th class="ae-split" colspan="2">Expected seat split</th>
-        </tr>
         <tr class="ae-h2">
           <th class="ae-name">Map</th>
           <th class="ae-bar"><span>Usually Dem. districts</span><span>Highly competitive</span><span>Usually Republican</span></th>
-          <th class="ae-dem">Dem.</th>
-          <th class="ae-gop">GOP</th>
         </tr>
       </thead>
       <tbody>

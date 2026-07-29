@@ -76,11 +76,6 @@
   padding: 0 0 7px;
   vertical-align: bottom;
 }
-.ae-h1 th.ae-split {
-  text-align: center;
-  border-bottom: 1px solid var(--ink);
-  padding: 0 0 4px;
-}
 .ae-h2 th {
   border-bottom: 1px solid var(--ink);
   padding-top: 8px;
@@ -107,12 +102,6 @@
 .ae-h2 .ae-bar span:nth-child(3) {
   right: 12px;
 }
-.ae-h2 th.ae-dem,
-.ae-h2 th.ae-gop,
-.ae-row td.ae-dem,
-.ae-row td.ae-gop {
-  text-align: right;
-}
 .ae-row td {
   border-top: 1px solid var(--hairline);
   padding: 10px 0;
@@ -124,7 +113,7 @@
 .ae-name {
   font-size: 15px;
   padding-right: 16px;
-  width: 21%;
+  width: 26%;
   min-width: 150px;
 }
 .ae-row.ae-hl {
@@ -134,9 +123,8 @@
   font-weight: 700;
 }
 td.ae-bar {
-  width: 58%;
   padding-left: 12px;
-  padding-right: 12px;
+  padding-right: 0;
 }
 .ae-counts {
   position: relative;
@@ -162,28 +150,6 @@ td.ae-bar img {
   width: 100%;
   height: auto;
 }
-.ae-dem,
-.ae-gop {
-  font-family: "DecimaMonoPro", monospace;
-  font-size: 17px;
-  width: 76px;
-  padding-left: 8px;
-  white-space: nowrap;
-}
-.ae-dem {
-  color: #5078ff;
-}
-.ae-gop {
-  color: #f8463e;
-}
-@media (prefers-color-scheme: dark) {
-  .ae-dem {
-    color: #7d9bff;
-  }
-  .ae-gop {
-    color: #fa7069;
-  }
-}
 @media (max-width: 719px) {
   .ae-name {
     font-size: 13px;
@@ -191,11 +157,6 @@ td.ae-bar img {
   }
   .ae-counts {
     font-size: 11px;
-  }
-  .ae-dem,
-  .ae-gop {
-    font-size: 13px;
-    width: 48px;
   }
   .ae-h2 .ae-bar span:nth-child(2) {
     display: none;
@@ -575,13 +536,17 @@ td.ae-bar img {
   background-color: #cdcdcd;
   border-radius: 15px;
   text-align: center;
-  pointer-events: none;
+  cursor: pointer;
+}
+.fl-stack .top-div .close-out:hover {
+  background-color: #5b5e5f;
 }
 .fl-stack .top-div .close-out p {
   margin: 0;
   line-height: 20px;
   font-size: 13px;
   color: #fff;
+  pointer-events: none;
 }
 .fl-stack .read-in {
   border-bottom: 1px solid #3c3c3c;

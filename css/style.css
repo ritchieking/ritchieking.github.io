@@ -260,20 +260,6 @@ body.home {
   max-width: 520px;
   margin: 0 auto;
 }
-/* stacked variant: the graphic runs the full band width, info sits below */
-.feature--stack .feature-inner {
-  display: block;
-}
-.feature--stack .feature-info {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-  gap: 20px 56px;
-  align-items: start;
-  margin-top: 26px;
-}
-.feature--stack .feature-info p {
-  margin-top: 0;
-}
 .feature-info h3 {
   font-size: 27px;
   line-height: 1.12;
@@ -527,11 +513,6 @@ footer {
     grid-template-columns: 1fr;
     gap: 24px;
     padding: 26px 22px;
-  }
-  .feature--stack .feature-info {
-    grid-template-columns: 1fr;
-    gap: 8px;
-    margin-top: 18px;
   }
   .feature-info h3 {
     font-size: 24px;

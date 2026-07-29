@@ -221,8 +221,32 @@
       t = setTimeout(fit, 150);
     });
 
-    if (defaultData) {
-      wireRouteHover(stack.querySelector(".route-container"), defaultData.rows);
+    // full app-state machine: {origin, dest} where either can be null.
+    // nation card alone -> terminal card (origin OR destination view) ->
+    // route card, matching the original's stacking and dimming.
+    var st = { origin: "BOS", dest: "ORD" };
+    var nationEl = stack.querySelector(".nation-container");
+    var terminalEl = stack.querySelector(".terminal-container");
+    var terminalMeta = { code: "BOS", loc: "origin" };
+    var routeEl = stack.querySelector(".route-container");
+    var routeMeta = { o: "BOS", d: "ORD" };
+
+    if (defaultData) wireRouteHover(routeEl, defaultData.rows);
+    wireClose(routeEl, "route");
+    wireClose(terminalEl, "terminal");
+
+    function wireClose(card, kind) {
+      if (!card) return;
+      var btn = card.querySelector(".close-out");
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        if (kind === "route") {
+          st.dest = null;
+        } else if (terminalMeta) {
+          st[terminalMeta.loc === "origin" ? "origin" : "dest"] = null;
+        }
+        update();
+      });
     }
 
     // ---- route picker ----
@@ -239,8 +263,9 @@
     var selFrom = picker.querySelector(".fl-from");
     var selTo = picker.querySelector(".fl-to");
     var status = picker.querySelector(".fl-status");
-    selFrom.innerHTML = '<option value="BOS">BOS &mdash; Boston</option>';
-    selTo.innerHTML = '<option value="ORD">ORD &mdash; Chicago</option>';
+    var BLANK = '<option value="">&mdash;</option>';
+    selFrom.innerHTML = BLANK + '<option value="BOS" selected>BOS &mdash; Boston</option>';
+    selTo.innerHTML = BLANK + '<option value="ORD" selected>ORD &mdash; Chicago</option>';
 
     var airportsList = null;
     var data = null;
@@ -267,7 +292,7 @@
           });
         [selFrom, selTo].forEach(function (sel) {
           var keep = sel.value;
-          sel.innerHTML = "";
+          sel.innerHTML = BLANK;
           for (var code in airportsList) {
             var a = airportsList[code];
             var opt = document.createElement("option");
@@ -311,36 +336,89 @@
     }
 
     function onPick() {
-      var o = selFrom.value;
-      var d = selTo.value;
-      Promise.all([loadLists(), loadData()])
-        .then(function () {
-          rerender(o, d);
-        })
-        .catch(showLoadError);
+      st.origin = selFrom.value || null;
+      st.dest = selTo.value || null;
+      update();
     }
     selFrom.addEventListener("change", onPick);
     selTo.addEventListener("change", onPick);
 
-    function rerender(o, d) {
-      if (o === d) {
+    function syncPicker() {
+      selFrom.value = st.origin || "";
+      selTo.value = st.dest || "";
+    }
+
+    function update() {
+      status.hidden = true;
+      if (st.origin && st.dest && st.origin === st.dest) {
         status.hidden = false;
         status.textContent = "pick two different airports";
-        return;
+        st.dest = null;
       }
-      if (!data.routes[o] || !data.routes[o][d]) {
-        status.hidden = false;
-        status.textContent =
-          "no direct " + o + " → " + d + " flights in the data — try another pair";
-        return;
+      var needT = st.origin
+        ? { code: st.origin, loc: "origin" }
+        : st.dest
+        ? { code: st.dest, loc: "destination" }
+        : null;
+      var needR = st.origin && st.dest ? { o: st.origin, d: st.dest } : null;
+      var tOk =
+        !needT ||
+        (terminalEl &&
+          terminalMeta &&
+          terminalMeta.code === needT.code &&
+          terminalMeta.loc === needT.loc);
+      var rOk =
+        !needR ||
+        (routeEl && routeMeta && routeMeta.o === needR.o && routeMeta.d === needR.d);
+
+      if (tOk && rOk) return reconcile(needT, needR);
+      Promise.all([loadLists(), loadData()])
+        .then(function () {
+          if (needR && (!data.routes[needR.o] || !data.routes[needR.o][needR.d])) {
+            status.hidden = false;
+            status.textContent =
+              "no direct " + needR.o + " → " + needR.d +
+              " flights in the data — try another pair";
+            needR = null;
+          }
+          reconcile(needT, needR);
+        })
+        .catch(showLoadError);
+    }
+
+    function reconcile(needT, needR) {
+      if (!needR && routeEl) {
+        routeEl.remove();
+        routeEl = null;
+        routeMeta = null;
       }
-      status.hidden = true;
-      var oldT = stack.querySelector(".terminal-container");
-      var oldR = stack.querySelector(".route-container");
-      var newT = renderTerminalCard(o);
-      var newR = renderRouteCard(o, d);
-      oldT.replaceWith(newT);
-      oldR.replaceWith(newR);
+      if (!needT && terminalEl) {
+        terminalEl.remove();
+        terminalEl = null;
+        terminalMeta = null;
+      }
+      if (
+        needT &&
+        !(terminalEl && terminalMeta.code === needT.code && terminalMeta.loc === needT.loc)
+      ) {
+        var newT = renderTerminalCard(needT.code, needT.loc);
+        if (terminalEl) terminalEl.replaceWith(newT);
+        else stack.insertBefore(newT, routeEl);
+        terminalEl = newT;
+        terminalMeta = needT;
+        wireClose(terminalEl, "terminal");
+      }
+      if (needR && !(routeEl && routeMeta.o === needR.o && routeMeta.d === needR.d)) {
+        var newR = renderRouteCard(needR.o, needR.d);
+        if (routeEl) routeEl.replaceWith(newR);
+        else stack.appendChild(newR);
+        routeEl = newR;
+        routeMeta = needR;
+        wireClose(routeEl, "route");
+      }
+      nationEl.classList.toggle("obscured", !!needT);
+      if (terminalEl) terminalEl.classList.toggle("obscured", !!needR);
+      syncPicker();
       fit();
     }
 
@@ -353,16 +431,18 @@
       return a ? a.city : code;
     }
 
-    function renderTerminalCard(code) {
-      var card = el("div", "cards terminal-container obscured");
-      var terminals = data.terminals.origin;
+    function renderTerminalCard(code, loc) {
+      var isOrigin = loc === "origin";
+      var termKey = isOrigin ? "origin" : "dest";
+      var card = el("div", "cards terminal-container");
+      var terminals = data.terminals[termKey];
       var delay = terminals[code].delay_typical;
       var keys = Object.keys(terminals);
       var rank = keys.indexOf(code) + 1;
 
       var top = el("div", "top-div");
       var hc = el("div", "header-container");
-      hc.appendChild(el("div", "", "ORIGIN"));
+      hc.appendChild(el("div", "", loc.toUpperCase()));
       top.appendChild(hc);
       top.appendChild(
         el("div", "close-out", '<div class="close-out-inside"><p>✕</p></div>')
@@ -379,34 +459,50 @@
         el(
           "div",
           "",
-          "Flying out of " + code + " typically " + verb + mins +
+          (isOrigin ? "Flying out of " : "Flying into ") + code +
+            " typically " + verb + mins +
             (mins === 1 ? " minute" : " minutes") + post + " your travel time. Out of " +
-            keys.length + " origin airports, " + code + " is the <strong>" +
+            keys.length + " " + loc + " airports, " + code + " is the <strong>" +
             rank + ordinal(rank) + "</strong> fastest."
         )
       );
 
       card.appendChild(el("div", "table-label", "Extra time added"));
-      card.appendChild(el("div", "table-label unbold", "By popular destinations"));
+      card.appendChild(
+        el("div", "table-label unbold", isOrigin ? "By popular destinations" : "By popular origins")
+      );
 
-      var dests = Object.keys(data.overview[code] || {})
-        .map(function (dst) {
+      var pop;
+      if (isOrigin) {
+        pop = Object.keys(data.overview[code] || {}).map(function (dst) {
           return {
-            dest: dst,
+            other: dst,
             flights: data.overview[code][dst].flights,
             delay: data.terminals.dest[dst].delay_typical,
           };
-        })
-        .sort(function (a, b) {
-          return b.flights - a.flights;
-        })
-        .slice(0, 3);
+        });
+      } else {
+        pop = Object.keys(data.overview)
+          .filter(function (org) {
+            return data.overview[org][code];
+          })
+          .map(function (org) {
+            return {
+              other: org,
+              flights: data.overview[org][code].flights,
+              delay: data.terminals.origin[org].delay_typical,
+            };
+          });
+      }
+      pop.sort(function (a, b) {
+        return b.flights - a.flights;
+      });
       card.appendChild(
         delayTable(
           ["", "Flights", ""],
-          dests.map(function (r) {
+          pop.slice(0, 3).map(function (r) {
             return {
-              label: "✈ " + airportCity(r.dest) + " (" + r.dest + ")",
+              label: "✈ " + airportCity(r.other) + " (" + r.other + ")",
               cells: [fmtThousands(r.flights)],
               delay: r.delay,
             };
@@ -414,7 +510,7 @@
         )
       );
 
-      var best = data.bestby[code] && data.bestby[code].origin;
+      var best = data.bestby[code] && data.bestby[code][termKey];
       if (best) {
         card.appendChild(el("div", "table-label unbold second", "By airlines"));
         var rows = best.slice().sort(function (a, b) {
