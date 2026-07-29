@@ -142,24 +142,16 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: 14px;
 }
-.strip-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 6px 16px;
+.strip-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
   margin: 2px 2px 14px;
 }
-.strip-title {
-  font-family: var(--font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  color: var(--ink-2);
-}
-.strip-link {
+.strip-foot {
+  margin: 10px 2px 0;
   font-size: 14px;
+  text-align: right;
 }
 #strip {
   position: relative;
