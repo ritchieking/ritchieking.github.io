@@ -15,244 +15,336 @@
   />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-<body>
-  <header>
-    <h1><span class="hi">Ritchie S. King</span></h1>
-    <p class="lede">
-      I make charts and the tools that make charts. Currently a
-      <strong>staff data visualization engineer at Netflix</strong>; before
-      that, a decade in journalism as senior editor for data visualization at
-      FiveThirtyEight, a reporter at Quartz, and a science writer at The New
-      York Times. I also wrote <em>Visual Storytelling with D3</em>, an
-      introduction to making charts for the web.
-    </p>
-    <p class="contact-links">
-      <a href="mailto:ritchiesking@gmail.com">email</a><span>·</span
-      ><a href="https://github.com/ritchieking">github</a><span>·</span
-      ><a href="https://www.linkedin.com/in/ritchieking/">linkedin</a
-      ><span>·</span><a href="resume/">r&eacute;sum&eacute;</a>
-    </p>
-  </header>
+<body class="home">
+  <div class="wrap">
+    <header>
+      <h1><span class="hi">Ritchie S. King</span></h1>
+      <p class="lede">
+        I make charts and the tools that make charts. Currently a
+        <strong>staff data visualization engineer at Netflix</strong>; before
+        that, a decade in journalism as senior editor for data visualization at
+        FiveThirtyEight, a reporter at Quartz, and a science writer at The New
+        York Times. I also wrote <em>Visual Storytelling with D3</em>, an
+        introduction to making charts for the web.
+      </p>
+      <p class="contact-links">
+        <a href="mailto:ritchiesking@gmail.com">email</a><span>·</span
+        ><a href="https://github.com/ritchieking">github</a><span>·</span
+        ><a href="https://www.linkedin.com/in/ritchieking/">linkedin</a
+        ><span>·</span><a href="resume/">r&eacute;sum&eacute;</a>
+      </p>
+    </header>
 
-  <figure id="strip-figure">
-    <div id="strip">
-      <div id="strip-tooltip"></div>
+    <figure id="strip-figure">
+      <div id="strip">
+        <div id="strip-tooltip"></div>
+      </div>
+      <ul class="visually-hidden">
+        <li>School: Dartmouth engineering, 2002–2007; NYU science journalism, 2010–2011</li>
+        <li>Biofuels engineering: Mascoma, 2007–2009</li>
+        <li>Writing: New York Times science desk, 2011</li>
+        <li>
+          Visual journalism: New York Times, Businessweek, Quartz, and
+          FiveThirtyEight (through senior editor for data visualization),
+          2011–2018
+        </li>
+        <li>
+          Data viz engineering: Netflix, senior then staff data visualization
+          engineer, 2018–present
+        </li>
+      </ul>
+      <figcaption class="strip-caption">
+        Twenty years, one chart. <a href="resume/">Explore the full interactive
+        r&eacute;sum&eacute; &rarr;</a>
+      </figcaption>
+    </figure>
+  </div>
+
+  <section id="interactives">
+    <div class="wrap">
+      <h2 style="--chip: var(--cat-visjourn)">Interactive Projects</h2>
+      <p class="group-note">
+        Rescued from the FiveThirtyEight archives and rehosted here. The
+        teasers below aren&rsquo;t screenshots &mdash; they&rsquo;re the real,
+        working graphics. Click around.
+      </p>
     </div>
-    <ul class="visually-hidden">
-      <li>School: Dartmouth engineering, 2002–2007; NYU science journalism, 2010–2011</li>
-      <li>Biofuels engineering: Mascoma, 2007–2009</li>
-      <li>Writing: New York Times science desk, 2011</li>
-      <li>
-        Visual journalism: New York Times, Businessweek, Quartz, and
-        FiveThirtyEight (through senior editor for data visualization),
-        2011–2018
-      </li>
-      <li>
-        Data viz engineering: Netflix, senior then staff data visualization
-        engineer, 2018–present
-      </li>
-    </ul>
-    <figcaption class="strip-caption">
-      Twenty years, one chart. <a href="resume/">Explore the full interactive
-      r&eacute;sum&eacute; &rarr;</a>
-    </figcaption>
-  </figure>
 
-  <section>
-    <h2 style="--chip: var(--cat-visjourn)">Interactive Projects</h2>
-
-    <div class="clip-grid">
-      <!-- to add real screenshots: replace each .shot-ph div with
-           <img src="imgs/shots/<slug>.png" alt="Screenshot of ..."> -->
-      <article class="clip">
-        <a class="shot" href="2016-election-forecast/" tabindex="-1" aria-hidden="true">
-          <span class="shot-ph"><span>screenshot soon</span></span>
-        </a>
-        <a class="clip-title" href="2016-election-forecast/"
-          >2016 Election Forecast</a
-        >
-        <span class="clip-meta">FiveThirtyEight · 2016</span>
-        <p>
-          State-by-state win probabilities, polls, and the many ways the
-          presidential election could go.
-        </p>
+    <div class="features">
+      <article class="feature" style="--band-c: var(--cat-visjourn)">
+        <div class="feature-inner">
+          <div class="feature-embed">
+            <div class="embed-window" data-embed="redistricting-maps">
+              <a class="embed-fallback" href="redistricting-maps/">
+                <span class="shot-ph"><span>open the interactive</span></span>
+              </a>
+            </div>
+            <p
+              class="embed-caption"
+              data-live-caption="live &mdash; try all seven ways to draw the map"
+              data-tap-caption="live thumbnail &mdash; tap to open"
+              hidden
+            ></p>
+          </div>
+          <div class="feature-info">
+            <h3><a href="redistricting-maps/">The Atlas of Redistricting</a></h3>
+            <span class="clip-meta"
+              >FiveThirtyEight · Jan 2018 ·
+              <span class="role-badge">editor</span></span
+            >
+            <p>
+              Seven ways to redraw every congressional district in America. I
+              edited this one &mdash; coordinating the cartography, data, and
+              design.
+            </p>
+            <a class="cta" href="redistricting-maps/"
+              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </div>
       </article>
 
-      <article class="clip">
-        <a class="shot" href="p-hacking/" tabindex="-1" aria-hidden="true">
-          <span class="shot-ph"><span>screenshot soon</span></span>
-        </a>
-        <a class="clip-title" href="p-hacking/"
-          >Hack Your Way to Scientific Glory</a
-        >
-        <span class="clip-meta">FiveThirtyEight · 2015</span>
-        <p>
-          A hands-on demonstration of p-hacking: prove either party is better
-          for the economy, just by tweaking your variables.
-        </p>
+      <article class="feature" style="--band-c: var(--cat-school)">
+        <div class="feature-inner">
+          <div class="feature-embed">
+            <div class="embed-window" data-embed="2016-election-forecast">
+              <a class="embed-fallback" href="2016-election-forecast/">
+                <span class="shot-ph"><span>open the interactive</span></span>
+              </a>
+            </div>
+            <p
+              class="embed-caption"
+              data-live-caption="live &mdash; hover the map for state odds"
+              data-tap-caption="live thumbnail &mdash; tap to open"
+              hidden
+            ></p>
+          </div>
+          <div class="feature-info">
+            <h3><a href="2016-election-forecast/">2016 Election Forecast</a></h3>
+            <span class="clip-meta">FiveThirtyEight · Jun&ndash;Nov 2016</span>
+            <p>
+              State-by-state win probabilities, polls, and the many ways the
+              presidential election could go &mdash; preserved in its final,
+              election-morning state.
+            </p>
+            <a class="cta" href="2016-election-forecast/"
+              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </div>
       </article>
 
-      <article class="clip">
-        <a class="shot" href="flights/" tabindex="-1" aria-hidden="true">
-          <span class="shot-ph"><span>screenshot soon</span></span>
-        </a>
-        <a class="clip-title" href="flights/"
-          >Which Flight Will Get You There Fastest?</a
-        >
-        <span class="clip-meta">FiveThirtyEight · 2015</span>
-        <p>
-          The fastest airline on every domestic route, mined from millions of
-          flight records.
-        </p>
+      <article class="feature" style="--band-c: var(--cat-vizeng)">
+        <div class="feature-inner">
+          <div class="feature-embed">
+            <div class="embed-window" data-embed="p-hacking">
+              <a class="embed-fallback" href="p-hacking/">
+                <span class="shot-ph"><span>open the interactive</span></span>
+              </a>
+            </div>
+            <p
+              class="embed-caption"
+              data-live-caption="live &mdash; go ahead, p-hack"
+              data-tap-caption="live thumbnail &mdash; tap to open"
+              hidden
+            ></p>
+          </div>
+          <div class="feature-info">
+            <h3>
+              <a href="p-hacking/">Hack Your Way to Scientific Glory</a>
+            </h3>
+            <span class="clip-meta">FiveThirtyEight · Aug 2015</span>
+            <p>
+              A hands-on demonstration of p-hacking: prove either party is
+              better for the economy, just by tweaking your variables.
+            </p>
+            <a class="cta" href="p-hacking/"
+              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </div>
       </article>
 
-      <article class="clip">
-        <a class="shot" href="redistricting-maps/" tabindex="-1" aria-hidden="true">
-          <span class="shot-ph"><span>screenshot soon</span></span>
-        </a>
-        <a class="clip-title" href="redistricting-maps/"
-          >The Atlas of Redistricting</a
-        >
-        <span class="clip-meta"
-          >FiveThirtyEight · 2018 · <span class="role-badge">editor</span></span
-        >
-        <p>
-          Seven ways to redraw every congressional district in America. I
-          edited this one — coordinating the cartography, data, and design.
-        </p>
+      <article class="feature" style="--band-c: var(--cat-writing)">
+        <div class="feature-inner">
+          <div class="feature-embed">
+            <div class="embed-window" data-embed="flights">
+              <a class="embed-fallback" href="flights/">
+                <span class="shot-ph"><span>open the interactive</span></span>
+              </a>
+            </div>
+            <p
+              class="embed-caption"
+              data-live-caption="live &mdash; pick a route"
+              data-tap-caption="live thumbnail &mdash; tap to open"
+              hidden
+            ></p>
+          </div>
+          <div class="feature-info">
+            <h3>
+              <a href="flights/">Which Flight Will Get You There Fastest?</a>
+            </h3>
+            <span class="clip-meta">FiveThirtyEight · Mar 2015</span>
+            <p>
+              The fastest airline on every domestic route, mined from millions
+              of flight records.
+            </p>
+            <a class="cta" href="flights/"
+              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
+            >
+          </div>
+        </div>
       </article>
     </div>
   </section>
 
   <section>
-    <h2 style="--chip: var(--cat-biofuels)">Graphics-Driven Explainers</h2>
-
-    <div class="clip-grid">
-      <article class="clip">
-        <a class="shot" href="bitcoin-mining/" tabindex="-1" aria-hidden="true">
-          <span class="shot-ph"><span>screenshot soon</span></span>
-        </a>
-        <a class="clip-title" href="bitcoin-mining/"
-          >By reading this page, you are mining bitcoins</a
-        >
-        <span class="clip-meta">Quartz · 2013</span>
-        <p>
-          How bitcoin actually works, explained with animated graphics — and a
-          twist: the article itself &ldquo;mines&rdquo; as you read.
-        </p>
-      </article>
-    </div>
-  </section>
-
-  <section>
-    <h2 style="--chip: var(--cat-writing)">Writing</h2>
-    <p class="group-note">
-      The New York Times, 2011&ndash;2012 &mdash; gift links, free to read.
-    </p>
-    <ul class="writing-list">
-      <li>
-        <a
-          href="https://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?unlocked_article_code=1.0lA.pzpm.joRpZQa6Cft6&smid=url-share"
-          >For Bio-Hackers, Lab Work Often Begins at Home</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/10/11/health/11brain.html?unlocked_article_code=1.0lA.SH-t.aZA5n6Nly4eu&smid=url-share"
-          >Chemical Cocktail Turns Brain&rsquo;s Gray Matter Transparent</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?unlocked_article_code=1.0lA.vEbN.DvZsqC4mAG-x&smid=url-share"
-          >Boom and Bust in Acorns Will Affect Many Creatures, Including
-          Humans</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?unlocked_article_code=1.0lA.2gJ_.Bbi3tGEL7B7E&smid=url-share"
-          >A Closer Look at Teeth May Mean More Fillings by Dentists</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/10/11/science/11cricket.html?unlocked_article_code=1.0lA.ry4D.agLmGjZaKhCn&smid=url-share"
-          >Male Cricket Hovers After Sex to Ensure Mate&rsquo;s Safety</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?unlocked_article_code=1.0lA.XGju.EPrtpILZBVcP&smid=url-share"
-          >Lungfish Study Suggests Walking Evolved in the Water</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?unlocked_article_code=1.0lA.hXKu.BiQEUq8R-mxu&smid=url-share"
-          >How Hungry Mosquitoes Cool Themselves</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?unlocked_article_code=1.0lA.XH9k.7X6Rppsv6bRy&smid=url-share"
-          >A Bacterial Platoon With Fungi Engineers</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?unlocked_article_code=1.0lA.Weqi.jQpMqMauyFX2&smid=url-share"
-          >Fishhooks Show the Advanced Maritime Skills of Another Age</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?unlocked_article_code=1.0lA.VIg_.KJlU-ZvPEyRb&smid=url-share"
-          >Different Strokes for Pregnant Dolphins</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?unlocked_article_code=1.0lA.bPds.Cds6yJfif2ac&smid=url-share"
-          >A Busy Love Life, Built With a Mother&rsquo;s Help</a
-        >
-      </li>
-      <li>
-        <a href="https://nyti.ms/3RBWgZs"
-          >For Quiet Moments Between Protests, a Growing Library</a
-        >
-        <span class="pub-note">City Room</span>
-      </li>
-    </ul>
-  </section>
-
-  <section>
-    <h2 style="--chip: var(--cat-vizeng)">The Book</h2>
-    <div id="book-section">
-      <img src="imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" />
-      <div class="book-text">
-        <p>
-          <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) — an
-          introduction to data visualization for the web, walking through a
-          complete project from raw data to a finished interactive.
-        </p>
-        <blockquote>
-          &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run into him.&rdquo;
-          <cite>— an Amazon reviewer</cite>
-        </blockquote>
+    <div class="wrap">
+      <h2 style="--chip: var(--cat-vizeng)">The Book</h2>
+      <div id="book-section">
+        <img src="imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" />
+        <div class="book-text">
+          <p>
+            <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) &mdash; an
+            introduction to data visualization for the web, walking through a
+            complete project from raw data to a finished interactive.
+          </p>
+          <blockquote>
+            &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run into him.&rdquo;
+            <cite>&mdash; an Amazon reviewer</cite>
+          </blockquote>
+        </div>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>
-      Ritchie S. King &mdash;
-      <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> &mdash;
-      several older projects here were rescued from the
-      <a href="https://web.archive.org/">Internet Archive</a>.
-    </p>
-  </footer>
+  <section>
+    <div class="wrap">
+      <h2 style="--chip: var(--cat-biofuels)">Graphics-Driven Explainers</h2>
+      <article class="reading-row">
+        <div class="reading-thumb">
+          <div class="embed-window" data-embed="bitcoin-mining">
+            <a class="embed-fallback" href="bitcoin-mining/">
+              <span class="shot-ph"><span>open the article</span></span>
+            </a>
+          </div>
+        </div>
+        <div class="reading-text">
+          <h3>
+            <a href="bitcoin-mining/"
+              >By reading this page, you are mining bitcoins</a
+            >
+          </h3>
+          <span class="clip-meta">Quartz · Dec 2013</span>
+          <p>
+            How bitcoin actually works, explained with animated graphics
+            &mdash; and a twist: the article itself &ldquo;mines&rdquo; as you
+            read.
+          </p>
+          <a class="cta" href="bitcoin-mining/"
+            >Read the article <span aria-hidden="true">&rarr;</span></a
+          >
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="--chip: var(--cat-writing)">Writing</h2>
+      <p class="group-note">
+        The New York Times, 2011&ndash;2012 &mdash; gift links, free to read.
+      </p>
+      <ul class="writing-list">
+        <li>
+          <a
+            href="https://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?unlocked_article_code=1.0lA.pzpm.joRpZQa6Cft6&smid=url-share"
+            >For Bio-Hackers, Lab Work Often Begins at Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/10/11/health/11brain.html?unlocked_article_code=1.0lA.SH-t.aZA5n6Nly4eu&smid=url-share"
+            >Chemical Cocktail Turns Brain&rsquo;s Gray Matter Transparent</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?unlocked_article_code=1.0lA.vEbN.DvZsqC4mAG-x&smid=url-share"
+            >Boom and Bust in Acorns Will Affect Many Creatures, Including
+            Humans</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?unlocked_article_code=1.0lA.2gJ_.Bbi3tGEL7B7E&smid=url-share"
+            >A Closer Look at Teeth May Mean More Fillings by Dentists</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/10/11/science/11cricket.html?unlocked_article_code=1.0lA.ry4D.agLmGjZaKhCn&smid=url-share"
+            >Male Cricket Hovers After Sex to Ensure Mate&rsquo;s Safety</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?unlocked_article_code=1.0lA.XGju.EPrtpILZBVcP&smid=url-share"
+            >Lungfish Study Suggests Walking Evolved in the Water</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?unlocked_article_code=1.0lA.hXKu.BiQEUq8R-mxu&smid=url-share"
+            >How Hungry Mosquitoes Cool Themselves</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?unlocked_article_code=1.0lA.XH9k.7X6Rppsv6bRy&smid=url-share"
+            >A Bacterial Platoon With Fungi Engineers</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?unlocked_article_code=1.0lA.Weqi.jQpMqMauyFX2&smid=url-share"
+            >Fishhooks Show the Advanced Maritime Skills of Another Age</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?unlocked_article_code=1.0lA.VIg_.KJlU-ZvPEyRb&smid=url-share"
+            >Different Strokes for Pregnant Dolphins</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?unlocked_article_code=1.0lA.bPds.Cds6yJfif2ac&smid=url-share"
+            >A Busy Love Life, Built With a Mother&rsquo;s Help</a
+          >
+        </li>
+        <li>
+          <a href="https://nyti.ms/3RBWgZs"
+            >For Quiet Moments Between Protests, a Growing Library</a
+          >
+          <span class="pub-note">City Room</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <footer>
+      <p>
+        Ritchie S. King &mdash;
+        <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> &mdash;
+        several older projects here were rescued from the
+        <a href="https://web.archive.org/">Internet Archive</a>.
+      </p>
+    </footer>
+  </div>
 
   <script src="js/strip.js"></script>
+  <script src="js/embeds.js"></script>
 </body>
 </html>

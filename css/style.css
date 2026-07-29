@@ -190,40 +190,190 @@ a:hover {
   white-space: nowrap;
 }
 
+/* ---- page scaffolding (homepage only) ----
+   body.home drops the 880px body column so feature bands can run wide;
+   .wrap restores it around regular content. resume/ and wtfd3/ share this
+   stylesheet and keep the plain body column. */
+body.home {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 /* ---- selected work ---- */
 .group-note {
   color: var(--muted);
   font-size: 14px;
   margin: -6px 0 20px;
 }
-.clip-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 28px 24px;
+
+/* ---- live teaser features ---- */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
-.clip {
-  margin: 0;
-}
-.clip .shot {
-  display: block;
-  margin: 0 0 10px;
-  aspect-ratio: 16 / 10;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
+.feature {
+  --band-pct: 14%;
+  width: min(1140px, 100% - 32px);
+  margin-inline: auto;
   background: var(--surface);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  background: color-mix(
+    in oklab,
+    var(--band-c, var(--baseline)) var(--band-pct),
+    var(--page)
+  );
+  border-radius: 18px;
 }
-.clip:hover .shot {
-  transform: translateY(-2px) rotate(-0.4deg);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+@media (prefers-color-scheme: dark) {
+  .feature {
+    --band-pct: 22%;
+  }
 }
-.clip .shot img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.feature-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+  padding: 32px 36px;
+}
+.feature-info h3 {
+  font-size: 27px;
+  line-height: 1.12;
+  margin: 0 0 8px;
+}
+.feature-info h3 a {
+  color: var(--ink);
+}
+.feature-info p {
+  margin: 10px 0 18px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+.cta {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.cta:hover {
+  text-decoration: none;
+  background: var(--ink);
+  color: var(--page);
+}
+
+/* ---- embed windows ---- */
+.embed-window {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff; /* the archived pages are white, both color schemes */
+  aspect-ratio: 16 / 10;
+}
+.embed-window.is-live {
+  aspect-ratio: auto; /* JS sets an explicit height */
+}
+.embed-window iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  transform-origin: 0 0;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.embed-window.is-live iframe {
+  opacity: 1;
+}
+.embed-fallback {
+  position: absolute;
+  inset: 0;
   display: block;
 }
+.embed-window.is-live .embed-fallback {
+  display: none;
+}
+.embed-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.embed-caption {
+  margin: 10px 2px 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-2);
+}
+.embed-caption.live::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cat-biofuels);
+  margin-right: 7px;
+  vertical-align: 1px;
+  animation: live-pulse 2.4s ease-in-out infinite;
+}
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .embed-caption.live::before {
+    animation: none;
+  }
+}
+
+/* ---- reading rows ---- */
+.reading-row {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+}
+.reading-row .embed-window {
+  aspect-ratio: 4 / 3;
+}
+.reading-row .embed-window.is-live {
+  aspect-ratio: auto;
+}
+.reading-text h3 {
+  font-size: 22px;
+  line-height: 1.15;
+  margin: 0 0 6px;
+}
+.reading-text h3 a {
+  color: var(--ink);
+}
+.reading-text p {
+  margin: 10px 0 16px;
+  font-size: 15px;
+  color: var(--ink-2);
+}
+
 .shot-ph {
   width: 100%;
   height: 100%;
@@ -248,10 +398,6 @@ a:hover {
   border-radius: 999px;
   padding: 4px 12px;
 }
-.clip-title {
-  font-weight: 600;
-  font-size: 16.5px;
-}
 .clip-meta {
   display: block;
   font-family: var(--font-mono);
@@ -264,11 +410,6 @@ a:hover {
 .clip-meta .role-badge {
   color: var(--ink-2);
   font-weight: 700;
-}
-.clip p {
-  margin: 0;
-  font-size: 14.5px;
-  color: var(--ink-2);
 }
 .writing-list {
   list-style: none;
@@ -345,6 +486,24 @@ footer {
   color: var(--muted);
 }
 
+@media (max-width: 900px) {
+  .feature-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 22px;
+  }
+  .feature-info h3 {
+    font-size: 24px;
+  }
+  .reading-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .reading-row .embed-window {
+    max-width: 420px;
+  }
+}
+
 @media (max-width: 620px) {
   body {
     padding-top: 32px;
@@ -358,8 +517,9 @@ footer {
   h2 {
     margin-top: 56px;
   }
-  .clip-grid {
-    grid-template-columns: 1fr;
+  .feature {
+    width: calc(100% - 20px);
+    border-radius: 14px;
   }
   .writing-list {
     columns: 1;
