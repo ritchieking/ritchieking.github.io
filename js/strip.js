@@ -16,7 +16,7 @@
       dates: "2002–2007",
       cat: "school",
       lane: 0,
-      beg: new Date(2006, 8, 1),
+      beg: new Date(2002, 8, 1),
       end: new Date(2007, 5, 1),
     },
     {
@@ -95,31 +95,33 @@
 
   // one label per category, anchored where the category begins
   var LABELS = [
-    { text: "SCHOOL", cat: "school", lane: 0, at: new Date(2006, 8, 1) },
+    { text: "SCHOOL", cat: "school", lane: 0, at: new Date(2002, 8, 1) },
     { text: "BIOFUELS ENGINEERING", cat: "biofuels", lane: 1, at: new Date(2007, 6, 1) },
     { text: "WRITING", cat: "writing", lane: 1, at: new Date(2011, 8, 1), prefer: "below" },
     { text: "VISUAL JOURNALISM", cat: "visjourn", lane: 1, at: new Date(2011, 11, 1) },
     { text: "DATA VIZ ENGINEERING", cat: "vizeng", lane: 1, at: new Date(2018, 9, 1) },
   ];
 
-  var YEAR_TICKS = [2010, 2015, 2020, 2025];
+  var YEAR_TICKS = [2005, 2010, 2015, 2020, 2025];
 
   var container = document.getElementById("strip");
   if (!container) return;
   var tooltip = document.getElementById("strip-tooltip");
 
+  // rows, top to bottom: year labels, school label, school lane,
+  // work labels, work lane, then overflow label rows
   var L = {
-    padTop: 6,
-    topLabelY: 14,
-    schoolY: 20,
-    schoolH: 9,
-    aboveLabelY: 46,
-    workY: 52,
+    tickLabelY: 12,
+    gridTop: 18,
+    topLabelY: 32,
+    schoolY: 38,
+    schoolH: 16,
+    aboveLabelY: 68,
+    workY: 74,
     workH: 16,
-    belowLabelY: [84, 98],
-    baselineY: 108,
-    tickLabelY: 122,
-    height: 128,
+    gridBottom: 94,
+    belowLabelY0: 106,
+    height: 126,
   };
 
   function render() {
@@ -129,7 +131,7 @@
       el.remove();
     });
 
-    var domainBeg = new Date(2006, 8, 1);
+    var domainBeg = new Date(2002, 8, 1);
     var domainEnd = new Date();
     var x = function (date) {
       return ((date - domainBeg) / (domainEnd - domainBeg)) * width;
@@ -144,7 +146,7 @@
     svg.setAttribute("role", "img");
     svg.setAttribute(
       "aria-label",
-      "Career timeline, 2006 to today. Click for the full interactive resume."
+      "Career timeline, 2002 to today. Click for the full interactive resume."
     );
 
     function make(tag, attrs, parent) {
@@ -154,14 +156,14 @@
       return el;
     }
 
-    // year gridlines + labels (recessive)
+    // year gridlines + labels up top (recessive)
     YEAR_TICKS.forEach(function (year) {
       var tx = x(new Date(year, 0, 1));
       make("line", {
         x1: tx,
         x2: tx,
-        y1: L.padTop,
-        y2: L.baselineY,
+        y1: L.gridTop,
+        y2: L.gridBottom,
         stroke: "var(--hairline)",
         "stroke-width": 1,
       });
@@ -174,16 +176,6 @@
         "font-family": "ui-monospace, Menlo, Consolas, monospace",
       });
       lbl.textContent = year;
-    });
-
-    // baseline
-    make("line", {
-      x1: 0,
-      x2: width,
-      y1: L.baselineY,
-      y2: L.baselineY,
-      stroke: "var(--baseline)",
-      "stroke-width": 1,
     });
 
     // segment bars
@@ -241,12 +233,22 @@
       });
     });
 
-    // category labels with greedy row placement (rows never overlap)
-    var rows = { top: [], above: [], below0: [], below1: [] };
+    // category labels with greedy row placement (rows never overlap);
+    // narrow screens may need extra below-lane rows — the svg grows to fit
+    var topRow = [];
+    var aboveRow = [];
+    var belowRows = [];
+    var maxBelow = -1;
     function fits(row, x0, x1) {
       return row.every(function (r) {
         return x1 < r[0] - 8 || x0 > r[1] + 8;
       });
+    }
+    function belowSlot(x0, x1) {
+      for (var i = 0; ; i++) {
+        if (!belowRows[i]) belowRows[i] = [];
+        if (fits(belowRows[i], x0, x1)) return i;
+      }
     }
     LABELS.forEach(function (lab) {
       var anchor = x(lab.at);
@@ -265,31 +267,25 @@
       var x0 = Math.min(anchor, width - w - 2);
       text.setAttribute("x", x0);
 
-      var placed = null;
+      var placed;
       if (lab.lane === 0) {
-        placed = { y: L.topLabelY, row: "top" };
+        placed = { y: L.topLabelY, row: topRow, below: false };
+      } else if (lab.prefer !== "below" && fits(aboveRow, x0, x0 + w)) {
+        placed = { y: L.aboveLabelY, row: aboveRow, below: false };
       } else {
-        var tryRows =
-          lab.prefer === "below"
-            ? ["below0", "above", "below1"]
-            : ["above", "below0", "below1"];
-        for (var i = 0; i < tryRows.length; i++) {
-          var key = tryRows[i];
-          if (fits(rows[key], x0, x0 + w)) {
-            placed = {
-              y: key === "above" ? L.aboveLabelY : L.belowLabelY[+key.slice(5)],
-              row: key,
-            };
-            break;
-          }
-        }
-        if (!placed) placed = { y: L.belowLabelY[1], row: "below1" };
+        var slot = belowSlot(x0, x0 + w);
+        maxBelow = Math.max(maxBelow, slot);
+        placed = {
+          y: L.belowLabelY0 + slot * 14,
+          row: belowRows[slot],
+          below: true,
+        };
       }
-      rows[placed.row].push([x0, x0 + w]);
+      placed.row.push([x0, x0 + w]);
       text.setAttribute("y", placed.y);
 
       // connector tick for labels pushed under the lane
-      if (placed.row === "below0" || placed.row === "below1") {
+      if (placed.below) {
         make("line", {
           x1: anchor + 1,
           x2: anchor + 1,
@@ -300,6 +296,11 @@
         });
       }
     });
+
+    svg.setAttribute(
+      "height",
+      Math.max(L.height, L.belowLabelY0 + maxBelow * 14 + 12)
+    );
   }
 
   render();
