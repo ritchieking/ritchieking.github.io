@@ -63,6 +63,15 @@
 		var trackH = parallax ? winH * TRACK_RATIO : winH;
 		track.style.height = trackH + 'px';
 		track.style.setProperty('--tl-shift', -(Math.max(trackH - winH, 0)) + 'px');
+		if (parallax) {
+			// confine the shift to the pinned phase; scroll(root) would otherwise
+			// start it at the top of the page and clip the era labels by the time
+			// the timeline is even in view
+			var pinTop = scrollWrap.getBoundingClientRect().top + window.scrollY;
+			var pinLen = Math.max(scrollWrap.clientHeight - winH, 1);
+			track.style.animationRange =
+				Math.round(pinTop) + 'px ' + Math.round(pinTop + pinLen) + 'px';
+		}
 
 		var y = function (d) {
 			return TOP_PAD + ((maxDate - d) / span) * (trackH - TOP_PAD);
