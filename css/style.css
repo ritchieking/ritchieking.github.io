@@ -13,6 +13,12 @@
   --link: #1c5cab;
   --highlight: rgba(237, 161, 0, 0.32);
   --amber-deep: #96660a;
+  /* timeline strip: warm rust→amber→bronze ramp for work + blue school
+     (validated: CVD-safe, normal-vision ΔE ≥ 15 on adjacent pairs) */
+  --tl-school: #2a78d6;
+  --tl-biofuels: #cf6b3c;
+  --tl-journalism: #eda100;
+  --tl-vizeng: #8f5a00;
   --cat-school: #2a78d6;
   --cat-biofuels: #eb6834;
   --cat-writing: #1baf7a;
@@ -35,6 +41,10 @@
     --link: #86b6ef;
     --highlight: rgba(201, 133, 0, 0.35);
     --amber-deep: #d3a04a;
+    --tl-school: #3987e5;
+    --tl-biofuels: #b04a20;
+    --tl-journalism: #c98500;
+    --tl-vizeng: #8a5f13;
     --cat-school: #3987e5;
     --cat-biofuels: #d95926;
     --cat-writing: #199e70;
@@ -150,8 +160,10 @@ a:hover {
      the gradient matches the page above the line, the card below it */
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* text lines up with the left edge of the .wrap text column above
+     (832px content width); clamped clear of the rounded corner */
+  left: max(calc((100% - min(832px, 100vw - 48px)) / 2 - 12px), 14px);
+  transform: translateY(-50%);
   padding: 0 12px;
   background: linear-gradient(var(--page) 50%, var(--surface) 50%);
   font-family: var(--font-mono);

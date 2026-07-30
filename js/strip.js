@@ -1,10 +1,10 @@
 // Career timeline strip — renders into #strip, links through to /resume/
 (function () {
     var CAT_COLORS = {
-        school: "--cat-school",
-        biofuels: "--cat-biofuels",
-        visjourn: "--cat-visjourn",
-        vizeng: "--cat-vizeng",
+        school: "--tl-school",
+        biofuels: "--tl-biofuels",
+        visjourn: "--tl-journalism",
+        vizeng: "--tl-vizeng",
     };
 
     // lane: 0 = school (thin, bottom), 1 = work (main, top)
