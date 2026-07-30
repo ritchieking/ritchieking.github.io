@@ -13,7 +13,7 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=2" />
+  <link rel="stylesheet" type="text/css" href="css/style.css?v=3" />
   <link rel="stylesheet" type="text/css" href="css/embeds.css" />
 </head>
 <body class="home">
@@ -21,12 +21,12 @@
     <header>
       <h1><span class="hi">Ritchie S. King</span></h1>
       <p class="lede">
-        I make charts and the tools that make charts. Currently a
-        <strong>staff data visualization engineer at Netflix</strong>; before
-        that, a decade in journalism as senior editor for data visualization at
-        FiveThirtyEight, a reporter at Quartz, and a science writer at The New
-        York Times. I also wrote <em>Visual Storytelling with D3</em>, an
-        introduction to making charts for the web.
+        I make charts. I build web applications for exploring them. I write
+        narrative explanations that rely on them.
+      </p>
+
+      <p class="lede"> Currently a
+        <strong>staff data visualization engineer at Netflix</strong>; before that, eight years in journalism as senior editor for data visualization at FiveThirtyEight, a visual journalist at Quartz, and a science writer and graphics editor at the New York Times. I also wrote a programming textbook called <em>Visual Storytelling with D3</em>.
       </p>
       <p class="contact-links">
         <a href="mailto:ritchiesking@gmail.com">email</a><span>·</span
@@ -37,16 +37,16 @@
     </header>
 
     <figure id="strip-figure">
-      <p class="strip-title">The last 24 years for me</p>
+      <figcaption class="strip-legend">Professional timeline</figcaption>
       <div id="strip">
         <div id="strip-tooltip"></div>
       </div>
       <ul class="visually-hidden">
-        <li>School: Dartmouth engineering, 2002–2007; NYU science journalism, 2010–2011</li>
+        <li>Undergrad: Dartmouth engineering, 2002–2007</li>
+        <li>Grad school: NYU science journalism, 2010–2011</li>
         <li>Biofuels engineering: Mascoma, 2007–2009</li>
-        <li>Writing: New York Times science desk, 2011</li>
         <li>
-          Visual journalism: New York Times, Businessweek, Quartz, and
+          Journalism: New York Times, Businessweek, Quartz, and
           FiveThirtyEight (through senior editor for data visualization),
           2011–2018
         </li>
@@ -65,11 +65,13 @@
 
   <section id="interactives">
     <div class="wrap">
-      <h2 style="--chip: var(--cat-visjourn)">Interactive Projects</h2>
+      <h2 style="--chip: var(--cat-visjourn)">Select Interactive Projects</h2>
       <p class="group-note">
-        Rescued from the FiveThirtyEight archives and rehosted here. The
-        teasers below aren&rsquo;t screenshots &mdash; they&rsquo;re the real,
-        working graphics. Click around.
+        FiveThirtyEight, where I did most of my work in journalism, was not
+        only shut down by ABC News &mdash; all the stories and interactive
+        projects were deleted. I&rsquo;ve rescued some of them from the
+        Internet Archive and republished them here, on my site. They mostly
+        work! (Shoutout Fable 5).
       </p>
     </div>
 
@@ -158,8 +160,8 @@
             >
             <p>
               Seven ways to redraw every congressional district in America. I
-              edited this one &mdash; coordinating the cartography, data, and
-              design.
+              edited this one, coordinating the cartography, data, and
+              design. Had to convince the lone maintainer of an obscure, long-untouched district-drawing app to update it with the latest Census data.
             </p>
             <a class="cta" href="redistricting-maps/"
               >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
@@ -185,8 +187,7 @@
             <span class="clip-meta">FiveThirtyEight · Jun&ndash;Nov 2016</span>
             <p>
               State-by-state win probabilities, polls, and the many ways the
-              presidential election could go &mdash; preserved in its final,
-              election-morning state.
+              presidential election could go. Nate Silver's model, a gigantic team effort, one of the most visited sites on the web in 2016.
             </p>
             <a class="cta" href="2016-election-forecast/"
               >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
@@ -213,8 +214,7 @@
             </h3>
             <span class="clip-meta">FiveThirtyEight · Aug 2015</span>
             <p>
-              A hands-on demonstration of p-hacking: prove either party is
-              better for the economy, just by tweaking your variables.
+              A hands-on demonstration of p-hacking
             </p>
             <a class="cta" href="p-hacking/"
               >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
@@ -255,7 +255,7 @@
 
   <section>
     <div class="wrap">
-      <h2 style="--chip: var(--cat-vizeng)">The Book</h2>
+      <h2 style="--chip: var(--cat-vizeng)">My Book</h2>
       <div id="book-section">
         <img src="imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" />
         <div class="book-text">

@@ -12,6 +12,7 @@
   --border: rgba(33, 29, 25, 0.12);
   --link: #1c5cab;
   --highlight: rgba(237, 161, 0, 0.32);
+  --amber-deep: #96660a;
   --cat-school: #2a78d6;
   --cat-biofuels: #eb6834;
   --cat-writing: #1baf7a;
@@ -33,6 +34,7 @@
     --border: rgba(244, 239, 230, 0.12);
     --link: #86b6ef;
     --highlight: rgba(201, 133, 0, 0.35);
+    --amber-deep: #d3a04a;
     --cat-school: #3987e5;
     --cat-biofuels: #d95926;
     --cat-writing: #199e70;
@@ -135,18 +137,29 @@ a:hover {
 /* ---- timeline strip ---- */
 #strip-figure {
   /* wider than the text column, still centered on the page */
+  position: relative;
   width: min(1100px, calc(100vw - 48px));
   margin: 48px 0 0 calc((100% - min(1100px, 100vw - 48px)) / 2);
-  padding: 20px 20px 16px;
+  padding: 22px 18px 10px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
 }
-.strip-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
-  margin: 2px 2px 14px;
+.strip-legend {
+  /* sits centered on the figure's top border, fieldset-legend style;
+     the gradient matches the page above the line, the card below it */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 12px;
+  background: linear-gradient(var(--page) 50%, var(--surface) 50%);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--amber-deep);
+  white-space: nowrap;
 }
 .strip-foot {
   /* sits under the strip panel, flush with its right edge */
