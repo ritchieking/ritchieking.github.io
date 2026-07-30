@@ -13,12 +13,12 @@
   --link: #1c5cab;
   --highlight: rgba(237, 161, 0, 0.32);
   --amber-deep: #96660a;
-  /* timeline strip: warm rust→amber→bronze ramp for work + blue school
-     (validated: CVD-safe, normal-vision ΔE ≥ 15 on adjacent pairs) */
-  --tl-school: #2a78d6;
-  --tl-biofuels: #cf6b3c;
+  /* timeline strip: warm bronze→amber→rust ramp for work + muted taupe
+     school (deliberately recessive); work chain validated CVD-safe */
+  --tl-school: #b5a88c;
+  --tl-biofuels: #8f5a00;
   --tl-journalism: #eda100;
-  --tl-vizeng: #8f5a00;
+  --tl-vizeng: #cf6b3c;
   --cat-school: #2a78d6;
   --cat-biofuels: #eb6834;
   --cat-writing: #1baf7a;
@@ -41,10 +41,10 @@
     --link: #86b6ef;
     --highlight: rgba(201, 133, 0, 0.35);
     --amber-deep: #d3a04a;
-    --tl-school: #3987e5;
-    --tl-biofuels: #b04a20;
+    --tl-school: #9a917b;
+    --tl-biofuels: #8a5f13;
     --tl-journalism: #c98500;
-    --tl-vizeng: #8a5f13;
+    --tl-vizeng: #b04a20;
     --cat-school: #3987e5;
     --cat-biofuels: #d95926;
     --cat-writing: #199e70;
