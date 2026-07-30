@@ -102,7 +102,7 @@ h2::before {
   width: 11px;
   height: 11px;
   border-radius: 3px;
-  background: var(--chip, var(--baseline));
+  background: var(--chip, var(--tl-journalism));
   margin-right: 10px;
   transform: rotate(-6deg);
   vertical-align: -1px;
