@@ -92,20 +92,25 @@
         },
     ];
 
-    // one label per stretch, anchored where the stretch begins
+    // one label per stretch, anchored where the stretch begins; long ones
+    // wrap on narrow screens. JOURNALISM is listed first so it claims the
+    // row hugging the lane — its neighbors' connectors then drop cleanly
+    // past it instead of through it.
     var LABELS = [
-        {
-            text: "BIOFUELS ENGINEERING",
-            lane: 1,
-            at: new Date(2007, 6, 1),
-        },
         {
             text: "JOURNALISM",
             lane: 1,
             at: new Date(2011, 8, 1),
         },
         {
+            text: "BIOFUELS ENGINEERING",
+            wrap: ["BIOFUELS", "ENGINEERING"],
+            lane: 1,
+            at: new Date(2007, 6, 1),
+        },
+        {
             text: "DATA VIZ ENGINEERING",
+            wrap: ["DATA VIZ", "ENGINEERING"],
             lane: 1,
             at: new Date(2018, 9, 1),
         },
@@ -114,6 +119,7 @@
     ];
 
     var YEAR_TICKS = [2005, 2010, 2015, 2020, 2025];
+    var NARROW = 520; // below this: wrapped labels, sparser year ticks
 
     var container = document.getElementById("strip");
     if (!container) return;
@@ -181,15 +187,17 @@
                 }
             }
         }
+        var narrow = width < NARROW;
+        var lineH = 12;
         var workRows = [];
+        var workRowLines = []; // tallest label (in lines) per work row
         var schoolRows = [];
         var placed = LABELS.map(function (lab) {
             var anchor = x(lab.at);
+            var lines = narrow && lab.wrap ? lab.wrap : [lab.text];
             var text = make(
                 "text",
                 {
-                    x: anchor,
-                    y: 0,
                     fill: "var(--ink-2)",
                     stroke: "var(--surface)",
                     "stroke-width": 3,
@@ -202,22 +210,44 @@
                 },
                 gLabels,
             );
-            text.textContent = lab.text;
-            var w = text.getComputedTextLength();
+            var spans = lines.map(function (line) {
+                var ts = document.createElementNS(NS, "tspan");
+                ts.textContent = line;
+                text.appendChild(ts);
+                return ts;
+            });
+            var w = Math.max.apply(
+                null,
+                spans.map(function (ts) {
+                    return ts.getComputedTextLength();
+                }),
+            );
             var x0 = Math.max(Math.min(anchor, width - w - 2), 0);
-            text.setAttribute("x", x0);
-            var rows = lab.lane === 1 ? workRows : schoolRows;
-            return {
-                lab: lab,
-                text: text,
-                anchor: anchor,
-                row: assignRow(rows, x0, x0 + w),
-            };
+            spans.forEach(function (ts) {
+                ts.setAttribute("x", x0);
+            });
+            var row;
+            if (lab.lane === 1) {
+                row = assignRow(workRows, x0, x0 + w);
+                workRowLines[row] = Math.max(
+                    workRowLines[row] || 0,
+                    lines.length,
+                );
+            } else {
+                row = assignRow(schoolRows, x0, x0 + w);
+            }
+            return { lab: lab, spans: spans, anchor: anchor, row: row };
         });
 
-        // lane geometry, now that the work-label row count is known
-        var nWork = workRows.length;
-        var workY = L.gridTop + 6 + nWork * L.labelRowH;
+        // lane geometry, now that the work-label rows are known; each row is
+        // as tall as its tallest (possibly wrapped) label
+        var rowH = workRowLines.map(function (n) {
+            return n * lineH + 2;
+        });
+        var labelBand = rowH.reduce(function (a, b) {
+            return a + b;
+        }, 0);
+        var workY = L.gridTop + 6 + labelBand;
         var schoolY = workY + L.workH + 8;
         var gridBottom = schoolY + L.schoolH + 2;
         var schoolLabelY = gridBottom + 13;
@@ -225,17 +255,18 @@
         svg.setAttribute("height", height);
 
         placed.forEach(function (p) {
-            var y;
+            var baseY; // baseline of the label's bottom line
             if (p.lab.lane === 1) {
                 // row 0 hugs the work lane; extra rows stack upward
-                y = workY - 8 - p.row * L.labelRowH;
+                baseY = workY - 8;
+                for (var j = 0; j < p.row; j++) baseY -= rowH[j];
                 if (p.row > 0) {
                     make(
                         "line",
                         {
                             x1: p.anchor + 1,
                             x2: p.anchor + 1,
-                            y1: y + 3,
+                            y1: baseY + 3,
                             y2: workY - 2,
                             stroke: "var(--baseline)",
                             "stroke-width": 1,
@@ -244,13 +275,19 @@
                     );
                 }
             } else {
-                y = schoolLabelY + p.row * L.labelRowH;
+                baseY = schoolLabelY + p.row * L.labelRowH;
             }
-            p.text.setAttribute("y", y);
+            p.spans.forEach(function (ts, i) {
+                ts.setAttribute(
+                    "y",
+                    baseY - (p.spans.length - 1 - i) * lineH,
+                );
+            });
         });
 
         // year gridlines + labels up top (recessive)
-        YEAR_TICKS.forEach(function (year) {
+        var ticks = narrow ? [2005, 2015, 2025] : YEAR_TICKS;
+        ticks.forEach(function (year) {
             var tx = x(new Date(year, 0, 1));
             make(
                 "line",
