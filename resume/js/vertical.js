@@ -10,7 +10,7 @@
 	// low so most of the 24 years is visible at once and the highlighted bar
 	// stays in frame even through the dense 2011-12 stretch
 	var TRACK_RATIO = 1.25;
-	// room above the "present" edge for the today dot + column labels
+	// room above the "present" edge for the today marker + column labels
 	var TOP_PAD = 44;
 
 	// era labels sit horizontally just above the top of the run of bars they
@@ -119,21 +119,21 @@
 			track.appendChild(div);
 		});
 
-		// today marker — a dot capping the "present" edge of the timeline
-		var now = new Date();
-		var MONTHS = 'JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC'.split(' ');
-		var dot = document.createElement('div');
-		dot.className = 'tl-today-dot';
-		dot.style.left = laneX('vizeng') + barW / 2 + 'px';
-		dot.style.top = TOP_PAD + 'px';
-		track.appendChild(dot);
+		// today marker — the word TODAY with a short line pointing at the top
+		// of the current bar
+		var lineEnd = laneX('vizeng') - 3;
+		var lineLen = 32;
+		var line = document.createElement('div');
+		line.className = 'tl-today-line';
+		line.style.left = lineEnd - lineLen + 'px';
+		line.style.width = lineLen + 'px';
+		line.style.top = TOP_PAD + 'px';
+		track.appendChild(line);
 		var tdy = document.createElement('div');
 		tdy.className = 'tl-today';
-		tdy.textContent =
-			'TODAY · ' +
-			MONTHS[now.getMonth()] + ' ' + now.getDate() + ', ' + now.getFullYear();
+		tdy.textContent = 'TODAY';
 		track.appendChild(tdy);
-		tdy.style.left = laneX('vizeng') - 9 - tdy.offsetWidth + 'px';
+		tdy.style.left = lineEnd - lineLen - 5 - tdy.offsetWidth + 'px';
 		tdy.style.top = TOP_PAD - tdy.offsetHeight / 2 + 'px';
 
 		// era labels — horizontal, centered above their column of bars
