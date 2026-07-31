@@ -81,7 +81,10 @@
 		var laneStep = (trackW - axisW) / LANES.length;
 		var barW = Math.min(12, Math.max(6, laneStep * 0.35));
 		var laneX = function (lane) {
-			return axisW + LANES.indexOf(lane) * laneStep + 2;
+			// bars sit centered within their lane channel
+			return (
+				axisW + LANES.indexOf(lane) * laneStep + (laneStep - barW) / 2
+			);
 		};
 
 		// lane group headers — centered within their divider-bounded band
