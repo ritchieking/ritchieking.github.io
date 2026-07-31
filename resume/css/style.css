@@ -15,11 +15,11 @@
 	--idle: #d9d3c6;
 	--font-display: 'Fraunces', Georgia, serif;
 	--font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-	--cat-school: #2a78d6;
-	--cat-engineering: #eb6834;
-	--cat-play: #1baf7a;
-	--cat-journalism: #eda100;
-	--cat-vizeng: #e87ba4;
+	--cat-school: #bb9a4b;
+	--cat-engineering: #5a66c7;
+	--cat-play: #d6749c;
+	--cat-journalism: #0c9c82;
+	--cat-vizeng: #8962c5;
 }
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -35,11 +35,11 @@
 		--link: #86b6ef;
 		--highlight: rgba(201, 133, 0, 0.35);
 		--idle: #3b3831;
-		--cat-school: #3987e5;
-		--cat-engineering: #d95926;
-		--cat-play: #199e70;
-		--cat-journalism: #c98500;
-		--cat-vizeng: #d55181;
+		--cat-school: #af8d3f;
+		--cat-engineering: #6371cc;
+		--cat-play: #b0416d;
+		--cat-journalism: #20947d;
+		--cat-vizeng: #9470cd;
 	}
 }
 
@@ -206,6 +206,9 @@ p {
 #history-scroll {
 	display: flex;
 	gap: 36px;
+	/* overlap the lane-head strip's border-top with the h2 rule so the two
+	   read as one line until the panel pins */
+	margin-top: -1px;
 	timeline-scope: --c1, --c2, --c3, --c4, --c5, --c6, --c7, --c8, --c9,
 		--c10;
 }
@@ -217,12 +220,17 @@ p {
 }
 .tl-sticky {
 	position: sticky;
-	top: 12px;
-	height: calc(100vh - 24px);
+	top: 0;
+	height: calc(100vh - 12px);
+	/* closes the frame on the open side of the panel */
+	border-right: 1px solid var(--baseline);
 }
 .tl-lane-heads {
 	position: relative;
-	height: 26px;
+	height: 36px;
+	/* the panel carries its own top rule so the header band stays capped
+	   after the h2 rule scrolls away */
+	border-top: 1px solid var(--baseline);
 	/* the ruled line the bars scroll under; sits outside .tl-window so it
 	   stays fixed while the track moves */
 	border-bottom: 1px solid var(--baseline);
@@ -235,13 +243,13 @@ p {
 }
 .tl-lane-heads span {
 	position: absolute;
-	top: 5px;
-	transform: translateX(-50%);
+	top: 50%;
+	transform: translate(-50%, -50%);
 	white-space: nowrap;
 }
 .tl-window {
 	position: relative;
-	height: calc(100% - 27px);
+	height: calc(100% - 36px);
 	overflow: hidden;
 }
 .tl-track {
@@ -455,6 +463,9 @@ p {
 	.tl-today-arrow,
 	.tl-lane-heads {
 		display: none;
+	}
+	.tl-sticky {
+		border-right: none;
 	}
 	.tl-window {
 		height: 100%;

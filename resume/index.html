@@ -1,157 +1,292 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ritchie S. King — résumé</title>
-<link rel="stylesheet" type="text/css" href="css/normalize.css">
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap" rel="stylesheet">
-<link rel="icon" href="/favicon.ico" sizes="32x32" />
-<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
-<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-<p class="top-nav"><a class="nav-home" href="../">&larr; ritchiesking.com</a><a class="nav-print" href="print.html">printable version &#8599;</a></p>
-<div class="masthead">
-	<h1>Ritchie S. King</h1>
-	<p class="role-line">staff data visualization engineer &middot; netflix</p>
-</div>
-<div id="top-row">
-	<div class="col">
-		<h2>COORDINATES</h2>
-		<p class="list-items"><a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a></p>
-		<p class="list-items"><a href="https://www.linkedin.com/in/ritchieking/">linkedin/ritchieking</a></p>
-		<p class="list-items"><a href="https://github.com/ritchieking">github/ritchieking</a></p>
-		<p class="list-items"><a href="../">ritchiesking.com</a></p>
-	</div>
-	<div class="col">
-		<h2>SKILLS</h2>
-		<p class="list-items">interactive data visualization</p>
-		<p class="list-items">information design</p>
-		<p class="list-items">front-end engineering</p>
-		<p class="list-items">data analysis</p>
-		<p class="list-items">editing &amp; storytelling</p>
-		<p class="list-items">reporting &amp; writing</p>
-	</div>
-	<div class="col">
-		<h2>TOOLS</h2>
-		<p class="list-items">javascript / typescript</p>
-		<p class="list-items">d3</p>
-		<p class="list-items">react</p>
-		<p class="list-items">svg &amp; canvas</p>
-		<p class="list-items">python</p>
-		<p class="list-items">r</p>
-	</div>
-	<div class="clearfix"></div>
-</div>
-<div id="history">
-	<h2 class="underline">HISTORY</h2>
-	<div id="history-scroll">
-		<div class="tl-col">
-			<div class="tl-sticky">
-				<div class="tl-lane-heads" aria-hidden="true">
-					<span class="lh-school">school</span><span class="lh-work">work</span><span class="lh-play">play</span>
-				</div>
-				<div class="tl-window">
-					<div class="tl-track" id="tl-track" aria-hidden="true"></div>
-				</div>
-			</div>
-		</div>
-		<div class="cards" id="cards">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ritchie S. King — résumé</title>
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    </head>
+    <body>
+        <p class="top-nav">
+            <a class="nav-home" href="../">&larr; ritchiesking.com</a
+            ><a class="nav-print" href="print.html"
+                >printable version &#8599;</a
+            >
+        </p>
+        <div class="masthead">
+            <h1>Ritchie S. King</h1>
+            <p class="role-line">
+                staff data visualization engineer &middot; netflix
+            </p>
+        </div>
+        <div id="top-row">
+            <div class="col">
+                <h2>COORDINATES</h2>
+                <p class="list-items">
+                    <a href="mailto:ritchiesking@gmail.com"
+                        >ritchiesking@gmail.com</a
+                    >
+                </p>
+                <p class="list-items">
+                    <a href="https://www.linkedin.com/in/ritchieking/"
+                        >linkedin/ritchieking</a
+                    >
+                </p>
+                <p class="list-items">
+                    <a href="https://github.com/ritchieking"
+                        >github/ritchieking</a
+                    >
+                </p>
+                <p class="list-items"><a href="../">ritchiesking.com</a></p>
+                <p class="list-items">sacramento, ca</p>
+            </div>
+            <div class="col">
+                <h2>SKILLS</h2>
+                <p class="list-items">data visualization</p>
+                <p class="list-items">full-stack web development</p>
+                <p class="list-items">ui/ux design</p>
+                <p class="list-items">data analysis, engineering, &amp; etl</p>
+                <p class="list-items">reporting, writing, &amp; editing</p>
+            </div>
+            <div class="col">
+                <h2>TOOLS</h2>
+                <p class="list-items">d3 • geojson • r • python</p>
+                <p class="list-items">ts • node • vite • react • express</p>
+                <p class="list-items">tailwind • figma • shadcn</p>
+                <p class="list-items">snowflake • spark • druid • tidyjs</p>
+                <p class="list-items">pi • herdr</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="history">
+            <h2 class="underline">PROFESSIONAL TIMELINE</h2>
+            <div id="history-scroll">
+                <div class="tl-col">
+                    <div class="tl-sticky">
+                        <div class="tl-lane-heads" aria-hidden="true">
+                            <span class="lh-school">school</span
+                            ><span class="lh-work">work</span
+                            ><span class="lh-play">play</span>
+                        </div>
+                        <div class="tl-window">
+                            <div
+                                class="tl-track"
+                                id="tl-track"
+                                aria-hidden="true"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards" id="cards">
+                    <article
+                        class="card cat-vizeng"
+                        style="view-timeline-name: --c1"
+                        data-lane="vizeng"
+                        data-beg="2025-04"
+                        data-end="present"
+                    >
+                        <h3>netflix</h3>
+                        <h4>staff data visualization engineer</h4>
+                        <h5>apr.25-present</h5>
+                        <p>
+                            technical lead helping to define our approach to
+                            building internal data products
+                        </p>
+                        <p class="placeLabel">REMOTE</p>
+                    </article>
 
-			<article class="card cat-vizeng" style="view-timeline-name: --c1" data-lane="vizeng" data-beg="2025-04" data-end="present">
-				<h3>netflix</h3>
-				<h4>staff data visualization engineer</h4>
-				<h5>apr.25-present</h5>
-				<p>leading the design and engineering of data visualization products</p>
-				<p class="placeLabel">REMOTE</p>
-			</article>
+                    <article
+                        class="card cat-vizeng"
+                        style="view-timeline-name: --c2"
+                        data-lane="vizeng"
+                        data-beg="2018-10"
+                        data-end="2025-04"
+                    >
+                        <h3>netflix</h3>
+                        <h4>senior data visualization engineer</h4>
+                        <h5>oct.18-apr.25</h5>
+                        <p>
+                            full-stack developer building tables and data-driven
+                            web applications to help corporate stakeholders make
+                            informed business decisions
+                        </p>
+                        <p class="placeLabel">LOS GATOS, CA</p>
+                    </article>
 
-			<article class="card cat-vizeng" style="view-timeline-name: --c2" data-lane="vizeng" data-beg="2018-10" data-end="2025-04">
-				<h3>netflix</h3>
-				<h4>senior data visualization engineer</h4>
-				<h5>oct.18-apr.25</h5>
-				<p>designed and built data visualization tools and interactive analytics products</p>
-				<p class="placeLabel">LOS GATOS, CA</p>
-			</article>
+                    <article
+                        class="card cat-journalism"
+                        style="view-timeline-name: --c3"
+                        data-lane="journalism"
+                        data-beg="2016-05"
+                        data-end="2018-09"
+                    >
+                        <h3>fivethirtyeight</h3>
+                        <h4>senior editor, data visualization</h4>
+                        <h5>may.16-sep.18</h5>
+                        <p>
+                            player-coach managing a four-person team of visual
+                            journalists and developers
+                        </p>
+                        <p>
+                            in charge of the house style and standards for
+                            displaying data in our articles and interactives
+                        </p>
+                        <p class="placeLabel">NEW YORK</p>
+                    </article>
 
-			<article class="card cat-journalism" style="view-timeline-name: --c3" data-lane="journalism" data-beg="2016-05" data-end="2018-09">
-				<h3>fivethirtyeight</h3>
-				<h4>senior editor, data visualization</h4>
-				<h5>may.16-sep.18</h5>
-				<p>led data visualization coverage and the viz team</p>
-				<p>edited and coordinated major interactive projects, including the atlas of redistricting</p>
-				<p class="placeLabel">NEW YORK</p>
-			</article>
+                    <article
+                        class="card cat-journalism"
+                        style="view-timeline-name: --c4"
+                        data-lane="journalism"
+                        data-beg="2014-02"
+                        data-end="2016-04"
+                    >
+                        <h3>fivethirtyeight</h3>
+                        <h4>visual journalist</h4>
+                        <h5>feb.14-apr.16</h5>
+                        <p>
+                            visual journalist creating static and interactive
+                            charts, maps, and tables for news stories and
+                            enterprise projects
+                        </p>
+                        <p>
+                            built a tool for making basic charts in
+                            fivethirtyeight style, used extensively by reporters
+                            in the newsroom
+                        </p>
+                        <p class="placeLabel">NEW YORK</p>
+                    </article>
 
-			<article class="card cat-journalism" style="view-timeline-name: --c4" data-lane="journalism" data-beg="2014-02" data-end="2016-04">
-				<h3>fivethirtyeight</h3>
-				<h4>visual journalist &rarr; senior visual journalist</h4>
-				<h5>feb.14-apr.16</h5>
-				<p>built interactive data visualizations and custom tools for the fivethirtyeight newsroom, including the 2016 election forecast</p>
-				<p>reported and wrote stories</p>
-				<p class="placeLabel">NEW YORK</p>
-			</article>
+                    <article
+                        class="card cat-journalism"
+                        style="view-timeline-name: --c5"
+                        data-lane="journalism"
+                        data-beg="2012-08"
+                        data-end="2014-02"
+                    >
+                        <h3>quartz</h3>
+                        <h4>visual journalist</h4>
+                        <h5>aug.12-feb.14</h5>
+                        <p>
+                            visual journalist reporting and writing
+                            graphic-driven stories about business and economics
+                        </p>
+                        <p class="placeLabel">NEW YORK</p>
+                    </article>
 
-			<article class="card cat-journalism" style="view-timeline-name: --c5" data-lane="journalism" data-beg="2012-08" data-end="2014-02">
-				<h3>quartz</h3>
-				<h4>reporter</h4>
-				<h5>aug.12-feb.14</h5>
-				<p>reporting and writing stories about business and economics</p>
-				<p>making static and interactive data visualizations</p>
-				<p class="placeLabel">NEW YORK</p>
-			</article>
+                    <article
+                        class="card cat-journalism"
+                        style="view-timeline-name: --c6"
+                        data-lane="journalism"
+                        data-beg="2011-09"
+                        data-end="2012-08"
+                    >
+                        <h3>new york times &amp; businessweek</h3>
+                        <h4>internships &amp; freelancing</h4>
+                        <h5>sep.11-aug.12</h5>
+                        <p>
+                            <strong>nyt science desk intern</strong>
+                            (sep.11-dec.11) &mdash; wrote stories for the
+                            science times
+                        </p>
+                        <p>
+                            <strong>nyt graphics intern</strong> (dec.11-mar.12)
+                            &mdash; made graphics for the paper and the web;
+                            trained with some of the best data viz experts in
+                            the world
+                        </p>
+                        <p>
+                            <strong>nyt freelance graphics editor</strong>
+                            (mar.12-jun.12) &mdash; stayed on at the times
+                            full-time after my internship
+                        </p>
+                        <p>
+                            <strong
+                                >businessweek freelance graphics editor</strong
+                            >
+                            (jun.12-aug.12) &mdash; made graphics for the
+                            magazine, working with bw's intensely creative art
+                            team
+                        </p>
+                        <p class="placeLabel">NEW YORK</p>
+                    </article>
 
-			<article class="card cat-journalism" style="view-timeline-name: --c6" data-lane="journalism" data-beg="2011-09" data-end="2012-08">
-				<h3>new york times &amp; businessweek</h3>
-				<h4>internships &amp; freelancing</h4>
-				<h5>sep.11-aug.12</h5>
-				<p><strong>nyt science desk intern</strong> (sep.11-dec.11) &mdash; wrote stories for the science times, both the paper and the web</p>
-				<p><strong>nyt graphics intern</strong> (dec.11-mar.12) &mdash; made graphics for the paper and the web; trained with some of the best data viz experts in the world</p>
-				<p><strong>nyt freelance graphics editor</strong> (mar.12-jun.12) &mdash; stayed on at the times full-time after my internship</p>
-				<p><strong>businessweek freelance graphics editor</strong> (jun.12-aug.12) &mdash; made graphics for the magazine, working with bw's intensely creative art team</p>
-				<p class="placeLabel">NEW YORK</p>
-			</article>
+                    <article
+                        class="card cat-school"
+                        style="view-timeline-name: --c7"
+                        data-lane="school"
+                        data-beg="2010-09"
+                        data-end="2011-12"
+                    >
+                        <h3>nyu</h3>
+                        <h4>journalism m.a.</h4>
+                        <h5>sep.10-dec.11</h5>
+                        <p>
+                            completed the science, health, and environmental
+                            reporting program (sherp)
+                        </p>
+                        <p class="placeLabel">NEW YORK</p>
+                    </article>
 
-			<article class="card cat-school" style="view-timeline-name: --c7" data-lane="school" data-beg="2010-09" data-end="2011-12">
-				<h3>nyu</h3>
-				<h4>journalism m.a.</h4>
-				<h5>sep.10-dec.11</h5>
-				<p>completed the science, health, and environmental reporting program (sherp)</p>
-				<p class="placeLabel">NEW YORK</p>
-			</article>
+                    <article
+                        class="card cat-play"
+                        style="view-timeline-name: --c8"
+                        data-lane="play"
+                        data-beg="2009-11"
+                        data-end="2010-05"
+                    >
+                        <h3>deer valley</h3>
+                        <h4>line cook</h4>
+                        <h5>nov.09-apr.10</h5>
+                        <p>chopped vegetables, shredded powder</p>
+                        <p class="placeLabel">PARK CITY, UT</p>
+                    </article>
 
-			<article class="card cat-play" style="view-timeline-name: --c8" data-lane="play" data-beg="2009-11" data-end="2010-05">
-				<h3>deer valley</h3>
-				<h4>line cook</h4>
-				<h5>nov.09-apr.10</h5>
-				<p>chopped vegetables, shredded powder</p>
-				<p class="placeLabel">PARK CITY, UT</p>
-			</article>
+                    <article
+                        class="card cat-engineering"
+                        style="view-timeline-name: --c9"
+                        data-lane="engineering"
+                        data-beg="2007-07"
+                        data-end="2009-07"
+                    >
+                        <h3>mascoma corp.</h3>
+                        <h4>chemical process engineer</h4>
+                        <h5>jul.07-jul.09</h5>
+                        <p>
+                            a process designer and experimenter working on the
+                            scale-up crew at a biofuels start-up
+                        </p>
+                        <p class="placeLabel">BOSTON</p>
+                    </article>
 
-			<article class="card cat-engineering" style="view-timeline-name: --c9" data-lane="engineering" data-beg="2007-07" data-end="2009-07">
-				<h3>mascoma corp.</h3>
-				<h4>chemical process engineer</h4>
-				<h5>jul.07-jul.09</h5>
-				<p>worked on the scale-up crew at a biofuels start-up</p>
-				<p>conducted fermentation experiments at a pilot plant</p>
-				<p class="placeLabel">BOSTON</p>
-			</article>
-
-			<article class="card cat-school" style="view-timeline-name: --c10" data-lane="school" data-beg="2002-09" data-end="2007-06">
-				<h3>dartmouth college</h3>
-				<h4>engineering major</h4>
-				<h5>sep.02-jun.07</h5>
-				<p>2007: b.e. in engineering (gpa: 3.67)</p>
-				<p>2006: b.s. in engineering and environmental science (gpa: 3.44)</p>
-				<p class="placeLabel">HANOVER, NH</p>
-			</article>
-
-		</div>
-	</div>
-</div>
-<script src="js/vertical.js"></script>
-</body>
+                    <article
+                        class="card cat-school"
+                        style="view-timeline-name: --c10"
+                        data-lane="school"
+                        data-beg="2002-09"
+                        data-end="2007-06"
+                    >
+                        <h3>dartmouth college</h3>
+                        <h4>engineering major</h4>
+                        <h5>sep.02-jun.07</h5>
+                        <p>2007: b.e. in engineering</p>
+                        <p>
+                            2006: b.s. in engineering and environmental science
+                        </p>
+                        <p class="placeLabel">HANOVER, NH</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <script src="js/vertical.js"></script>
+    </body>
 </html>
