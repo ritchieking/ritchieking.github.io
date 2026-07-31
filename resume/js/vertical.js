@@ -87,7 +87,8 @@
 			);
 		};
 
-		// lane group headers — centered within their divider-bounded band
+		// lane group headers — centered within their divider-bounded band,
+		// with the group dividers running up through the header strip
 		var heads = document.querySelector('.tl-lane-heads');
 		if (heads) {
 			var pos = function (el, x) {
@@ -96,6 +97,18 @@
 			pos(heads.querySelector('.lh-school'), axisW + laneStep * 0.5);
 			pos(heads.querySelector('.lh-work'), axisW + laneStep * 2.5);
 			pos(heads.querySelector('.lh-play'), axisW + laneStep * 4.5);
+			heads
+				.querySelectorAll('.tl-lane-div')
+				.forEach(function (el) {
+					el.remove();
+				});
+			[1, 4].forEach(function (idx) {
+				var div = document.createElement('div');
+				div.className = 'tl-lane-div';
+				div.style.left = axisW + idx * laneStep + 'px';
+				div.style.top = '0';
+				heads.appendChild(div);
+			});
 		}
 
 		// year ticks — every year, full label
@@ -112,32 +125,74 @@
 			track.appendChild(lab);
 		}
 
-		// dividers between the lane groups (school | work | play); they start
-		// just below the today marker so the header strip stays clean
+		// dividers between the lane groups (school | work | play); they run
+		// the full track so they meet their stubs in the header strip
 		[1, 4].forEach(function (idx) {
 			var div = document.createElement('div');
 			div.className = 'tl-lane-div';
 			div.style.left = axisW + idx * laneStep + 'px';
-			div.style.top = TOP_PAD - 2 + 'px';
+			div.style.top = '0';
 			track.appendChild(div);
 		});
 
-		// today marker — the word TODAY with a short line pointing at the top
-		// of the current bar
-		var lineEnd = laneX('vizeng') - 3;
-		var lineLen = 32;
-		var line = document.createElement('div');
-		line.className = 'tl-today-line';
-		line.style.left = lineEnd - lineLen + 'px';
-		line.style.width = lineLen + 'px';
-		line.style.top = TOP_PAD + 'px';
-		track.appendChild(line);
+		// today marker — the word TODAY sits below the present edge with a
+		// swoopy arrow curving up to the top of the current bar
 		var tdy = document.createElement('div');
 		tdy.className = 'tl-today';
 		tdy.textContent = 'TODAY';
 		track.appendChild(tdy);
-		tdy.style.left = lineEnd - lineLen - 5 - tdy.offsetWidth + 'px';
-		tdy.style.top = TOP_PAD - tdy.offsetHeight / 2 + 'px';
+		var barX = laneX('vizeng');
+		var tipX = barX - 4; // arrow tip: top-left corner of the bar
+		var tipY = TOP_PAD + 2;
+		var tdyY = TOP_PAD + 58;
+		tdy.style.left = barX - 46 - tdy.offsetWidth + 'px';
+		tdy.style.top = tdyY - tdy.offsetHeight / 2 + 'px';
+		var sx = barX - 42; // arrow tail: just past the text
+		var sy = tdyY - 5;
+		var pad = 12;
+		var aw = tipX - sx + pad * 2;
+		var ah = sy - tipY + pad * 2;
+		var svgNS = 'http://www.w3.org/2000/svg';
+		var arrow = document.createElementNS(svgNS, 'svg');
+		arrow.setAttribute('class', 'tl-today-arrow');
+		arrow.setAttribute('width', aw);
+		arrow.setAttribute('height', ah);
+		arrow.style.left = sx - pad + 'px';
+		arrow.style.top = tipY - pad + 'px';
+		// local coords: tail lower-left, tip upper-right; the curve bulges
+		// left before sweeping into the bar top
+		var lsx = pad;
+		var lsy = sy - tipY + pad;
+		var lex = tipX - sx + pad;
+		var ley = pad;
+		var c1x = lsx - 8;
+		var c1y = lsy - (lsy - ley) * 0.7;
+		var c2x = lsx + (lex - lsx) * 0.4;
+		var c2y = ley - 3;
+		// arrowhead wings, angled off the end tangent (c2 → tip)
+		var dx = lex - c2x;
+		var dy = ley - c2y;
+		var dl = Math.sqrt(dx * dx + dy * dy);
+		dx /= dl;
+		dy /= dl;
+		var wing = function (sign) {
+			var cos = Math.cos(0.45), sin = Math.sin(0.45) * sign;
+			var wx = dx * cos - dy * sin;
+			var wy = dx * sin + dy * cos;
+			return (
+				(lex - wx * 7).toFixed(1) + ' ' + (ley - wy * 7).toFixed(1)
+			);
+		};
+		var path = document.createElementNS(svgNS, 'path');
+		path.setAttribute(
+			'd',
+			'M ' + lsx + ' ' + lsy +
+				' C ' + c1x + ' ' + c1y + ', ' + c2x + ' ' + c2y +
+				', ' + lex + ' ' + ley +
+				' M ' + wing(1) + ' L ' + lex + ' ' + ley + ' L ' + wing(-1)
+		);
+		arrow.appendChild(path);
+		track.appendChild(arrow);
 
 		// era labels — horizontal, centered above their column of bars
 		ERAS.forEach(function (era) {

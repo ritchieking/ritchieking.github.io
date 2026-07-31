@@ -200,9 +200,11 @@ p {
 	--cat: var(--cat-vizeng);
 }
 
+#history .underline {
+	margin-bottom: 0;
+}
 #history-scroll {
 	display: flex;
-	margin-top: 28px;
 	gap: 36px;
 	timeline-scope: --c1, --c2, --c3, --c4, --c5, --c6, --c7, --c8, --c9,
 		--c10;
@@ -220,7 +222,7 @@ p {
 }
 .tl-lane-heads {
 	position: relative;
-	height: 24px;
+	height: 26px;
 	/* the ruled line the bars scroll under; sits outside .tl-window so it
 	   stays fixed while the track moves */
 	border-bottom: 1px solid var(--baseline);
@@ -233,12 +235,13 @@ p {
 }
 .tl-lane-heads span {
 	position: absolute;
+	top: 5px;
 	transform: translateX(-50%);
 	white-space: nowrap;
 }
 .tl-window {
 	position: relative;
-	height: calc(100% - 25px);
+	height: calc(100% - 27px);
 	overflow: hidden;
 }
 .tl-track {
@@ -297,9 +300,17 @@ p {
 	border-left: 1px dashed var(--baseline);
 }
 
-.tl-today-line {
+.tl-today-arrow {
 	position: absolute;
-	border-top: 1px solid var(--ink-2);
+	overflow: visible;
+	pointer-events: none;
+}
+.tl-today-arrow path {
+	fill: none;
+	stroke: var(--ink-2);
+	stroke-width: 1.25;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }
 .tl-today {
 	position: absolute;
@@ -441,7 +452,7 @@ p {
 	}
 	.tl-era,
 	.tl-today,
-	.tl-today-line,
+	.tl-today-arrow,
 	.tl-lane-heads {
 		display: none;
 	}
