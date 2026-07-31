@@ -1,406 +1,674 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ritchie S. King — data visualization</title>
-  <meta
-    name="description"
-    content="Ritchie S. King is a staff data visualization engineer at Netflix, formerly of FiveThirtyEight, Quartz, and The New York Times, and the author of Visual Storytelling with D3."
-  />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
-  <link rel="stylesheet" type="text/css" href="css/style.css?v=7" />
-  <link rel="stylesheet" type="text/css" href="css/embeds.css" />
-</head>
-<body class="home">
-  <div class="wrap">
-    <header>
-      <h1><span class="hi">Ritchie S. King</span></h1>
-      <p class="lede">
-        I make charts. I build web applications for exploring them. I write
-        narrative explanations that rely on them.
-      </p>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ritchie S. King — data visualization</title>
+        <meta
+            name="description"
+            content="Ritchie S. King is a staff data visualization engineer at Netflix, formerly of FiveThirtyEight, Quartz, and The New York Times, and the author of Visual Storytelling with D3."
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
+        <link rel="stylesheet" type="text/css" href="css/style.css?v=7" />
+        <link rel="stylesheet" type="text/css" href="css/embeds.css" />
+    </head>
+    <body class="home">
+        <div class="wrap">
+            <header>
+                <h1><span class="hi">Ritchie S. King</span></h1>
+                <p class="lede">
+                    I make charts. I build web applications for exploring them.
+                    I write narrative explanations that rely on them.
+                </p>
 
-      <p class="lede"> Currently a
-        <strong>staff data visualization engineer at Netflix</strong>; before that, eight years in journalism as senior editor for data visualization at FiveThirtyEight, a visual journalist at Quartz, and a science writer and graphics editor at the New York Times. I also wrote a programming textbook called <em>Visual Storytelling with D3</em>.
-      </p>
-      <p class="contact-links">
-        <a href="mailto:ritchiesking@gmail.com">email</a><span>·</span
-        ><a href="https://github.com/ritchieking">github</a><span>·</span
-        ><a href="https://www.linkedin.com/in/ritchieking/">linkedin</a
-        ><span>·</span><a href="resume/">r&eacute;sum&eacute;</a>
-      </p>
-    </header>
+                <p class="lede">
+                    Currently a
+                    <strong>staff data visualization engineer at Netflix</strong
+                    >; before that, eight years in journalism as senior editor
+                    for data visualization at FiveThirtyEight, a visual
+                    journalist at Quartz, and a science writer and graphics
+                    editor at the New York Times. I also wrote a programming
+                    textbook called <em>Visual Storytelling with D3</em>.
+                </p>
+                <p class="contact-links">
+                    <a href="mailto:ritchiesking@gmail.com">email</a
+                    ><span>·</span
+                    ><a href="https://github.com/ritchieking">github</a
+                    ><span>·</span
+                    ><a href="https://www.linkedin.com/in/ritchieking/"
+                        >linkedin</a
+                    ><span>·</span><a href="resume/">r&eacute;sum&eacute;</a>
+                </p>
+            </header>
 
-    <figure id="strip-figure">
-      <figcaption class="strip-legend">Professional timeline</figcaption>
-      <div id="strip">
-        <div id="strip-tooltip"></div>
-      </div>
-      <ul class="visually-hidden">
-        <li>Undergrad: Dartmouth engineering, 2002–2007</li>
-        <li>Grad school: NYU science journalism, 2010–2011</li>
-        <li>Biofuels engineering: Mascoma, 2007–2009</li>
-        <li>
-          Journalism: New York Times, Businessweek, Quartz, and
-          FiveThirtyEight (through senior editor for data visualization),
-          2011–2018
-        </li>
-        <li>
-          Data viz engineering: Netflix, senior then staff data visualization
-          engineer, 2018–present
-        </li>
-      </ul>
-    </figure>
-    <p class="strip-foot">
-      <a href="resume/"
-        >Explore the full interactive r&eacute;sum&eacute; &rarr;</a
-      >
-    </p>
-  </div>
+            <figure id="strip-figure">
+                <figcaption class="strip-legend">
+                    Professional timeline
+                </figcaption>
+                <div id="strip">
+                    <div id="strip-tooltip"></div>
+                </div>
+                <ul class="visually-hidden">
+                    <li>Undergrad: Dartmouth engineering, 2002–2007</li>
+                    <li>Grad school: NYU science journalism, 2010–2011</li>
+                    <li>Biofuels engineering: Mascoma, 2007–2009</li>
+                    <li>
+                        Journalism: New York Times, Businessweek, Quartz, and
+                        FiveThirtyEight (through senior editor for data
+                        visualization), 2011–2018
+                    </li>
+                    <li>
+                        Data viz engineering: Netflix, senior then staff data
+                        visualization engineer, 2018–present
+                    </li>
+                </ul>
+            </figure>
+            <p class="strip-foot">
+                <a href="resume/"
+                    >Explore my full interactive r&eacute;sum&eacute; &rarr;</a
+                >
+            </p>
+        </div>
 
-  <section id="interactives">
-    <div class="wrap">
-      <h2>Select Interactive Projects</h2>
-      <p class="group-note">
-        FiveThirtyEight, where I did most of my work in journalism, was not
-        only shut down by ABC News &mdash; all the stories and interactive
-        projects were deleted. I&rsquo;ve rescued some of them from the
-        Internet Archive and republished them here, on my site. They mostly
-        work! (Shoutout Fable 5).
-      </p>
-    </div>
-
-    <div class="features">
-      <article class="feature" style="--band-c: var(--cat-writing)">
-        <div class="feature-inner">
-          <div class="feature-embed">
-            <div class="embed-native ae-embed">
-          <table class="ae-table">
-                <thead>
-                  <tr class="ae-h2">
-                    <th class="ae-name">Map</th>
-                    <th class="ae-bar"><span>Usually Dem. districts</span><span>Highly competitive</span><span>Usually Republican</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                <tr class="ae-row">
-                  <td class="ae-name">Democratic gerrymander</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">263</span><span class="ae-c-comp" style="left:63.6%">27</span><span class="ae-c-gop">145</span></div>
-                    <img src="/redistricting-maps/images/Dem.png" alt="District partisan breakdown: Democratic gerrymander" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Proportionally partisan</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">174</span><span class="ae-c-comp" style="left:49.4%">82</span><span class="ae-c-gop">179</span></div>
-                    <img src="/redistricting-maps/images/Proportional.png" alt="District partisan breakdown: Proportionally partisan" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Majority minority</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">169</span><span class="ae-c-comp" style="left:48.3%">82</span><span class="ae-c-gop">184</span></div>
-                    <img src="/redistricting-maps/images/MajMin.png" alt="District partisan breakdown: Majority minority" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Highly competitive</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">94</span><span class="ae-c-comp" style="left:49.4%">242</span><span class="ae-c-gop">99</span></div>
-                    <img src="/redistricting-maps/images/Competitive.png" alt="District partisan breakdown: Highly competitive" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Compact (borders)</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">155</span><span class="ae-c-comp" style="left:47.0%">99</span><span class="ae-c-gop">181</span></div>
-                    <img src="/redistricting-maps/images/Compact.png" alt="District partisan breakdown: Compact (borders)" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Compact (algorithmic)</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">151</span><span class="ae-c-comp" style="left:46.7%">104</span><span class="ae-c-gop">180</span></div>
-                    <img src="/redistricting-maps/images/algorithmic-compact.png" alt="District partisan breakdown: Compact (algorithmic)" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row ae-hl">
-                  <td class="ae-name">Current</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">168</span><span class="ae-c-comp" style="left:46.9%">72</span><span class="ae-c-gop">195</span></div>
-                    <img src="/redistricting-maps/images/current.png" alt="District partisan breakdown: Current" loading="lazy" />
-                  </td>
-                </tr>
-                <tr class="ae-row">
-                  <td class="ae-name">Republican gerrymander</td>
-                  <td class="ae-bar">
-                    <div class="ae-counts"><span class="ae-c-dem">139</span><span class="ae-c-comp" style="left:34.4%">21</span><span class="ae-c-gop">275</span></div>
-                    <img src="/redistricting-maps/images/GOP.png" alt="District partisan breakdown: Republican gerrymander" loading="lazy" />
-                  </td>
-                </tr>
-                </tbody>
-              </table>
+        <section id="interactives">
+            <div class="wrap">
+                <h2>Select Interactive Projects</h2>
+                <p class="group-note">
+                    FiveThirtyEight, where I did most of my work in journalism,
+                    was not only shut down by ABC News &mdash; all the stories
+                    and interactive projects were deleted. I&rsquo;ve rescued
+                    some of them from the Internet Archive and republished them
+                    here, on my site. They mostly work! (Shoutout Fable 5).
+                </p>
             </div>
-            <p class="embed-caption">
-              all 435 districts, redrawn seven ways, plus the current map for comparison
-            </p>
-          </div>
-          <div class="feature-info">
-            <h3><a href="redistricting-maps/">The Atlas of Redistricting</a></h3>
-            <span class="clip-meta"
-              >FiveThirtyEight · Jan 2018 ·
-              <span class="role-badge">editor</span></span
-            >
-            <p>
-              Seven ways to redraw every congressional district in America. I
-              edited this one, coordinating the cartography, data, and
-              design. Had to convince the lone maintainer of an obscure, long-untouched district-drawing app to pull it out of purgatory and update it with the latest Census data.
-            </p>
-            <a class="cta" href="redistricting-maps/"
-              >Explore my full interactive <span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
-        </div>
-      </article>
 
-      <article class="feature" style="--band-c: var(--cat-visjourn)">
-        <div class="feature-inner">
-          <div class="feature-embed">
-            <div class="embed-native fe-embed" data-teaser="forecast">
-              <a class="embed-fallback" href="2016-election-forecast/">
-                <span class="shot-ph"><span>open the interactive</span></span>
-              </a>
+            <div class="features">
+                <article class="feature" style="--band-c: var(--cat-writing)">
+                    <div class="feature-inner">
+                        <div class="feature-embed">
+                            <div class="embed-native ae-embed">
+                                <table class="ae-table">
+                                    <thead>
+                                        <tr class="ae-h2">
+                                            <th class="ae-name">Map</th>
+                                            <th class="ae-bar">
+                                                <span
+                                                    >Usually Dem.
+                                                    districts</span
+                                                ><span>Highly competitive</span
+                                                ><span>Usually Republican</span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Democratic gerrymander
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >263</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 63.6%"
+                                                        >27</span
+                                                    ><span class="ae-c-gop"
+                                                        >145</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/Dem.png"
+                                                    alt="District partisan breakdown: Democratic gerrymander"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Proportionally partisan
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >174</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 49.4%"
+                                                        >82</span
+                                                    ><span class="ae-c-gop"
+                                                        >179</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/Proportional.png"
+                                                    alt="District partisan breakdown: Proportionally partisan"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Majority minority
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >169</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 48.3%"
+                                                        >82</span
+                                                    ><span class="ae-c-gop"
+                                                        >184</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/MajMin.png"
+                                                    alt="District partisan breakdown: Majority minority"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Highly competitive
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >94</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 49.4%"
+                                                        >242</span
+                                                    ><span class="ae-c-gop"
+                                                        >99</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/Competitive.png"
+                                                    alt="District partisan breakdown: Highly competitive"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Compact (borders)
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >155</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 47%"
+                                                        >99</span
+                                                    ><span class="ae-c-gop"
+                                                        >181</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/Compact.png"
+                                                    alt="District partisan breakdown: Compact (borders)"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Compact (algorithmic)
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >151</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 46.7%"
+                                                        >104</span
+                                                    ><span class="ae-c-gop"
+                                                        >180</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/algorithmic-compact.png"
+                                                    alt="District partisan breakdown: Compact (algorithmic)"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row ae-hl">
+                                            <td class="ae-name">Current</td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >168</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 46.9%"
+                                                        >72</span
+                                                    ><span class="ae-c-gop"
+                                                        >195</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/current.png"
+                                                    alt="District partisan breakdown: Current"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                        <tr class="ae-row">
+                                            <td class="ae-name">
+                                                Republican gerrymander
+                                            </td>
+                                            <td class="ae-bar">
+                                                <div class="ae-counts">
+                                                    <span class="ae-c-dem"
+                                                        >139</span
+                                                    ><span
+                                                        class="ae-c-comp"
+                                                        style="left: 34.4%"
+                                                        >21</span
+                                                    ><span class="ae-c-gop"
+                                                        >275</span
+                                                    >
+                                                </div>
+                                                <img
+                                                    src="/redistricting-maps/images/GOP.png"
+                                                    alt="District partisan breakdown: Republican gerrymander"
+                                                    loading="lazy"
+                                                />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="embed-caption">
+                                all 435 districts, redrawn seven ways, plus the
+                                current map for comparison
+                            </p>
+                        </div>
+                        <div class="feature-info">
+                            <h3>
+                                <a href="redistricting-maps/"
+                                    >The Atlas of Redistricting</a
+                                >
+                            </h3>
+                            <span class="clip-meta"
+                                >FiveThirtyEight · Jan 2018 ·
+                                <span class="role-badge">editor</span></span
+                            >
+                            <p>
+                                Seven ways to redraw every congressional
+                                district in America. I edited this one,
+                                coordinating the cartography, data, and design.
+                                Had to convince the lone maintainer of an
+                                obscure, long-untouched district-drawing app to
+                                pull it out of purgatory and update it with the
+                                latest Census data.
+                            </p>
+                            <a class="cta" href="redistricting-maps/"
+                                >Explore the full interactive
+                                <span aria-hidden="true">&rarr;</span></a
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature" style="--band-c: var(--cat-visjourn)">
+                    <div class="feature-inner">
+                        <div class="feature-embed">
+                            <div
+                                class="embed-native fe-embed"
+                                data-teaser="forecast"
+                            >
+                                <a
+                                    class="embed-fallback"
+                                    href="2016-election-forecast/"
+                                >
+                                    <span class="shot-ph"
+                                        ><span>open the interactive</span></span
+                                    >
+                                </a>
+                            </div>
+                            <p class="embed-caption live">
+                                hover on the map for state odds
+                            </p>
+                        </div>
+                        <div class="feature-info">
+                            <h3>
+                                <a href="2016-election-forecast/"
+                                    >2016 Election Forecast</a
+                                >
+                            </h3>
+                            <span class="clip-meta"
+                                >FiveThirtyEight · Jun&ndash;Nov 2016</span
+                            >
+                            <p>
+                                State-by-state win probabilities, polls, and the
+                                many ways the presidential election could go.
+                                Nate Silver's model, a gigantic team effort, one
+                                of the most visited sites on the web in 2016.
+                            </p>
+                            <a class="cta" href="2016-election-forecast/"
+                                >Explore the full interactive
+                                <span aria-hidden="true">&rarr;</span></a
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article class="feature" style="--band-c: var(--cat-vizeng)">
+                    <div class="feature-inner">
+                        <div class="feature-embed">
+                            <div
+                                class="embed-native ph-embed"
+                                data-teaser="phack"
+                            >
+                                <a class="embed-fallback" href="p-hacking/">
+                                    <span class="shot-ph"
+                                        ><span>open the interactive</span></span
+                                    >
+                                </a>
+                            </div>
+                            <p class="embed-caption">
+                                the scatterplot, before you start hacking
+                            </p>
+                        </div>
+                        <div class="feature-info">
+                            <h3>
+                                <a href="p-hacking/"
+                                    >Hack Your Way to Scientific Glory</a
+                                >
+                            </h3>
+                            <span class="clip-meta"
+                                >FiveThirtyEight · Aug 2015</span
+                            >
+                            <p>
+                                A hands-on demonstration of “p-hacking,” the
+                                process by which research scientists make small
+                                tweaks to their studies to yield a statistically
+                                significant, and thus publishable, result. My
+                                colleagues had the idea; I found a suitable
+                                research question and backing data sets and
+                                designed and built the interactive.
+                            </p>
+                            <a class="cta" href="p-hacking/"
+                                >Explore the full interactive
+                                <span aria-hidden="true">&rarr;</span></a
+                            >
+                        </div>
+                    </div>
+                </article>
+
+                <article
+                    class="feature feature--narrow"
+                    style="--band-c: var(--cat-school)"
+                >
+                    <div class="feature-inner">
+                        <div class="feature-embed">
+                            <div
+                                class="embed-native fl-embed"
+                                data-teaser="flights"
+                            >
+                                <a class="embed-fallback" href="flights/">
+                                    <span class="shot-ph"
+                                        ><span>open the interactive</span></span
+                                    >
+                                </a>
+                            </div>
+                            <p class="embed-caption live">
+                                a sample interaction
+                            </p>
+                        </div>
+                        <div class="feature-info">
+                            <h3>
+                                <a href="flights/"
+                                    >Which Flight Will Get You There Fastest?</a
+                                >
+                            </h3>
+                            <span class="clip-meta"
+                                >FiveThirtyEight · Mar 2015</span
+                            >
+                            <p>
+                                The most delayed airports and the fastest
+                                airline on every domestic route, mined from
+                                millions of flight records. Nate Silver did the
+                                analysis, and I did the design and development.
+                            </p>
+                            <a class="cta" href="flights/"
+                                >Explore the full interactive
+                                <span aria-hidden="true">&rarr;</span></a
+                            >
+                        </div>
+                    </div>
+                </article>
             </div>
-            <p class="embed-caption live">
-              hover on the map for state odds
-            </p>
-          </div>
-          <div class="feature-info">
-            <h3><a href="2016-election-forecast/">2016 Election Forecast</a></h3>
-            <span class="clip-meta">FiveThirtyEight · Jun&ndash;Nov 2016</span>
-            <p>
-              State-by-state win probabilities, polls, and the many ways the
-              presidential election could go. Nate Silver's model, a gigantic team effort, one of the most visited sites on the web in 2016.
-            </p>
-            <a class="cta" href="2016-election-forecast/"
-              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
-        </div>
-      </article>
+        </section>
 
-      <article class="feature" style="--band-c: var(--cat-vizeng)">
-        <div class="feature-inner">
-          <div class="feature-embed">
-            <div class="embed-native ph-embed" data-teaser="phack">
-              <a class="embed-fallback" href="p-hacking/">
-                <span class="shot-ph"><span>open the interactive</span></span>
-              </a>
+        <section>
+            <div class="wrap">
+                <h2>My Book</h2>
+                <div id="book-section">
+                    <img
+                        src="imgs/bookcover.jpg"
+                        alt="Cover of Visual Storytelling with D3"
+                    />
+                    <div class="book-text">
+                        <p>
+                            <em>Visual Storytelling with D3</em>
+                            (Addison-Wesley, 2014) &mdash; an introduction to
+                            data visualization for the web, walking through a
+                            complete project from raw data to a finished
+                            interactive.
+                        </p>
+                        <blockquote>
+                            &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run
+                            into him.&rdquo;
+                            <cite>&mdash; an Amazon reviewer</cite>
+                        </blockquote>
+                    </div>
+                </div>
             </div>
-            <p class="embed-caption">
-              the scatterplot, before you start hacking
-            </p>
-          </div>
-          <div class="feature-info">
-            <h3>
-              <a href="p-hacking/">Hack Your Way to Scientific Glory</a>
-            </h3>
-            <span class="clip-meta">FiveThirtyEight · Aug 2015</span>
-            <p>
-              A hands-on demonstration of “p-hacking,” the process by which research scientists make small tweaks to their studies to yield a statistically significant, and thus publishable, result. My colleagues had the idea; I found a suitable research question and backing data sets and designed and built the interactive.
-            </p>
-            <a class="cta" href="p-hacking/"
-              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
-        </div>
-      </article>
+        </section>
 
-      <article class="feature feature--narrow" style="--band-c: var(--cat-school)">
-        <div class="feature-inner">
-          <div class="feature-embed">
-            <div class="embed-native fl-embed" data-teaser="flights">
-              <a class="embed-fallback" href="flights/">
-                <span class="shot-ph"><span>open the interactive</span></span>
-              </a>
+        <section>
+            <div class="wrap">
+                <h2>Graphics-Driven Explainers</h2>
+                <article class="reading-row">
+                    <div class="reading-thumb">
+                        <div
+                            class="embed-window"
+                            data-embed="dissecting-trumps-most-rabid-online-following"
+                        >
+                            <a
+                                class="embed-fallback"
+                                href="dissecting-trumps-most-rabid-online-following/"
+                            >
+                                <span class="shot-ph"
+                                    ><span>open the article</span></span
+                                >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="reading-text">
+                        <h3>
+                            <a
+                                href="dissecting-trumps-most-rabid-online-following/"
+                                >Dissecting Trump&rsquo;s Most Rabid Online
+                                Following</a
+                            >
+                        </h3>
+                        <span class="clip-meta"
+                            >FiveThirtyEight · Mar 2017 ·
+                            <span class="role-badge">editor</span></span
+                        >
+                        <p>
+                            Subreddit algebra: mapping the communities behind
+                            r/The_Donald with latent semantic analysis on 1.4
+                            billion Reddit comments. I edited this one.
+                        </p>
+                        <a
+                            class="cta"
+                            href="dissecting-trumps-most-rabid-online-following/"
+                            >Read the article
+                            <span aria-hidden="true">&rarr;</span></a
+                        >
+                    </div>
+                </article>
+
+                <article class="reading-row">
+                    <div class="reading-thumb">
+                        <div class="embed-window" data-embed="bitcoin-mining">
+                            <a class="embed-fallback" href="bitcoin-mining/">
+                                <span class="shot-ph"
+                                    ><span>open the article</span></span
+                                >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="reading-text">
+                        <h3>
+                            <a href="bitcoin-mining/"
+                                >By reading this page, you are mining
+                                bitcoins</a
+                            >
+                        </h3>
+                        <span class="clip-meta">Quartz · Dec 2013</span>
+                        <p>
+                            How bitcoin actually works. I did the writing and
+                            the graphics for this one. My colleagues made it fun
+                            by adding a script that actually mined Bitcoins
+                            while readers had the page opened (the script is
+                            disabled on my hosted version).
+                        </p>
+                        <a class="cta" href="bitcoin-mining/"
+                            >Read the article
+                            <span aria-hidden="true">&rarr;</span></a
+                        >
+                    </div>
+                </article>
             </div>
-            <p class="embed-caption live">
-                a sample interaction
-            </p>
-          </div>
-          <div class="feature-info">
-            <h3>
-              <a href="flights/">Which Flight Will Get You There Fastest?</a>
-            </h3>
-            <span class="clip-meta">FiveThirtyEight · Mar 2015</span>
-            <p>
-              The most delayed airports and the fastest airline on every domestic route, mined from millions
-              of flight records. Nate Silver did the analysis, and I did the design and development.
-            </p>
-            <a class="cta" href="flights/"
-              >Explore the full interactive <span aria-hidden="true">&rarr;</span></a
-            >
-          </div>
+        </section>
+
+        <section>
+            <div class="wrap">
+                <h2>Writing</h2>
+                <p class="group-note">
+                    Collected stories for the New York Times, mostly about
+                    science and health. All gift links and free to read.
+                </p>
+                <ul class="writing-list">
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?unlocked_article_code=1.0lA.pzpm.joRpZQa6Cft6&smid=url-share"
+                            >For Bio-Hackers, Lab Work Often Begins at Home</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/10/11/health/11brain.html?unlocked_article_code=1.0lA.SH-t.aZA5n6Nly4eu&smid=url-share"
+                            >Chemical Cocktail Turns Brain&rsquo;s Gray Matter
+                            Transparent</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?unlocked_article_code=1.0lA.vEbN.DvZsqC4mAG-x&smid=url-share"
+                            >Boom and Bust in Acorns Will Affect Many Creatures,
+                            Including Humans</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?unlocked_article_code=1.0lA.2gJ_.Bbi3tGEL7B7E&smid=url-share"
+                            >A Closer Look at Teeth May Mean More Fillings by
+                            Dentists</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/10/11/science/11cricket.html?unlocked_article_code=1.0lA.ry4D.agLmGjZaKhCn&smid=url-share"
+                            >Male Cricket Hovers After Sex to Ensure
+                            Mate&rsquo;s Safety</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?unlocked_article_code=1.0lA.XGju.EPrtpILZBVcP&smid=url-share"
+                            >Lungfish Study Suggests Walking Evolved in the
+                            Water</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?unlocked_article_code=1.0lA.hXKu.BiQEUq8R-mxu&smid=url-share"
+                            >How Hungry Mosquitoes Cool Themselves</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?unlocked_article_code=1.0lA.XH9k.7X6Rppsv6bRy&smid=url-share"
+                            >A Bacterial Platoon With Fungi Engineers</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?unlocked_article_code=1.0lA.Weqi.jQpMqMauyFX2&smid=url-share"
+                            >Fishhooks Show the Advanced Maritime Skills of
+                            Another Age</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?unlocked_article_code=1.0lA.VIg_.KJlU-ZvPEyRb&smid=url-share"
+                            >Different Strokes for Pregnant Dolphins</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?unlocked_article_code=1.0lA.bPds.Cds6yJfif2ac&smid=url-share"
+                            >A Busy Love Life, Built With a Mother&rsquo;s
+                            Help</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://nyti.ms/3RBWgZs"
+                            >For Quiet Moments Between Protests, a Growing
+                            Library</a
+                        >
+                        <span class="pub-note">City Room</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="wrap">
+            <footer>
+                <p>
+                    Ritchie S. King •
+                    <a href="mailto:ritchiesking@gmail.com"
+                        >ritchiesking@gmail.com</a
+                    >
+                    • Several projects showcased here were rescued from the
+                    <a href="https://web.archive.org/">Internet Archive</a> with
+                    the help of Fable 5.
+                </p>
+            </footer>
         </div>
-      </article>
-    </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <h2>My Book</h2>
-      <div id="book-section">
-        <img src="imgs/bookcover.jpg" alt="Cover of Visual Storytelling with D3" />
-        <div class="book-text">
-          <p>
-            <em>Visual Storytelling with D3</em> (Addison-Wesley, 2014) &mdash; an
-            introduction to data visualization for the web, walking through a
-            complete project from raw data to a finished interactive.
-          </p>
-          <blockquote>
-            &ldquo;I&rsquo;ll buy Ritchie a beer if I ever run into him.&rdquo;
-            <cite>&mdash; an Amazon reviewer</cite>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Graphics-Driven Explainers</h2>
-      <article class="reading-row">
-        <div class="reading-thumb">
-          <div class="embed-window" data-embed="bitcoin-mining">
-            <a class="embed-fallback" href="bitcoin-mining/">
-              <span class="shot-ph"><span>open the article</span></span>
-            </a>
-          </div>
-        </div>
-        <div class="reading-text">
-          <h3>
-            <a href="bitcoin-mining/"
-              >By reading this page, you are mining bitcoins</a
-            >
-          </h3>
-          <span class="clip-meta">Quartz · Dec 2013</span>
-          <p>
-            How bitcoin actually works. I did the writing and the graphics for this one. My colleagues made it fun by adding a script that actually mined Bitcoins while readers had the page opened (the script is disabled on my hosted version).
-          </p>
-          <a class="cta" href="bitcoin-mining/"
-            >Read the article <span aria-hidden="true">&rarr;</span></a
-          >
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>Writing</h2>
-      <p class="group-note">
-          Collected stories for the New York Times, mostly about science and health. All gift links and free to read.
-      </p>
-      <ul class="writing-list">
-        <li>
-          <a
-            href="https://www.nytimes.com/2012/01/17/science/for-bio-hackers-lab-work-often-begins-at-home.html?unlocked_article_code=1.0lA.pzpm.joRpZQa6Cft6&smid=url-share"
-            >For Bio-Hackers, Lab Work Often Begins at Home</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/10/11/health/11brain.html?unlocked_article_code=1.0lA.SH-t.aZA5n6Nly4eu&smid=url-share"
-            >Chemical Cocktail Turns Brain&rsquo;s Gray Matter Transparent</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/12/03/nyregion/boom-and-bust-in-acorns-will-affect-many-creatures-including-humans.html?unlocked_article_code=1.0lA.vEbN.DvZsqC4mAG-x&smid=url-share"
-            >Boom and Bust in Acorns Will Affect Many Creatures, Including
-            Humans</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/11/29/health/a-closer-look-at-teeth-may-mean-more-fillings-by-dentists.html?unlocked_article_code=1.0lA.2gJ_.Bbi3tGEL7B7E&smid=url-share"
-            >A Closer Look at Teeth May Mean More Fillings by Dentists</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/10/11/science/11cricket.html?unlocked_article_code=1.0lA.ry4D.agLmGjZaKhCn&smid=url-share"
-            >Male Cricket Hovers After Sex to Ensure Mate&rsquo;s Safety</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/12/20/science/african-lungfish-study-indicates-that-walking-evolved-in-the-water.html?unlocked_article_code=1.0lA.XGju.EPrtpILZBVcP&smid=url-share"
-            >Lungfish Study Suggests Walking Evolved in the Water</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/12/20/science/how-hungry-mosquitoes-cool-themselves.html?unlocked_article_code=1.0lA.hXKu.BiQEUq8R-mxu&smid=url-share"
-            >How Hungry Mosquitoes Cool Themselves</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/11/29/science/a-bacterial-platoon-with-fungi-engineers.html?unlocked_article_code=1.0lA.XH9k.7X6Rppsv6bRy&smid=url-share"
-            >A Bacterial Platoon With Fungi Engineers</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/11/29/science/fishhooks-show-the-advanced-maritime-skills-of-another-age.html?unlocked_article_code=1.0lA.Weqi.jQpMqMauyFX2&smid=url-share"
-            >Fishhooks Show the Advanced Maritime Skills of Another Age</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/11/29/science/different-strokes-for-pregnant-dolphins.html?unlocked_article_code=1.0lA.VIg_.KJlU-ZvPEyRb&smid=url-share"
-            >Different Strokes for Pregnant Dolphins</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.nytimes.com/2011/11/15/science/a-busy-love-life-built-with-a-mothers-help.html?unlocked_article_code=1.0lA.bPds.Cds6yJfif2ac&smid=url-share"
-            >A Busy Love Life, Built With a Mother&rsquo;s Help</a
-          >
-        </li>
-        <li>
-          <a href="https://nyti.ms/3RBWgZs"
-            >For Quiet Moments Between Protests, a Growing Library</a
-          >
-          <span class="pub-note">City Room</span>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <div class="wrap">
-    <footer>
-      <p>
-        Ritchie S. King •
-        <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> •
-        Several projects showcased here were rescued from the
-        <a href="https://web.archive.org/">Internet Archive</a> with the help of Fable 5.
-      </p>
-    </footer>
-  </div>
-
-  <script src="js/strip.js"></script>
-  <script src="js/embeds.js"></script>
-  <script src="js/teasers.js"></script>
-</body>
+        <script src="js/strip.js"></script>
+        <script src="js/embeds.js"></script>
+        <script src="js/teasers.js"></script>
+    </body>
 </html>

@@ -16,6 +16,14 @@
       height: 560, // fixed reading peek, internal px
       interactive: false,
     },
+    "dissecting-trumps-most-rabid-online-following": {
+      src: "dissecting-trumps-most-rabid-online-following/",
+      width: 1100,
+      top: ".post-info",
+      hbox: [".entry-content"],
+      height: 620,
+      interactive: false,
+    },
   };
 
   var PAD = 14; // breathing room around the cropped region, internal px
