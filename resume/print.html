@@ -1,286 +1,438 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ritchie S. King — résumé (printable)</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="icon" href="/favicon.ico" sizes="32x32" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 7.5in;
-      padding: 40px 24px;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: 13.5px;
-      line-height: 1.45;
-      color: #0b0b0b;
-      background: #fff;
-    }
-    header {
-      border-bottom: 2px solid #111;
-      padding-bottom: 10px;
-      margin-bottom: 18px;
-    }
-    h1 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 27px;
-      font-weight: 650;
-      margin: 0 0 4px;
-      letter-spacing: -0.01em;
-    }
-    .contact {
-      font-size: 12.5px;
-      color: #444;
-    }
-    .contact a {
-      color: #444;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-      text-decoration-style: wavy;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 3px;
-    }
-    h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      border-bottom: 1px solid #bbb;
-      padding-bottom: 3px;
-      margin: 20px 0 10px;
-    }
-    .job {
-      margin-bottom: 12px;
-      page-break-inside: avoid;
-    }
-    .job-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-    }
-    .job-head .org {
-      font-weight: 700;
-      font-size: 14.5px;
-    }
-    .job-head .dates {
-      color: #666;
-      font-size: 12.5px;
-      white-space: nowrap;
-      margin-left: 12px;
-    }
-    .role {
-      font-style: italic;
-      color: #333;
-    }
-    .role .dates {
-      font-style: normal;
-      color: #666;
-      font-size: 12px;
-    }
-    ul {
-      margin: 4px 0 0;
-      padding-left: 18px;
-    }
-    li {
-      margin-bottom: 2px;
-    }
-    .two-col {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .two-col > div {
-      flex: 1;
-      min-width: 220px;
-    }
-    .print-button {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      font-size: 13px;
-      padding: 8px 14px;
-      border: 1px solid #bbb;
-      border-radius: 6px;
-      background: #f6f6f4;
-      cursor: pointer;
-    }
-    .back-link {
-      font-size: 12px;
-      margin-bottom: 14px;
-    }
-    @media print {
-      body {
-        padding: 0;
-        font-size: 12px;
-      }
-      .print-button,
-      .back-link {
-        display: none;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      @page {
-        margin: 0.75in;
-      }
-    }
-  </style>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Ritchie S. King — résumé (printable)</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="icon" href="/favicon.ico" sizes="32x32" />
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+	<link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
+	<style>
+		/* print résumé — same design system as css/style.css, light-only
+		   (this page previews paper) */
+		:root {
+			color-scheme: light;
+			--page: #faf6ef;
+			--ink: #211d19;
+			--ink-2: #56514b;
+			--muted: #8b857c;
+			--hairline: #e7e1d5;
+			--baseline: #c9c2b4;
+			--link: #1c5cab;
+			--font-display: 'Fraunces', Georgia, serif;
+			--font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+			--cat-school: #bb9a4b;
+			--cat-engineering: #5a66c7;
+			--cat-play: #d6749c;
+			--cat-journalism: #0c9c82;
+			--cat-vizeng: #8962c5;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			margin: 0 auto;
+			max-width: 7.5in;
+			padding: 0 24px 48px;
+			background: var(--page);
+			color: var(--ink);
+			font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+			font-size: 13.5px;
+			line-height: 1.45;
+		}
+		a {
+			color: var(--link);
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+			text-decoration-style: wavy;
+			text-decoration-thickness: 1px;
+			text-underline-offset: 3px;
+		}
+		.top-nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-family: var(--font-mono);
+			font-size: 12px;
+			letter-spacing: 0.05em;
+			margin: 20px 0 0;
+		}
+		.top-nav a {
+			color: var(--muted);
+		}
+		.top-nav a:hover {
+			color: var(--ink);
+		}
+		.print-button {
+			font-family: var(--font-mono);
+			font-size: 12px;
+			letter-spacing: 0.05em;
+			color: var(--ink-2);
+			background: none;
+			border: 1px solid var(--baseline);
+			border-radius: 6px;
+			padding: 6px 12px;
+			cursor: pointer;
+		}
+		.print-button:hover {
+			color: var(--ink);
+			border-color: var(--ink-2);
+		}
+		.masthead {
+			display: flex;
+			align-items: baseline;
+			justify-content: space-between;
+			gap: 8px 28px;
+			flex-wrap: wrap;
+			margin: 20px 0 20px;
+		}
+		h1 {
+			font-family: var(--font-display);
+			font-size: 30px;
+			font-weight: 640;
+			letter-spacing: -0.01em;
+			margin: 0;
+		}
+		.role-line {
+			font-family: var(--font-mono);
+			font-size: 11.5px;
+			font-weight: 700;
+			letter-spacing: 0.08em;
+			color: var(--ink-2);
+			margin: 0;
+			white-space: nowrap;
+		}
+		.role-line::before {
+			content: '';
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 3px;
+			background: var(--cat-vizeng);
+			margin-right: 9px;
+			transform: rotate(-6deg);
+			vertical-align: -1px;
+		}
+		h2 {
+			font-family: var(--font-mono);
+			font-size: 11.5px;
+			font-weight: 700;
+			text-transform: lowercase;
+			letter-spacing: 0.12em;
+			border-bottom: 1px solid var(--baseline);
+			padding-bottom: 5px;
+			margin: 0 0 10px;
+		}
+		p {
+			color: var(--ink-2);
+			margin: 0 0 4px;
+		}
+		#top-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+			margin-bottom: 22px;
+		}
+		.col {
+			flex: 1;
+			min-width: 150px;
+		}
+		.list-items {
+			font-size: 12.5px;
+			margin: 0 0 3px;
+		}
+		section {
+			margin-bottom: 20px;
+		}
+		.entry {
+			margin-bottom: 11px;
+			break-inside: avoid;
+		}
+		.entry-head {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			gap: 0 10px;
+		}
+		h3 {
+			font-family: var(--font-display);
+			font-size: 15.5px;
+			font-weight: 600;
+			margin: 0;
+			white-space: nowrap;
+		}
+		h3::before {
+			content: '';
+			display: inline-block;
+			width: 8px;
+			height: 8px;
+			border-radius: 2px;
+			background: var(--cat);
+			margin-right: 7px;
+			vertical-align: 0;
+		}
+		.cat-school {
+			--cat: var(--cat-school);
+		}
+		.cat-engineering {
+			--cat: var(--cat-engineering);
+		}
+		.cat-play {
+			--cat: var(--cat-play);
+		}
+		.cat-journalism {
+			--cat: var(--cat-journalism);
+		}
+		.cat-vizeng {
+			--cat: var(--cat-vizeng);
+		}
+		.role {
+			color: var(--ink-2);
+		}
+		.dates {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			color: var(--muted);
+			white-space: nowrap;
+			margin-left: auto;
+		}
+		.entry p {
+			font-size: 12.5px;
+			margin: 1px 0 0 15px;
+		}
+		.entry strong {
+			color: var(--ink);
+			font-weight: 600;
+		}
+		.bottom-row {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+		.bottom-row > div {
+			flex: 1;
+			min-width: 220px;
+		}
+		@media print {
+			body {
+				max-width: none;
+				padding: 0;
+				background: #fff;
+				font-size: 12.5px;
+			}
+			.top-nav {
+				display: none;
+			}
+			.masthead {
+				margin-top: 0;
+			}
+			a {
+				color: inherit;
+			}
+			h3::before,
+			.role-line::before {
+				print-color-adjust: exact;
+				-webkit-print-color-adjust: exact;
+			}
+			@page {
+				size: letter;
+				margin: 0.6in 0.7in;
+			}
+		}
+	</style>
 </head>
 <body>
-  <button class="print-button" onclick="window.print()">Print / save PDF</button>
-  <p class="back-link"><a href="./">&larr; interactive version</a></p>
+	<p class="top-nav">
+		<a href="./">&larr; interactive version</a>
+		<button class="print-button" onclick="window.print()">
+			print / save pdf
+		</button>
+	</p>
 
-  <header>
-    <h1>Ritchie S. King</h1>
-    <p class="contact">
-      <a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a> ·
-      <a href="https://ritchiesking.com">ritchiesking.com</a> ·
-      <a href="https://www.linkedin.com/in/ritchieking/">linkedin.com/in/ritchieking</a> ·
-      <a href="https://github.com/ritchieking">github.com/ritchieking</a>
-    </p>
-  </header>
+	<div class="masthead">
+		<h1>Ritchie S. King</h1>
+		<p class="role-line">staff data visualization engineer &middot; netflix</p>
+	</div>
 
-  <h2>Experience</h2>
+	<div id="top-row">
+		<div class="col">
+			<h2>COORDINATES</h2>
+			<p class="list-items">
+				<a href="mailto:ritchiesking@gmail.com">ritchiesking@gmail.com</a>
+			</p>
+			<p class="list-items">
+				<a href="https://www.linkedin.com/in/ritchieking/">linkedin/ritchieking</a>
+			</p>
+			<p class="list-items">
+				<a href="https://github.com/ritchieking">github/ritchieking</a>
+			</p>
+			<p class="list-items">
+				<a href="https://ritchiesking.com">ritchiesking.com</a>
+			</p>
+			<p class="list-items">sacramento, ca</p>
+		</div>
+		<div class="col">
+			<h2>SKILLS</h2>
+			<p class="list-items">data visualization</p>
+			<p class="list-items">full-stack web development</p>
+			<p class="list-items">ui/ux design</p>
+			<p class="list-items">data analysis, engineering, &amp; etl</p>
+			<p class="list-items">reporting, writing, &amp; editing</p>
+		</div>
+		<div class="col">
+			<h2>TOOLS</h2>
+			<p class="list-items">d3 &bull; tidyjs &bull; geojson</p>
+			<p class="list-items">ts &bull; node &bull; vite &bull; react &bull; express</p>
+			<p class="list-items">tailwind &bull; figma &bull; shadcn</p>
+			<p class="list-items">r &bull; snowflake &bull; spark &bull; druid</p>
+			<p class="list-items">pi &bull; herdr</p>
+		</div>
+	</div>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">Netflix</span>
-      <span class="dates">Oct 2018 – present</span>
-    </div>
-    <p class="role">
-      Staff Data Visualization Engineer <span class="dates">(Apr 2025 – present)</span><br />
-      Senior Data Visualization Engineer <span class="dates">(Oct 2018 – Apr 2025)</span>
-    </p>
-    <ul>
-      <li>
-        Design and build data visualization tools and interactive analytics
-        products used across Netflix.
-      </li>
-      <li>
-        Lead visualization engineering work spanning design, data, and
-        front-end architecture.
-      </li>
-    </ul>
-  </div>
+	<section>
+		<h2>WORK</h2>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">FiveThirtyEight</span>
-      <span class="dates">Feb 2014 – Sep 2018</span>
-    </div>
-    <p class="role">
-      Senior Editor, Data Visualization <span class="dates">(May 2016 – Sep 2018)</span><br />
-      Visual Journalist → Senior Visual Journalist <span class="dates">(Feb 2014 – Apr 2016)</span>
-    </p>
-    <ul>
-      <li>
-        Led data visualization coverage and the viz team; edited and
-        coordinated major interactive projects, including
-        <em>The Atlas of Redistricting</em>.
-      </li>
-      <li>
-        Designed and built interactive graphics and newsroom tools, including
-        the 2016 election forecast, a Reddit Ngram viewer, and the p-hacking
-        interactive &ldquo;Hack Your Way to Scientific Glory.&rdquo;
-      </li>
-    </ul>
-  </div>
+		<div class="entry cat-vizeng">
+			<div class="entry-head">
+				<h3>netflix</h3>
+				<span class="role">staff data visualization engineer</span>
+				<span class="dates">apr.25-present &middot; remote</span>
+			</div>
+			<p>
+				technical lead helping to define our approach to building
+				internal data products
+			</p>
+		</div>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">Quartz</span>
-      <span class="dates">Aug 2012 – Feb 2014</span>
-    </div>
-    <p class="role">Reporter</p>
-    <ul>
-      <li>
-        Covered business and economics with data-driven stories and static and
-        interactive graphics, including the animated explainer
-        &ldquo;By reading this page, you are mining bitcoins.&rdquo;
-      </li>
-    </ul>
-  </div>
+		<div class="entry cat-vizeng">
+			<div class="entry-head">
+				<h3>netflix</h3>
+				<span class="role">senior data visualization engineer</span>
+				<span class="dates">oct.18-apr.25 &middot; los gatos, ca</span>
+			</div>
+			<p>
+				full-stack developer building tables and data-driven web
+				applications to help corporate stakeholders make informed
+				business decisions
+			</p>
+		</div>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">Bloomberg Businessweek</span>
-      <span class="dates">Jun 2012 – Aug 2012</span>
-    </div>
-    <p class="role">Freelance Graphics Editor</p>
-    <ul>
-      <li>Made infographics for the print magazine and the web.</li>
-    </ul>
-  </div>
+		<div class="entry cat-journalism">
+			<div class="entry-head">
+				<h3>fivethirtyeight</h3>
+				<span class="role">senior editor, data visualization</span>
+				<span class="dates">may.16-sep.18 &middot; new york</span>
+			</div>
+			<p>
+				player-coach managing a four-person team of visual journalists
+				and developers; in charge of the house style and standards for
+				displaying data in our articles and interactives
+			</p>
+		</div>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">The New York Times</span>
-      <span class="dates">Sep 2011 – Jun 2012</span>
-    </div>
-    <p class="role">
-      Science Desk Intern; Graphics Desk Intern; Freelance Graphics Editor
-    </p>
-    <ul>
-      <li>
-        Wrote for Science Times and made graphics for the paper and the web.
-      </li>
-    </ul>
-  </div>
+		<div class="entry cat-journalism">
+			<div class="entry-head">
+				<h3>fivethirtyeight</h3>
+				<span class="role">visual journalist</span>
+				<span class="dates">feb.14-apr.16 &middot; new york</span>
+			</div>
+			<p>
+				created static and interactive charts, maps, and tables for news
+				stories and enterprise projects; built a tool for making basic
+				charts in fivethirtyeight style, used extensively by reporters
+				in the newsroom
+			</p>
+		</div>
 
-  <div class="job">
-    <div class="job-head">
-      <span class="org">Mascoma Corp.</span>
-      <span class="dates">Jul 2007 – Jul 2009</span>
-    </div>
-    <p class="role">Chemical Process Engineer</p>
-    <ul>
-      <li>
-        Scale-up crew at a cellulosic-biofuels startup; ran fermentation
-        experiments at a pilot plant.
-      </li>
-    </ul>
-  </div>
+		<div class="entry cat-journalism">
+			<div class="entry-head">
+				<h3>quartz</h3>
+				<span class="role">visual journalist</span>
+				<span class="dates">aug.12-feb.14 &middot; new york</span>
+			</div>
+			<p>
+				reported and wrote graphic-driven stories about business and
+				economics
+			</p>
+		</div>
 
-  <h2>Book</h2>
-  <p>
-    <em>Visual Storytelling with D3: An Introduction to Data Visualization in
-    JavaScript</em> — Addison-Wesley, 2014.
-  </p>
+		<div class="entry cat-journalism">
+			<div class="entry-head">
+				<h3>new york times &amp; businessweek</h3>
+				<span class="role">internships &amp; freelancing</span>
+				<span class="dates">sep.11-aug.12 &middot; new york</span>
+			</div>
+			<p>
+				<strong>nyt</strong> science desk intern, then graphics intern
+				&mdash; trained with some of the best data viz experts in the
+				world &mdash; then freelance graphics editor;
+				<strong>businessweek</strong> freelance graphics editor, working
+				with bw's intensely creative art team
+			</p>
+		</div>
 
-  <div class="two-col">
-    <div>
-      <h2>Education</h2>
-      <p>
-        <strong>NYU</strong> — M.A., Journalism; Science, Health and
-        Environmental Reporting Program (2011)
-      </p>
-      <p>
-        <strong>Dartmouth College</strong> — B.E., Engineering (2007); B.S.,
-        Engineering &amp; Environmental Science (2006)
-      </p>
-    </div>
-    <div>
-      <h2>Skills &amp; Tools</h2>
-      <p>
-        Interactive data visualization · information design · data analysis ·
-        editing &amp; storytelling
-      </p>
-      <p>JavaScript / TypeScript · D3 · React · SVG &amp; Canvas · Python · R</p>
-    </div>
-  </div>
+		<div class="entry cat-engineering">
+			<div class="entry-head">
+				<h3>mascoma corp.</h3>
+				<span class="role">chemical process engineer</span>
+				<span class="dates">jul.07-jul.09 &middot; boston</span>
+			</div>
+			<p>
+				a process designer and experimenter working on the scale-up crew
+				at a biofuels start-up
+			</p>
+		</div>
+	</section>
+
+	<div class="bottom-row">
+		<div>
+			<h2>SCHOOL</h2>
+			<div class="entry cat-school">
+				<div class="entry-head">
+					<h3>nyu</h3>
+					<span class="role">journalism m.a.</span>
+					<span class="dates">sep.10-dec.11</span>
+				</div>
+				<p>
+					completed the science, health, and environmental reporting
+					program (sherp)
+				</p>
+			</div>
+			<div class="entry cat-school">
+				<div class="entry-head">
+					<h3>dartmouth college</h3>
+					<span class="role">engineering major</span>
+					<span class="dates">sep.02-jun.07</span>
+				</div>
+				<p>
+					2007: b.e. in engineering &middot; 2006: b.s. in engineering
+					and environmental science
+				</p>
+			</div>
+		</div>
+		<div>
+			<h2>PLAY</h2>
+			<div class="entry cat-play">
+				<div class="entry-head">
+					<h3>deer valley</h3>
+					<span class="role">line cook</span>
+					<span class="dates">nov.09-apr.10</span>
+				</div>
+				<p>chopped vegetables, shredded powder</p>
+			</div>
+			<h2 style="margin-top: 16px">BOOK</h2>
+			<p style="font-size: 12.5px">
+				<em>visual storytelling with d3</em> &mdash; addison-wesley,
+				2014
+			</p>
+		</div>
+	</div>
 </body>
 </html>
