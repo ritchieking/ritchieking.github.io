@@ -6,7 +6,7 @@
   "use strict";
 
   /* The interactive-project teasers moved to native embeds (js/teasers.js);
-     iframes remain only for the two article reading peeks. */
+     iframes remain only for the article reading peek. */
   var CONFIGS = {
     "bitcoin-mining": {
       src: "bitcoin-mining/",
@@ -14,14 +14,6 @@
       top: ".item-header",
       hbox: [".item-body"], // the article column, not the full app shell
       height: 560, // fixed reading peek, internal px
-      interactive: false,
-    },
-    "dissecting-trumps-most-rabid-online-following": {
-      src: "dissecting-trumps-most-rabid-online-following/",
-      width: 1100,
-      top: ".post-info",
-      hbox: [".entry-content"],
-      height: 620,
       interactive: false,
     },
   };
