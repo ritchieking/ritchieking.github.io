@@ -26,11 +26,10 @@
 			--link: #1c5cab;
 			--font-display: 'Fraunces', Georgia, serif;
 			--font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-			--cat-school: #bb9a4b;
-			--cat-engineering: #5a66c7;
-			--cat-play: #d6749c;
-			--cat-journalism: #0c9c82;
-			--cat-vizeng: #8962c5;
+			/* one badge color for everything — on paper there is no lane
+			   header or legend to decode a category palette, so the chips
+			   are decoration, not data. amber, from css/style.css */
+			--chip: #96660a;
 		}
 		* {
 			box-sizing: border-box;
@@ -69,6 +68,11 @@
 		}
 		.top-nav a:hover {
 			color: var(--ink);
+		}
+		/* the nav arrow is a browser affordance; the bare url is what a
+		   printed copy needs. each shows up only where it means something */
+		.print-url {
+			display: none;
 		}
 		.print-button {
 			font-family: var(--font-mono);
@@ -115,7 +119,7 @@
 			width: 10px;
 			height: 10px;
 			border-radius: 3px;
-			background: var(--cat-vizeng);
+			background: var(--chip);
 			margin-right: 9px;
 			transform: rotate(-6deg);
 			vertical-align: -1px;
@@ -174,24 +178,9 @@
 			width: 8px;
 			height: 8px;
 			border-radius: 2px;
-			background: var(--cat);
+			background: var(--chip);
 			margin-right: 7px;
 			vertical-align: 0;
-		}
-		.cat-school {
-			--cat: var(--cat-school);
-		}
-		.cat-engineering {
-			--cat: var(--cat-engineering);
-		}
-		.cat-play {
-			--cat: var(--cat-play);
-		}
-		.cat-journalism {
-			--cat: var(--cat-journalism);
-		}
-		.cat-vizeng {
-			--cat: var(--cat-vizeng);
 		}
 		.role {
 			color: var(--ink-2);
@@ -228,10 +217,21 @@
 				font-size: 12.5px;
 			}
 			.top-nav {
+				font-size: 10.5px;
+				margin: 0 0 9px;
+			}
+			.top-nav a {
+				color: var(--ink-2);
+			}
+			.nav-arrow,
+			.print-button {
 				display: none;
 			}
+			.print-url {
+				display: inline;
+			}
 			.masthead {
-				margin-top: 0;
+				margin: 0 0 20px;
 			}
 			a {
 				color: inherit;
@@ -250,7 +250,12 @@
 </head>
 <body>
 	<p class="top-nav">
-		<a href="./">&larr; interactive version</a>
+		<a href="./"
+			><span class="nav-arrow" aria-hidden="true">&larr; </span>interactive
+			version<span class="print-url">
+				&middot; ritchiesking.com/resume</span
+			></a
+		>
 		<button class="print-button" onclick="window.print()">
 			print / save pdf
 		</button>
@@ -299,7 +304,7 @@
 	<section>
 		<h2>WORK</h2>
 
-		<div class="entry cat-vizeng">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>netflix</h3>
 				<span class="role">staff data visualization engineer</span>
@@ -311,7 +316,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-vizeng">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>netflix</h3>
 				<span class="role">senior data visualization engineer</span>
@@ -324,7 +329,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-journalism">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>fivethirtyeight</h3>
 				<span class="role">senior editor, data visualization</span>
@@ -337,7 +342,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-journalism">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>fivethirtyeight</h3>
 				<span class="role">visual journalist</span>
@@ -351,7 +356,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-journalism">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>quartz</h3>
 				<span class="role">visual journalist</span>
@@ -363,7 +368,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-journalism">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>new york times &amp; businessweek</h3>
 				<span class="role">internships &amp; freelancing</span>
@@ -378,7 +383,7 @@
 			</p>
 		</div>
 
-		<div class="entry cat-engineering">
+		<div class="entry">
 			<div class="entry-head">
 				<h3>mascoma corp.</h3>
 				<span class="role">chemical process engineer</span>
@@ -394,7 +399,7 @@
 	<div class="bottom-row">
 		<div>
 			<h2>SCHOOL</h2>
-			<div class="entry cat-school">
+			<div class="entry">
 				<div class="entry-head">
 					<h3>nyu</h3>
 					<span class="role">journalism m.a.</span>
@@ -405,7 +410,7 @@
 					program (sherp)
 				</p>
 			</div>
-			<div class="entry cat-school">
+			<div class="entry">
 				<div class="entry-head">
 					<h3>dartmouth college</h3>
 					<span class="role">engineering major</span>
@@ -419,7 +424,7 @@
 		</div>
 		<div>
 			<h2>PLAY</h2>
-			<div class="entry cat-play">
+			<div class="entry">
 				<div class="entry-head">
 					<h3>deer valley</h3>
 					<span class="role">line cook</span>
