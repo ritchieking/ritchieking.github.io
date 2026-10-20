@@ -84,11 +84,11 @@
         {
             org: "Netflix",
             role: "Senior, then staff data visualization engineer",
-            dates: "2018–present",
+            dates: "2018–2026",
             cat: "vizeng",
             lane: 1,
             beg: new Date(2018, 9, 1),
-            end: new Date(),
+            end: new Date(2026, 9, 1),
         },
     ];
 

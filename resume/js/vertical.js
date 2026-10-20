@@ -16,7 +16,7 @@
     // era labels sit horizontally just above the top of the run of bars they
     // describe; date marks that top edge (reverse chron)
     var ERAS = [
-        { label: "DATA VIZ\nENGINEERING", lane: "vizeng", date: "present" },
+        { label: "DATA VIZ\nENGINEERING", lane: "vizeng", date: "2026-10" },
         { label: "VISUAL\nJOURNALISM", lane: "journalism", date: "2018-09" },
         { label: "GRAD SCHOOL", lane: "school", date: "2011-12" },
         { label: "SKI\nBUMMING", lane: "play", date: "2010-05" },
