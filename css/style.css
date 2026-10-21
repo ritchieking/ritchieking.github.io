@@ -479,6 +479,70 @@ body.home {
     color: var(--muted);
 }
 
+/* ---- static graphics teaser: a small fanned stack of cards ---- */
+.pile-teaser {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    gap: 36px;
+    align-items: center;
+}
+.pile-teaser-stack {
+    position: relative;
+    display: block;
+    aspect-ratio: 1 / 0.95;
+    text-decoration: none;
+}
+.pile-teaser-stack img {
+    position: absolute;
+    width: 62%;
+    height: auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow:
+        0 1px 2px rgba(33, 29, 25, 0.12),
+        0 10px 22px -8px rgba(33, 29, 25, 0.4);
+    transform: rotate(var(--r));
+    transition: transform 0.25s ease;
+}
+.pile-teaser-stack img:nth-child(1) { --r: -7deg; left: 2%; top: 4%; }
+.pile-teaser-stack img:nth-child(2) { --r: 5deg; left: 36%; top: 0; }
+.pile-teaser-stack img:nth-child(3) { --r: -3deg; left: 0; top: 40%; }
+.pile-teaser-stack img:nth-child(4) { --r: 6deg; left: 34%; top: 38%; }
+.pile-teaser-stack img:nth-child(5) { --r: -2deg; left: 18%; top: 22%; width: 64%; }
+.pile-teaser-stack:hover img {
+    transform: rotate(calc(var(--r) * 1.6));
+}
+.pile-teaser-stack:hover img:nth-child(5) {
+    transform: rotate(0deg) scale(1.04);
+}
+.pile-teaser-text h3 {
+    font-size: 22px;
+    line-height: 1.15;
+    margin: 0 0 6px;
+}
+.pile-teaser-text h3 a {
+    color: var(--ink);
+}
+.pile-teaser-text p {
+    margin: 10px 0 16px;
+    font-size: 15px;
+    color: var(--ink-2);
+}
+@media (max-width: 620px) {
+    .pile-teaser {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .pile-teaser-stack {
+        max-width: 300px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .pile-teaser-stack img {
+        transition: none;
+    }
+}
+
 /* ---- book ---- */
 #book-section {
     display: flex;

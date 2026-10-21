@@ -1,0 +1,319 @@
+/* graphics/ — the pile of rescued static graphics.
+   Shares tokens with ../css/style.css; this file only adds the page bits. */
+
+body.pile-page {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+.top-nav {
+    margin: 0 0 28px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+}
+.top-nav a {
+    color: var(--muted);
+}
+.top-nav a:hover {
+    color: var(--link);
+}
+
+/* ---- controls ---- */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    align-items: center;
+    margin: 30px 0 8px;
+    padding-top: 18px;
+    border-top: 1px solid var(--baseline);
+}
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.chips--right {
+    margin-left: auto;
+}
+.chip {
+    font: inherit;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink-2);
+    cursor: pointer;
+    transition:
+        background 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+.chip:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+}
+.chip.is-on {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--page);
+}
+.chip--action {
+    border-style: dashed;
+    border-color: var(--amber-deep);
+    color: var(--amber-deep);
+}
+.chip--action:hover {
+    background: var(--highlight);
+    border-color: var(--amber-deep);
+    color: var(--ink);
+}
+.chip--action:active span {
+    display: inline-block;
+    transform: rotate(180deg);
+}
+
+/* ---- the pile ---- */
+#pile-outer {
+    /* wider than the text column, like the timeline strip on the home page */
+    width: min(1280px, 100vw);
+    margin: 18px auto 0;
+    padding: 24px clamp(16px, 2.5vw, 40px) 64px;
+}
+#pile {
+    position: relative;
+    min-height: 200px;
+}
+.card {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #fff; /* the charts were drawn on white, both color schemes */
+    border-radius: 6px;
+    box-shadow:
+        0 1px 2px rgba(33, 29, 25, 0.12),
+        0 10px 24px -8px rgba(33, 29, 25, 0.35);
+    cursor: zoom-in;
+    overflow: hidden;
+    outline-offset: 4px;
+    transform: rotate(var(--rot, 0deg));
+    transition:
+        transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1.1),
+        box-shadow 0.28s ease,
+        left 0.45s ease,
+        top 0.45s ease,
+        width 0.45s ease,
+        opacity 0.3s ease;
+    will-change: transform;
+}
+.card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #fff;
+}
+.card .card-label {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 22px 10px 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: linear-gradient(transparent, rgba(20, 18, 16, 0.78));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    text-align: left;
+}
+.card .card-label b {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: var(--highlight);
+    color: #ffd27a;
+    margin-bottom: 2px;
+}
+.card:hover,
+.card:focus-visible {
+    z-index: 2000 !important;
+    transform: rotate(0deg) scale(1.04);
+    box-shadow:
+        0 2px 4px rgba(33, 29, 25, 0.16),
+        0 24px 48px -12px rgba(33, 29, 25, 0.5);
+}
+.card:hover .card-label,
+.card:focus-visible .card-label {
+    opacity: 1;
+}
+.card.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.card.is-new {
+    opacity: 0;
+    transform: rotate(var(--rot, 0deg)) translateY(18px);
+}
+@media (prefers-color-scheme: dark) {
+    .card {
+        box-shadow:
+            0 1px 2px rgba(0, 0, 0, 0.4),
+            0 12px 28px -8px rgba(0, 0, 0, 0.75);
+    }
+    .card:hover,
+    .card:focus-visible {
+        box-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.5),
+            0 28px 56px -12px rgba(0, 0, 0, 0.85);
+    }
+}
+/* no JS: plain responsive grid so nothing is lost */
+html:not(.js) #pile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+html:not(.js) .card {
+    position: static;
+    transform: none;
+}
+
+/* ---- lightbox ---- */
+#lightbox {
+    border: 0;
+    padding: 0;
+    width: min(96vw, 1400px);
+    max-width: none;
+    max-height: none;
+    background: transparent;
+    color: var(--ink);
+    overflow: visible;
+}
+#lightbox::backdrop {
+    background: rgba(20, 18, 16, 0.86);
+    backdrop-filter: blur(3px);
+}
+.lb-figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+.lb-stage {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+    max-width: 100%;
+}
+#lb-img {
+    display: block;
+    max-width: calc(96vw - 20px);
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    background: #fff;
+}
+.lb-caption {
+    text-align: center;
+    max-width: 720px;
+    padding: 0 12px;
+    color: #f4efe6;
+}
+.lb-caption #lb-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 20px;
+    line-height: 1.2;
+    color: #fff;
+}
+.lb-caption .clip-meta {
+    color: #b9b1a4;
+    margin: 6px 0 8px;
+}
+.lb-archive {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: #ffd27a;
+    border-bottom: 1px dashed currentColor;
+}
+.lb-archive:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.lb-close,
+.lb-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    font: inherit;
+    font-size: 22px;
+    line-height: 1;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(20, 18, 16, 0.6);
+    color: #fff;
+    cursor: pointer;
+    z-index: 2;
+    transition: background 0.15s ease;
+}
+.lb-close:hover,
+.lb-nav:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+.lb-close {
+    top: 18px;
+    right: 18px;
+    transform: none;
+    font-size: 26px;
+}
+.lb-prev {
+    left: 14px;
+}
+.lb-next {
+    right: 14px;
+}
+@media (max-width: 620px) {
+    .controls {
+        gap: 10px 14px;
+    }
+    .chips--right {
+        margin-left: 0;
+    }
+    .lb-nav {
+        top: auto;
+        bottom: 14px;
+        transform: none;
+    }
+    #lb-img {
+        max-height: 66vh;
+    }
+    .lb-caption #lb-title {
+        font-size: 17px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card .card-label,
+    .chip {
+        transition: none;
+    }
+    .card:hover,
+    .card:focus-visible {
+        transform: rotate(0deg);
+    }
+}

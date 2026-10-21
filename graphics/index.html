@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ritchie S. King — static graphics</title>
+        <meta
+            name="description"
+            content="Hundreds of charts, maps, and diagrams Ritchie S. King made for Quartz and FiveThirtyEight between 2012 and 2018, rescued from the Internet Archive."
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,500..700,50,1&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/imgs/apple-touch-icon.png" />
+        <link rel="stylesheet" type="text/css" href="../css/style.css?v=7" />
+        <link rel="stylesheet" type="text/css" href="graphics.css?v=1" />
+        <script>
+            document.documentElement.classList.add("js");
+        </script>
+    </head>
+    <body class="pile-page">
+        <div class="wrap">
+            <p class="top-nav">
+                <a class="nav-home" href="../">&larr; ritchiesking.com</a>
+            </p>
+            <header>
+                <h1><span class="hi">Static graphics</span></h1>
+                <p class="lede">
+                    Between 2012 and 2018 I made hundreds of charts, maps, and
+                    diagrams for <strong>Quartz</strong> and
+                    <strong>FiveThirtyEight</strong>. Both sites have since
+                    been gutted, and most of the stories are gone.
+                </p>
+                <p class="lede">
+                    This is the pile I managed to dig back out of the
+                    <a href="https://web.archive.org/">Internet Archive</a>:
+                    <span id="count-line">a few hundred graphics</span> from
+                    stories with my byline. Click any card to see it larger and
+                    find the archived story it came from.
+                </p>
+            </header>
+
+            <div class="controls" id="controls">
+                <div class="chips" id="outlet-chips" role="group" aria-label="Outlet">
+                    <button class="chip is-on" data-outlet="">All</button>
+                    <button class="chip" data-outlet="FiveThirtyEight">
+                        FiveThirtyEight
+                    </button>
+                    <button class="chip" data-outlet="Quartz">Quartz</button>
+                </div>
+                <div class="chips" id="kind-chips" role="group" aria-label="Kind">
+                    <button class="chip is-on" data-kind="">Everything</button>
+                    <button class="chip" data-kind="chart">Charts</button>
+                    <button class="chip" data-kind="map">Maps</button>
+                    <button class="chip" data-kind="diagram">Diagrams</button>
+                    <button class="chip" data-kind="table">Tables</button>
+                </div>
+                <div class="chips chips--right">
+                    <button class="chip chip--action" id="shuffle" type="button">
+                        <span aria-hidden="true">&#x21bb;</span> Shuffle the pile
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="pile-outer">
+            <div id="pile" aria-live="polite">
+                <noscript>
+                    <p class="group-note">
+                        The pile needs JavaScript to spread itself out. The
+                        graphics are listed in
+                        <a href="data.json">data.json</a>.
+                    </p>
+                </noscript>
+            </div>
+        </div>
+
+        <div class="wrap">
+            <footer>
+                <p>
+                    Ritchie S. King •
+                    <a href="mailto:ritchiesking@gmail.com"
+                        >ritchiesking@gmail.com</a
+                    >
+                    • Every image here was rescued from the
+                    <a href="https://web.archive.org/">Internet Archive</a>,
+                    with a lot of help from Fable 5.
+                </p>
+            </footer>
+        </div>
+
+        <dialog id="lightbox" aria-label="Graphic">
+            <button class="lb-close" id="lb-close" type="button" aria-label="Close">
+                &times;
+            </button>
+            <button class="lb-nav lb-prev" id="lb-prev" type="button" aria-label="Previous">
+                &larr;
+            </button>
+            <button class="lb-nav lb-next" id="lb-next" type="button" aria-label="Next">
+                &rarr;
+            </button>
+            <figure class="lb-figure">
+                <div class="lb-stage"><img id="lb-img" alt="" /></div>
+                <figcaption class="lb-caption">
+                    <a id="lb-title" href="#" target="_blank" rel="noopener"></a>
+                    <span class="clip-meta" id="lb-meta"></span>
+                    <a class="lb-archive" id="lb-archive" href="#" target="_blank" rel="noopener"
+                        >Read the archived story &#8599;</a
+                    >
+                </figcaption>
+            </figure>
+        </dialog>
+
+        <script src="graphics.js?v=1"></script>
+    </body>
+</html>
