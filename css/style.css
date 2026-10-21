@@ -246,6 +246,57 @@ body.home {
     margin: -6px 0 20px;
 }
 
+/* ---- netflix: collapsed summary; the full story lives on /resume/ ---- */
+#netflix {
+    --chip: var(--cat-vizeng);
+}
+.nf-lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 660px;
+    margin: 0 0 14px;
+}
+.nf-more summary {
+    display: inline-block;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--link);
+}
+.nf-more summary::-webkit-details-marker {
+    display: none;
+}
+.nf-more summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 7px;
+    transition: transform 0.15s;
+}
+.nf-more[open] summary::before {
+    transform: rotate(90deg);
+}
+.nf-list {
+    max-width: 680px;
+    margin: 16px 0 0;
+    padding-left: 18px;
+}
+.nf-list li {
+    font-size: 15px;
+    color: var(--ink-2);
+    margin: 0 0 10px;
+}
+.nf-list strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+.nf-foot {
+    font-size: 14px;
+    margin: 6px 0 0;
+}
+
 /* ---- native teaser features: full-bleed tinted bands ---- */
 .features {
     display: flex;

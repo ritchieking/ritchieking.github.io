@@ -16,7 +16,12 @@
     // era labels sit horizontally just above the top of the run of bars they
     // describe; date marks that top edge (reverse chron)
     var ERAS = [
-        { label: "DATA VIZ\nENGINEERING", lane: "vizeng", date: "present" },
+        {
+            label: "DATA VIZ\nENGINEERING",
+            lane: "vizeng",
+            date: "2026-10",
+            lift: 6,
+        },
         { label: "VISUAL\nJOURNALISM", lane: "journalism", date: "2018-09" },
         { label: "GRAD SCHOOL", lane: "school", date: "2011-12" },
         { label: "SKI\nBUMMING", lane: "play", date: "2010-05" },
@@ -235,10 +240,9 @@
             var left = Math.max(cx - el.offsetWidth / 2, minLeft);
             left = Math.min(left, trackW - el.offsetWidth);
             el.style.left = left + "px";
-            // present-edge label rides just above the current bar, leaving
-            // clear air below the lane-head rule; others hug their bar
-            var lift =
-                era.lift != null ? era.lift : era.date === "present" ? 6 : 5;
+            // labels hug their bar; the topmost one (data viz) lifts a hair
+            // more for clear air below the lane-head rule
+            var lift = era.lift != null ? era.lift : 5;
             el.style.top =
                 y(parseDate(era.date)) - el.offsetHeight - lift + "px";
         });
@@ -294,4 +298,9 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(render, 150);
     });
+
+    // the netflix story sits above the timeline; opening or closing it moves
+    // the pinned phase, so the parallax range has to be re-measured
+    var story = document.getElementById("netflix-story");
+    if (story) story.addEventListener("toggle", render);
 })();

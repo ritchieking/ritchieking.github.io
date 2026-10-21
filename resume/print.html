@@ -3,6 +3,10 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- paper is always light: "only light" opts out of the browser's
+	     auto-dark mode, darkreader-lock out of the dark reader extension -->
+	<meta name="color-scheme" content="only light" />
+	<meta name="darkreader-lock" />
 	<title>Ritchie S. King — résumé (printable)</title>
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link
@@ -16,7 +20,7 @@
 		/* print résumé — same design system as css/style.css, light-only
 		   (this page previews paper) */
 		:root {
-			color-scheme: light;
+			color-scheme: only light;
 			--page: #faf6ef;
 			--ink: #211d19;
 			--ink-2: #56514b;
@@ -26,10 +30,26 @@
 			--link: #1c5cab;
 			--font-display: 'Fraunces', Georgia, serif;
 			--font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
-			/* one badge color for everything — on paper there is no lane
-			   header or legend to decode a category palette, so the chips
-			   are decoration, not data. amber, from css/style.css */
-			--chip: #96660a;
+			/* category palette, light-mode values from css/style.css; the
+			   timeline strip's labels decode it, and each entry's chip
+			   picks it up via a cat-* class */
+			--cat-school: #bb9a4b;
+			--cat-biofuels: #5a66c7;
+			--cat-visjourn: #0c9c82;
+			--cat-vizeng: #8962c5;
+			--chip: var(--cat-vizeng);
+		}
+		.cat-school {
+			--chip: var(--cat-school);
+		}
+		.cat-biofuels {
+			--chip: var(--cat-biofuels);
+		}
+		.cat-visjourn {
+			--chip: var(--cat-visjourn);
+		}
+		.cat-vizeng {
+			--chip: var(--cat-vizeng);
 		}
 		* {
 			box-sizing: border-box;
@@ -200,6 +220,50 @@
 			color: var(--ink);
 			font-weight: 600;
 		}
+		/* career strip — a static paper take on the homepage strip
+		   (js/strip.js); its direct labels key the category colors */
+		.tl-strip {
+			display: block;
+			width: 100%;
+			height: auto;
+			margin-bottom: 18px;
+			overflow: visible;
+		}
+		.tl-strip .grid {
+			stroke: var(--hairline);
+			stroke-width: 1;
+		}
+		.tl-strip .year {
+			fill: var(--muted);
+			font-family: var(--font-mono);
+			font-size: 9.5px;
+			text-anchor: middle;
+		}
+		.tl-strip .label {
+			fill: var(--ink-2);
+			font-family: var(--font-mono);
+			font-size: 9px;
+			font-weight: 700;
+			letter-spacing: 0.07em;
+		}
+		.tl-strip .school {
+			fill: var(--cat-school);
+		}
+		.tl-strip .biofuels {
+			fill: var(--cat-biofuels);
+		}
+		.tl-strip .visjourn {
+			fill: var(--cat-visjourn);
+		}
+		.tl-strip .vizeng {
+			fill: var(--cat-vizeng);
+		}
+		.entry .see-more {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			color: var(--muted);
+			white-space: nowrap;
+		}
 		.bottom-row {
 			display: flex;
 			flex-wrap: wrap;
@@ -207,7 +271,62 @@
 		}
 		.bottom-row > div {
 			flex: 1;
-			min-width: 220px;
+			min-width: 200px;
+		}
+		/* school carries the weight; the book is one short line */
+		.bottom-row > .school {
+			flex: 2.4;
+		}
+		/* page 2: the netflix deep dive. on screen a dashed rule stands in
+		   for the page break */
+		.deep-dive {
+			margin-top: 40px;
+			padding-top: 28px;
+			border-top: 1px dashed var(--baseline);
+		}
+		.deep-dive .masthead {
+			margin: 0 0 12px;
+		}
+		.deep-dive .intro {
+			font-size: 12.5px;
+			margin: 0 0 4px;
+		}
+		.deep-dive .stats {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			color: var(--muted);
+			margin: 0 0 18px;
+		}
+		.chapters {
+			columns: 2;
+			column-gap: 26px;
+		}
+		.chapter {
+			break-inside: avoid;
+			margin-bottom: 14px;
+		}
+		.chapter h2 {
+			margin-bottom: 6px;
+		}
+		.chapter h2 .dates {
+			float: right;
+			font-weight: 400;
+			letter-spacing: 0.04em;
+		}
+		.chapter p,
+		.chapter li {
+			font-size: 12px;
+		}
+		.chapter ul {
+			margin: 4px 0 0;
+			padding-left: 15px;
+			color: var(--ink-2);
+		}
+		.chapter li {
+			margin: 0 0 3px;
+		}
+		.chapter li::marker {
+			color: var(--chip);
 		}
 		@media print {
 			body {
@@ -237,9 +356,17 @@
 				color: inherit;
 			}
 			h3::before,
-			.role-line::before {
+			.role-line::before,
+			.chapter li::marker,
+			.tl-strip rect {
 				print-color-adjust: exact;
 				-webkit-print-color-adjust: exact;
+			}
+			.deep-dive {
+				break-before: page;
+				margin-top: 0;
+				padding-top: 0;
+				border-top: none;
 			}
 			@page {
 				size: letter;
@@ -263,7 +390,7 @@
 
 	<div class="masthead">
 		<h1>Ritchie S. King</h1>
-		<p class="role-line">staff data visualization engineer &middot; netflix</p>
+		<p class="role-line">staff data visualization engineer &middot; formerly netflix</p>
 	</div>
 
 	<div id="top-row">
@@ -301,62 +428,77 @@
 		</div>
 	</div>
 
+	<svg class="tl-strip" viewBox="0 0 680 67" role="img" aria-label="Career timeline, 2002 to 2026: undergrad, biofuels engineering, grad school, journalism, then data viz engineering at Netflix.">
+		<line class="grid" x1="65.9" x2="65.9" y1="16" y2="66" />
+		<text class="year" x="65.9" y="10">2005</text>
+		<line class="grid" x1="207.1" x2="207.1" y1="16" y2="66" />
+		<text class="year" x="207.1" y="10">2010</text>
+		<line class="grid" x1="348.3" x2="348.3" y1="16" y2="66" />
+		<text class="year" x="348.3" y="10">2015</text>
+		<!-- 2020 breaks around the DATA VIZ ENGINEERING label (a stroke
+		     halo would double the label in the pdf's text layer) -->
+		<line class="grid" x1="489.4" x2="489.4" y1="16" y2="20" />
+		<line class="grid" x1="489.4" x2="489.4" y1="33" y2="66" />
+		<text class="year" x="489.4" y="10">2020</text>
+		<line class="grid" x1="630.7" x2="630.7" y1="16" y2="66" />
+		<text class="year" x="630.7" y="10">2025</text>
+		<rect class="school" x="0.8" y="52" width="132.6" height="12" rx="2.5" />
+		<rect class="school" x="226.6" y="52" width="33.8" height="12" rx="2.5" />
+		<rect class="biofuels" x="137.1" y="35" width="55.0" height="12" rx="2.5" />
+		<rect class="visjourn" x="254.9" y="35" width="5.5" height="12" rx="2.5" />
+		<rect class="visjourn" x="261.9" y="35" width="12.6" height="12" rx="2.5" />
+		<rect class="visjourn" x="276.0" y="35" width="3.2" height="12" rx="2.5" />
+		<rect class="visjourn" x="280.8" y="35" width="40.9" height="12" rx="2.5" />
+		<rect class="visjourn" x="323.2" y="35" width="127.8" height="12" rx="2.5" />
+		<rect class="vizeng" x="454.9" y="35" width="224.4" height="12" rx="2.5" />
+		<!-- biofuels hangs back from its bar's right end so it stays on one
+		     line clear of JOURNALISM -->
+		<text class="label" x="192.1" y="30" text-anchor="end">BIOFUELS ENGINEERING</text>
+		<text class="label" x="254.1" y="30">JOURNALISM</text>
+		<text class="label" x="454.1" y="30">DATA VIZ ENGINEERING</text>
+		<text class="label" x="139.1" y="61.5">UNDERGRAD</text>
+		<text class="label" x="266.1" y="61.5">GRAD SCHOOL</text>
+	</svg>
+
 	<section>
 		<h2>WORK</h2>
 
-		<div class="entry">
+		<div class="entry cat-vizeng">
 			<div class="entry-head">
 				<h3>netflix</h3>
-				<span class="role">staff data visualization engineer</span>
-				<span class="dates">apr.25-present &middot; remote</span>
+				<span class="role">senior, then staff data visualization engineer</span>
+				<span class="dates">oct.18-oct.26 &middot; los gatos, ca &amp; remote</span>
 			</div>
 			<p>
-				technical lead helping to define our approach to building
-				internal data products
-			</p>
-		</div>
-
-		<div class="entry">
-			<div class="entry-head">
-				<h3>netflix</h3>
-				<span class="role">senior data visualization engineer</span>
-				<span class="dates">oct.18-apr.25 &middot; los gatos, ca</span>
-			</div>
-			<p>
+				<strong>staff</strong> (apr.25-oct.26) &mdash; technical lead who
+				helped define the team's approach to building internal data
+				products; <strong>senior</strong> (oct.18-apr.25) &mdash;
 				full-stack developer building tables and data-driven web
 				applications to help corporate stakeholders make informed
 				business decisions
+				<span class="see-more">&middot; in depth on page 2</span>
 			</p>
 		</div>
 
-		<div class="entry">
+		<div class="entry cat-visjourn">
 			<div class="entry-head">
 				<h3>fivethirtyeight</h3>
-				<span class="role">senior editor, data visualization</span>
-				<span class="dates">may.16-sep.18 &middot; new york</span>
+				<span class="role">visual journalist, then senior editor, data visualization</span>
+				<span class="dates">feb.14-sep.18 &middot; new york</span>
 			</div>
 			<p>
+				<strong>senior editor</strong> (may.16-sep.18) &mdash;
 				player-coach managing a four-person team of visual journalists
 				and developers; in charge of the house style and standards for
-				displaying data in our articles and interactives
+				displaying data in our articles and interactives;
+				<strong>visual journalist</strong> (feb.14-apr.16) &mdash;
+				created charts, maps, and tables for news stories and enterprise
+				projects; built a tool for making basic charts in
+				fivethirtyeight style, used extensively in the newsroom
 			</p>
 		</div>
 
-		<div class="entry">
-			<div class="entry-head">
-				<h3>fivethirtyeight</h3>
-				<span class="role">visual journalist</span>
-				<span class="dates">feb.14-apr.16 &middot; new york</span>
-			</div>
-			<p>
-				created static and interactive charts, maps, and tables for news
-				stories and enterprise projects; built a tool for making basic
-				charts in fivethirtyeight style, used extensively by reporters
-				in the newsroom
-			</p>
-		</div>
-
-		<div class="entry">
+		<div class="entry cat-visjourn">
 			<div class="entry-head">
 				<h3>quartz</h3>
 				<span class="role">visual journalist</span>
@@ -368,7 +510,7 @@
 			</p>
 		</div>
 
-		<div class="entry">
+		<div class="entry cat-visjourn">
 			<div class="entry-head">
 				<h3>new york times &amp; businessweek</h3>
 				<span class="role">internships &amp; freelancing</span>
@@ -383,7 +525,7 @@
 			</p>
 		</div>
 
-		<div class="entry">
+		<div class="entry cat-biofuels">
 			<div class="entry-head">
 				<h3>mascoma corp.</h3>
 				<span class="role">chemical process engineer</span>
@@ -397,7 +539,7 @@
 	</section>
 
 	<div class="bottom-row">
-		<div>
+		<div class="school cat-school">
 			<h2>SCHOOL</h2>
 			<div class="entry">
 				<div class="entry-head">
@@ -405,10 +547,7 @@
 					<span class="role">journalism m.a.</span>
 					<span class="dates">sep.10-dec.11</span>
 				</div>
-				<p>
-					completed the science, health, and environmental reporting
-					program (sherp)
-				</p>
+				<p>science, health, and environmental reporting program (sherp)</p>
 			</div>
 			<div class="entry">
 				<div class="entry-head">
@@ -417,26 +556,177 @@
 					<span class="dates">sep.02-jun.07</span>
 				</div>
 				<p>
-					2007: b.e. in engineering &middot; 2006: b.s. in engineering
-					and environmental science
+					2007 b.e., engineering &middot; 2006 b.s., engineering &amp;
+					environmental science
 				</p>
 			</div>
 		</div>
 		<div>
-			<h2>PLAY</h2>
-			<div class="entry">
-				<div class="entry-head">
-					<h3>deer valley</h3>
-					<span class="role">line cook</span>
-					<span class="dates">nov.09-apr.10</span>
-				</div>
-				<p>chopped vegetables, shredded powder</p>
-			</div>
-			<h2 style="margin-top: 16px">BOOK</h2>
+			<h2>BOOK</h2>
 			<p style="font-size: 12.5px">
 				<em>visual storytelling with d3</em> &mdash; addison-wesley,
 				2014
 			</p>
+		</div>
+	</div>
+
+	<div class="deep-dive">
+		<div class="masthead">
+			<h1>Netflix, in depth</h1>
+			<p class="role-line">oct.18&ndash;oct.26 &middot; growth &amp; finance</p>
+		</div>
+		<p class="intro">
+			I spent eight years building data products Netflix&rsquo;s growth and
+			finance leaders used to run the business &mdash; dashboards,
+			explainers, and the shared tools underneath them &mdash; first as a
+			senior, then as a staff data visualization engineer.
+		</p>
+		<p class="stats">
+			4,200+ commits &middot; 55 repos &middot; 670+ PRs &middot; apps used
+			by thousands of colleagues
+		</p>
+
+		<div class="chapters">
+			<div class="chapter">
+				<h2>paid sharing<span class="dates">2020&ndash;2026</span></h2>
+				<p>
+					Gave each phase of Netflix&rsquo;s paid-sharing rollout its
+					own focused tool, did the early last-mile data work myself so the
+					product never waited on pipelines, and retired each tool when
+					its phase ended.
+				</p>
+				<ul>
+					<li>
+						A scrollytelling explainer (2020) with diagrams that
+						update as you read &mdash; something new at Netflix,
+						and partners kept asking for more like it.
+					</li>
+					<li>
+						Test-market dashboards for the two competing
+						approaches, with matching hero charts so leadership
+						could compare them side by side and choose a winner.
+					</li>
+					<li>
+						The global launch dashboard, built in 12 weeks: a
+						catalog of ~40 agreed metric definitions, an
+						executive snapshot, a drill-down explorer, and
+						annotated event timelines. Hundreds of
+						colleagues used it, from product and marketing to
+						legal and the executive office.
+					</li>
+					<li>
+						Patterns other teams picked up from this work: a metric index,
+						full-screen zoomable charts, custom market
+						groupings, and per-chart permalinks.
+					</li>
+				</ul>
+			</div>
+
+			<div class="chapter">
+				<h2>business tools for leadership<span class="dates">2018&ndash;2026</span></h2>
+				<ul>
+					<li>
+						Co-developed the company&rsquo;s main business
+						dashboard &mdash; guided tours, a semi-automated
+						headline briefing, pricing views &mdash; used by
+						thousands of colleagues.
+					</li>
+					<li>
+						A price-change efficiency view, used in
+						Netflix&rsquo;s price-change reviews, that breaks
+						each change into its revenue drivers, plus a
+						scrollytelling explainer to go with it.
+					</li>
+					<li>
+						A membership-lifecycle app (2026): developed novel visualizations and owned part of the underlying data
+						model.
+					</li>
+					<li>
+						A rebuilt payments dashboard and, earlier, the
+						plan-pricing and quarterly revenue apps.
+					</li>
+				</ul>
+			</div>
+
+			<div class="chapter">
+				<h2>growing the team<span class="dates">2024&ndash;2025</span></h2>
+				<ul>
+					<li>
+						Designed the hiring process for data viz engineers on my
+						team: three screens, then a four-part panel. Other teams
+						adopted it, along with the four-week
+						onboarding plan I wrote.
+					</li>
+					<li>
+						Mentored both of our new hires through pair programming and
+						code review. Within two years, each was leading a
+						flagship launch.
+					</li>
+					<li>
+						Took over roadmapping for the team&rsquo;s viz
+						portfolio.
+					</li>
+				</ul>
+			</div>
+
+			<div class="chapter">
+				<h2>enabling others<span class="dates">2025&ndash;2026</span></h2>
+				<p>
+					Rebuilt Netflix&rsquo;s workforce-analytics app around
+					building blocks an analytics engineer could extend, built the
+					privacy-sensitive pieces myself, and coached him through
+					review until he shipped v2 on his own. It serves every manager
+					of 50+ people and all of HR.
+				</p>
+			</div>
+
+			<div class="chapter">
+				<h2>the agent era<span class="dates">2025&ndash;2026</span></h2>
+				<ul>
+					<li>
+						Benchmarked agents recreating ~300 charts using
+						Netflix&rsquo;s internal charting library, with an eval that
+						pinpointed where models struggled. The findings fed
+						the agent skills published for the wider org.
+					</li>
+					<li>
+						Built an agent orchestration system &mdash; planning
+						agents write briefs, workstream agents build in
+						parallel git worktrees &mdash; with docs so others
+						could run their own.
+					</li>
+					<li>
+						Built a gallery where people and agents publish and
+						reuse UI components.
+					</li>
+					<li>
+						Gave talks on labs-based product development:
+						prototyping several options side by side, then
+						refining, freezing, or killing each one.
+					</li>
+				</ul>
+			</div>
+
+			<div class="chapter">
+				<h2>shared tools<span class="dates">2019&ndash;2026</span></h2>
+				<ul>
+					<li>
+						A market-geography library most of the team&rsquo;s
+						apps build on.
+					</li>
+					<li>
+						A standard way to retire apps without breaking links
+						&mdash; 15 apps retired through it, 8 of them other
+						people&rsquo;s.
+					</li>
+					<li>
+						A Druid query generator from before Druid SQL
+						existed, backend endpoints for ~10 apps, and core
+						features in Netflix&rsquo;s charting library
+						(confidence intervals, projections, shading bands).
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </body>

@@ -181,6 +181,122 @@ p {
 	margin-top: 48px;
 }
 
+/* NETFLIX — latest work, above the timeline */
+/*+++++++++++++++++++++++++++++++++++++*/
+.nf-intro {
+	max-width: 640px;
+}
+.nf-stats {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	color: var(--muted);
+	margin: 0 0 18px;
+}
+.nf-tiles {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+.nf-tile {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 14px 16px 12px;
+}
+.nf-tile h5 {
+	margin: 0 0 2px;
+}
+.nf-tile h3 {
+	font-size: 19px;
+	margin: 0 0 6px;
+}
+.nf-tile h3::before,
+.nf-chapter h3::before {
+	content: '';
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 3px;
+	background: var(--cat-vizeng);
+	margin-right: 8px;
+	vertical-align: 1px;
+}
+.nf-tile p {
+	font-size: 14px;
+	margin: 0;
+}
+.nf-more {
+	margin-top: 16px;
+}
+.nf-more summary {
+	display: inline-block;
+	cursor: pointer;
+	list-style: none;
+	font-family: var(--font-mono);
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	color: var(--link);
+}
+.nf-more summary::-webkit-details-marker {
+	display: none;
+}
+.nf-more summary::before {
+	content: '▸';
+	display: inline-block;
+	margin-right: 7px;
+	transition: transform 0.15s;
+}
+.nf-more[open] summary::before {
+	transform: rotate(90deg);
+}
+.nf-more summary span {
+	font-weight: 400;
+	color: var(--muted);
+	margin-left: 6px;
+}
+.nf-more summary:hover {
+	text-decoration: underline;
+	text-decoration-style: wavy;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+.nf-chapter {
+	max-width: 680px;
+	margin: 24px 0 0;
+	padding-top: 18px;
+	border-top: 1px solid var(--hairline);
+}
+.nf-chapter:first-of-type {
+	border-top: none;
+	padding-top: 4px;
+}
+.nf-chapter h3 {
+	font-size: 20px;
+}
+.nf-chapter h5 {
+	margin: 0 0 8px;
+}
+.nf-chapter ul {
+	margin: 0;
+	padding-left: 18px;
+}
+.nf-chapter li {
+	font-size: 15px;
+	color: var(--ink-2);
+	margin: 0 0 6px;
+}
+.nf-chapter li::marker {
+	color: var(--muted);
+}
+.nf-jump {
+	font-family: var(--font-mono);
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	margin-top: 4px;
+}
+
 /* HISTORY — vertical scrollytelling timeline */
 /*+++++++++++++++++++++++++++++++++++++*/
 
@@ -457,6 +573,10 @@ p {
 	}
 	.role-line {
 		white-space: normal;
+	}
+	.nf-tiles {
+		grid-template-columns: 1fr;
+		gap: 10px;
 	}
 	.tl-era,
 	.tl-today,
