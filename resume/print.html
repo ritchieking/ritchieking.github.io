@@ -258,11 +258,12 @@
 		.tl-strip .vizeng {
 			fill: var(--cat-vizeng);
 		}
-		.entry .see-more {
+		.entry .when {
 			font-family: var(--font-mono);
 			font-size: 10.5px;
 			color: var(--muted);
 			white-space: nowrap;
+			margin-left: 3px;
 		}
 		.bottom-row {
 			display: flex;
@@ -297,42 +298,178 @@
 			color: var(--muted);
 			margin: 0 0 18px;
 		}
-		.chapters {
-			columns: 2;
-			column-gap: 26px;
+		.deep-dive figure {
+			margin: 0 0 18px;
 		}
-		.chapter {
+		.deep-dive figure img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+		.deep-dive figcaption {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			color: var(--muted);
+			margin-top: 6px;
+			text-align: right;
+		}
+		/* domain / initiative / impact. each domain is its own tbody with the
+		   domain cell spanning its rows; domain rules are darker than the
+		   initiative rules between rows */
+		.work {
+			width: 100%;
+			border-spacing: 0;
+		}
+		.work tbody:last-of-type {
+			border-bottom: 1px solid var(--ink-2);
+		}
+		.work thead {
+			display: block;
+		}
+		.work thead tr,
+		.work tbody {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		/* the domain cell spans every row of its group; the last track is a
+		   1fr spacer, so any extra height the description needs goes there
+		   instead of stretching the initiative rows */
+		.work tbody {
+			grid-template-rows: repeat(var(--n), auto) 1fr;
 			break-inside: avoid;
-			margin-bottom: 14px;
 		}
-		.chapter h2 {
-			margin-bottom: 6px;
+		.work tbody tr {
+			display: contents;
 		}
-		.chapter h2 .dates {
-			float: right;
-			font-weight: 400;
-			letter-spacing: 0.04em;
+		.work .domain {
+			grid-column: 1;
+			grid-row: 1 / -1;
 		}
-		.chapter p,
-		.chapter li {
-			font-size: 12px;
+		.work td.what {
+			grid-column: 2;
 		}
-		.chapter ul {
-			margin: 4px 0 0;
-			padding-left: 15px;
+		.work td.what + td {
+			grid-column: 3;
+		}
+		.work tr.absorb > td {
+			grid-column: 2 / -1;
+			padding: 0;
+			border-top: none;
+		}
+		.work th,
+		.work td {
+			font-size: 11.5px;
+			line-height: 1.4;
+			text-align: left;
+			vertical-align: top;
+			padding: 7px 12px 7px 0;
+			border-top: 1px solid var(--hairline);
 			color: var(--ink-2);
+			font-weight: 400;
 		}
-		.chapter li {
-			margin: 0 0 3px;
+		.work th:last-child,
+		.work td:last-child {
+			padding-right: 0;
 		}
-		.chapter li::marker {
-			color: var(--chip);
+		.work thead th {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			font-weight: 700;
+			letter-spacing: 0.12em;
+			text-transform: lowercase;
+			color: var(--ink);
+			padding-top: 0;
+			border-top: none;
+			border-bottom: 1px solid var(--ink-2);
+		}
+		.work tbody:not(:first-of-type) > tr:first-child > * {
+			border-top-color: var(--baseline);
+		}
+		.work tbody:first-of-type > tr:first-child > * {
+			border-top: none;
+		}
+		.work .domain strong {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: 11.5px;
+			font-weight: 700;
+			text-transform: lowercase;
+			letter-spacing: 0.12em;
+			color: var(--ink);
+		}
+		.work .domain .dates {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: 10px;
+			letter-spacing: 0.04em;
+			color: var(--muted);
+			margin: 1px 0 5px;
+		}
+		.work .domain span.desc {
+			display: block;
+			font-size: 11.5px;
+		}
+		/* arrow hangs in the left padding so wrapped lines stay clear of it */
+		.work td.what {
+			color: var(--ink);
+			position: relative;
+			padding-left: 1.3em;
+		}
+		.work td.what::before {
+			content: '\2192';
+			position: absolute;
+			left: 0;
+			color: var(--muted);
+		}
+		.deep-dive .more {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			margin-top: 28px;
+		}
+		/* same 12px right padding as the table cells so the text lines up
+		   with the columns above */
+		.more > div {
+			padding-right: 12px;
+		}
+		.more > div:last-child {
+			padding-right: 0;
+		}
+		.more strong {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: 11.5px;
+			font-weight: 700;
+			text-transform: lowercase;
+			letter-spacing: 0.12em;
+		}
+		.more .dates {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: 10px;
+			letter-spacing: 0.04em;
+			color: var(--muted);
+			margin: 1px 0 5px;
+		}
+		.more p {
+			font-size: 11.5px;
+			line-height: 1.4;
+			margin: 0;
 		}
 		@media print {
+			/* keep the cream paper in the pdf; exact opts out of the browser
+			   dropping background colors when printing */
+			html,
+			body {
+				print-color-adjust: exact;
+				-webkit-print-color-adjust: exact;
+			}
+			html {
+				background: var(--page);
+			}
 			body {
 				max-width: none;
 				padding: 0;
-				background: #fff;
+				background: var(--page);
 				font-size: 12.5px;
 			}
 			.top-nav {
@@ -357,7 +494,6 @@
 			}
 			h3::before,
 			.role-line::before,
-			.chapter li::marker,
 			.tl-strip rect {
 				print-color-adjust: exact;
 				-webkit-print-color-adjust: exact;
@@ -371,6 +507,7 @@
 			@page {
 				size: letter;
 				margin: 0.6in 0.7in;
+				background: #faf6ef;
 			}
 		}
 	</style>
@@ -469,14 +606,13 @@
 				<span class="role">senior, then staff data visualization engineer</span>
 				<span class="dates">oct.18-oct.26 &middot; los gatos, ca &amp; remote</span>
 			</div>
-			<p>
-				<strong>staff</strong> (apr.25-oct.26) &mdash; technical lead who
-				helped define our approach to building internal data
-				products; <strong>senior</strong> (oct.18-apr.25) &mdash;
+			<p><ul>
+				<li><strong>staff</strong> &mdash; technical lead defining our approach to building internal data
+				products <span class="when">apr.25-oct.26</span></li>
+				<li><strong>senior</strong> &mdash;
 				full-stack developer building tables and data-driven web
 				applications to help corporate stakeholders make informed
-				business decisions
-				<span class="see-more">&middot; in depth on page 2</span>
+				business decisions <span class="when">oct.18-apr.25</span></li></ul>
 			</p>
 		</div>
 
@@ -487,14 +623,16 @@
 				<span class="dates">feb.14-sep.18 &middot; new york</span>
 			</div>
 			<p>
-				<strong>senior editor</strong> (may.16-sep.18) &mdash;
+			<ul>
+				<li><strong>senior editor</strong> &mdash;
 				player-coach managing a four-person team of visual journalists
-				and developers; in charge of the house style and standards for
-				displaying data in our articles and interactives;
-				<strong>visual journalist</strong> (feb.14-apr.16) &mdash;
+				and developers; in charge of the house style for
+				displaying data in our articles and interactives <span class="when">may.16-sep.18</span></li>
+				<li><strong>visual journalist</strong> &mdash;
 				created charts, maps, and tables for news stories and enterprise
 				projects; built a tool for making basic charts in
-				fivethirtyeight style, used extensively in the newsroom
+				fivethirtyeight style, used extensively in the newsroom <span class="when">feb.14-apr.16</span></li>
+			</ul>
 			</p>
 		</div>
 
@@ -517,11 +655,10 @@
 				<span class="dates">sep.11-aug.12 &middot; new york</span>
 			</div>
 			<p>
-				<strong>nyt</strong> science desk intern, then graphics intern
-				&mdash; trained with some of the best data viz experts in the
-				world &mdash; then freelance graphics editor;
-				<strong>businessweek</strong> freelance graphics editor, working
-				with bw's intensely creative art team
+			<ul>
+				<li><strong>nyt</strong> science desk intern, then graphics intern
+				&mdash; trained with the best in the business</li>
+				<li><strong>businessweek</strong> freelance graphics editor — learned design from bw's intensely creative art team</li></ul>
 			</p>
 		</div>
 
@@ -532,7 +669,7 @@
 				<span class="dates">jul.07-jul.09 &middot; boston</span>
 			</div>
 			<p>
-				a process designer and experimenter working on the scale-up crew
+				a process designer and researcher working on the scale-up crew
 				at a biofuels start-up
 			</p>
 		</div>
@@ -576,9 +713,8 @@
 			<p class="role-line">oct.18&ndash;oct.26 &middot; growth &amp; finance</p>
 		</div>
 		<p class="intro">
-			I spent eight years building data products Netflix&rsquo;s growth and
-			finance leaders used to run the business &mdash; dashboards,
-			explainers, and the shared tools underneath them &mdash; first as a
+			I spent eight years building data products that growth and
+			finance leaders used to run the business, first as a
 			senior, then as a staff data visualization engineer.
 		</p>
 		<p class="stats">
@@ -586,146 +722,103 @@
 			by thousands of colleagues
 		</p>
 
-		<div class="chapters">
-			<div class="chapter">
-				<h2>paid sharing<span class="dates">2020&ndash;2026</span></h2>
+		<figure>
+			<img
+				src="img/market-footprint.png"
+				alt="Market footprint chart: dots grouped into segments of addressable households, non-subscribers on the left and subscribers on the right."
+			/>
+			<figcaption>A market footprint chart I designed at Netflix</figcaption>
+		</figure>
+
+		<table class="work">
+			<thead>
+				<tr><th>domain</th><th>select projects</th><th>impact</th></tr>
+			</thead>
+			<tbody style="--n: 4">
+				<tr>
+					<th class="domain" scope="rowgroup">
+						<strong>account sharing</strong>
+						<span class="dates">2020&ndash;2026</span>
+						<span class="desc">I gave each phase of Netflix&rsquo;s crackdown on password sharing its own focused tool and did much of the data modeling and engineering.</span>
+					</th>
+					<td class="what">Animated scrollyteller explaining sharing detection</td>
+					<td>Viewed by hundreds of colleagues; format requested for other domains</td>
+				</tr>
+				<tr>
+					<td class="what">Test-market dashboards for two approaches to paid sharing</td>
+					<td>Leadership compared them side by side to pick the winner we productized.</td>
+				</tr>
+				<tr>
+					<td class="what">Launch dashboard</td>
+					<td>Widely used; UI patterns adopted by other teams</td>
+				</tr>
+				<tr class="absorb"><td colspan="2"></td></tr>
+			</tbody>
+			<tbody style="--n: 4">
+				<tr>
+					<th class="domain" scope="rowgroup">
+						<strong>business insights</strong>
+						<span class="dates">2018&ndash;2026</span>
+						<span class="desc">I built apps that growth and finance leaders used to make decisions about pricing, revenue, payments, and more.</span>
+					</th>
+					<td class="what">Netflix&rsquo;s key business dashboard (contributor)</td>
+					<td>Used by thousands of colleagues, daily in some cases</td>
+				</tr>
+				<tr>
+					<td class="what">Dashboard showing the revenue impact of each price change</td>
+					<td>Used to decide when, where, and by how much to raise prices in the future</td>
+				</tr>
+				<tr>
+					<td class="what">Membership-lifecycle app</td>
+					<td>Filled a need not identified by users. Novel visualizations were praised.</td>
+				</tr>
+				<tr class="absorb"><td colspan="2"></td></tr>
+			</tbody>
+			<tbody style="--n: 4">
+				<tr>
+					<th class="domain" scope="rowgroup">
+						<strong>the agent era</strong>
+						<span class="dates">2025&ndash;2026</span>
+						<span class="desc">On Netflix&rsquo;s generative-AI task force for data, I worked on how viz engineers should build data products with the help of agents.</span>
+					</th>
+					<td class="what">Supporting agents’ use of our internal charting library</td>
+					<td>Custom evaluations shaped agent skills published for the wider org.</td>
+				</tr>
+				<tr>
+					<td class="what">Remote agent orchestration system based on a &ldquo;brain and hands&rdquo; model</td>
+					<td>Bootstrap docs let others create their own version.</td>
+				</tr>
+				<tr>
+					<td class="what">Elevated product development using AI-coded experiments</td>
+					<td>Influenced development patterns across viz engineering</td>
+				</tr>
+				<tr class="absorb"><td colspan="2"></td></tr>
+			</tbody>
+		</table>
+
+		<div class="more">
+			<div>
+				<strong>growing the team</strong>
+				<span class="dates">2024&ndash;2025</span>
 				<p>
-					Gave each phase of Netflix&rsquo;s paid-sharing rollout its
-					own focused tool, did the early last-mile data work myself so the
-					product never waited on pipelines, and retired each tool when
-					its phase ended.
-				</p>
-				<ul>
-					<li>
-						A scrollytelling explainer (2020) with diagrams that
-						update as you read &mdash; something new at Netflix,
-						and partners kept asking for more like it.
-					</li>
-					<li>
-						Test-market dashboards for the two competing
-						approaches, with matching hero charts so leadership
-						could compare them side by side and choose a winner.
-					</li>
-					<li>
-						The global launch dashboard, built in 12 weeks: a
-						catalog of ~40 agreed metric definitions, an
-						executive snapshot, a drill-down explorer, and
-						annotated event timelines. Hundreds of
-						colleagues used it, from product and marketing to
-						legal and the executive office.
-					</li>
-					<li>
-						Patterns other teams picked up from this work: a metric index,
-						full-screen zoomable charts, custom market
-						groupings, and per-chart permalinks.
-					</li>
-				</ul>
-			</div>
-
-			<div class="chapter">
-				<h2>business tools for leadership<span class="dates">2018&ndash;2026</span></h2>
-				<ul>
-					<li>
-						Co-developed the company&rsquo;s main business
-						dashboard &mdash; guided tours, a semi-automated
-						headline briefing, pricing views &mdash; used by
-						thousands of colleagues.
-					</li>
-					<li>
-						A price-change efficiency view, used in
-						Netflix&rsquo;s price-change reviews, that breaks
-						each change into its revenue drivers, plus a
-						scrollytelling explainer to go with it.
-					</li>
-					<li>
-						A membership-lifecycle app (2026): developed novel visualizations and owned part of the underlying data
-						model.
-					</li>
-					<li>
-						A rebuilt payments dashboard and, earlier, the
-						plan-pricing and quarterly revenue apps.
-					</li>
-				</ul>
-			</div>
-
-			<div class="chapter">
-				<h2>growing the team<span class="dates">2024&ndash;2025</span></h2>
-				<ul>
-					<li>
-						Designed the hiring process for data viz engineers on my
-						team: three screens, then a four-part panel. Other teams
-						adopted it, along with the four-week
-						onboarding plan I wrote.
-					</li>
-					<li>
-						Mentored both of our new hires through pair programming and
-						code review. Within two years, each was leading a
-						flagship launch.
-					</li>
-					<li>
-						Took over roadmapping for the team&rsquo;s viz
-						portfolio.
-					</li>
-				</ul>
-			</div>
-
-			<div class="chapter">
-				<h2>enabling others<span class="dates">2025&ndash;2026</span></h2>
-				<p>
-					Rebuilt Netflix&rsquo;s workforce-analytics app around
-					building blocks an analytics engineer could extend, built the
-					privacy-sensitive pieces myself, and coached him through
-					review until he shipped v2 on his own. It serves every manager
-					of 50+ people and all of HR.
+				Designed a panel of screens and interviews for hiring viz engineers, adopted by other teams. Mentored two junior viz engineers to launch their own apps within a year.
 				</p>
 			</div>
-
-			<div class="chapter">
-				<h2>the agent era<span class="dates">2025&ndash;2026</span></h2>
-				<ul>
-					<li>
-						Benchmarked agents recreating ~300 charts using
-						Netflix&rsquo;s internal charting library, with an eval that
-						pinpointed where models struggled. The findings fed
-						the agent skills published for the wider org.
-					</li>
-					<li>
-						Built an agent orchestration system &mdash; planning
-						agents write briefs, workstream agents build in
-						parallel git worktrees &mdash; with docs so others
-						could run their own.
-					</li>
-					<li>
-						Built a gallery where people and agents publish and
-						reuse UI components.
-					</li>
-					<li>
-						Gave talks on labs-based product development:
-						prototyping several options side by side, then
-						refining, freezing, or killing each one.
-					</li>
-				</ul>
+			<div>
+				<strong>enabling analysts</strong>
+				<span class="dates">2025&ndash;2026</span>
+				<p>
+				Teamed up with a non-developer analytics engineer on a workforce analytics app; I designed a scalable architecture and coached him so he could take on full ownership.
+				</p>
 			</div>
-
-			<div class="chapter">
-				<h2>shared tools<span class="dates">2019&ndash;2026</span></h2>
-				<ul>
-					<li>
-						A market-geography library most of the team&rsquo;s
-						apps build on.
-					</li>
-					<li>
-						A standard way to retire apps without breaking links
-						&mdash; 15 apps retired through it, 8 of them other
-						people&rsquo;s.
-					</li>
-					<li>
-						A Druid query generator from before Druid SQL
-						existed, backend endpoints for ~10 apps, and core
-						features in Netflix&rsquo;s charting library
-						(confidence intervals, projections, shading bands).
-					</li>
-				</ul>
+			<div>
+				<strong>shared tools</strong>
+				<span class="dates">2019&ndash;2026</span>
+				<p>
+					A market-geography library most of the team&rsquo;s apps built
+					on, a standard way to retire apps without breaking links, a query generator for Druid, and
+					core features in Netflix&rsquo;s charting library.
+				</p>
 			</div>
 		</div>
 	</div>
