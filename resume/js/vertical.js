@@ -258,6 +258,10 @@
             bar.style.top = y(end) + "px";
             bar.style.height = Math.max(y(beg) - y(end) - 2, 4) + "px";
             bar.style.setProperty("animation-timeline", "--c" + (i + 1));
+            // the IntersectionObserver fallback only fires on enter/leave, so a
+            // re-render (resize, URL bar sliding in on mobile) would otherwise
+            // wipe the highlight until the card leaves and re-enters
+            if (card.classList.contains("active")) bar.classList.add("active");
             bar.addEventListener("click", function () {
                 card.scrollIntoView({ behavior: "smooth", block: "center" });
             });
