@@ -458,6 +458,17 @@ body.home {
 .reading-row .embed-window.is-live {
     aspect-ratio: auto;
 }
+/* static screenshot peek, for articles that can't be iframed */
+.shot-window {
+    display: block;
+}
+.shot-window img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top left;
+}
 .reading-text h3 {
     font-size: 22px;
     line-height: 1.15;
@@ -685,5 +696,83 @@ footer {
     }
     #book-section {
         gap: 28px;
+    }
+}
+
+/* ---- awards & judging ---- */
+#awards h3 {
+    margin: 40px 0 14px;
+}
+#awards .group-note {
+    max-width: 660px;
+}
+.award-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 740px;
+}
+.award-list > li {
+    display: grid;
+    grid-template-columns: minmax(0, 250px) minmax(0, 1fr);
+    gap: 4px 28px;
+    padding: 14px 0;
+    border-top: 1px solid var(--hairline);
+}
+.award-list > li:last-child {
+    border-bottom: 1px solid var(--hairline);
+}
+.award-piece strong {
+    font-family: var(--font-display);
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+.award-piece .clip-meta {
+    margin: 4px 0 0;
+}
+.award-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.award-list ul li {
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink-2);
+    margin: 0 0 6px;
+}
+.award-list ul li:last-child {
+    margin-bottom: 0;
+}
+.award-list b {
+    color: var(--ink);
+    font-weight: 600;
+}
+/* team and judging rows: a year column instead of a piece column */
+.award-team > li {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 0 20px;
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 1.4;
+    color: var(--ink-2);
+}
+.award-year {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    padding-top: 2px;
+}
+@media (max-width: 620px) {
+    .award-list > li {
+        grid-template-columns: 1fr;
+    }
+    .award-piece {
+        margin-bottom: 6px;
+    }
+    .award-team > li {
+        grid-template-columns: 48px minmax(0, 1fr);
     }
 }

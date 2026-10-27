@@ -455,6 +455,82 @@
 			line-height: 1.4;
 			margin: 0;
 		}
+		/* page 3: awards & judging. same dashed rule as page 2 on screen */
+		.awards-page {
+			margin-top: 40px;
+			padding-top: 28px;
+			border-top: 1px dashed var(--baseline);
+		}
+		.awards-page .masthead {
+			margin: 0 0 12px;
+		}
+		.awards-page .intro {
+			font-size: 12.5px;
+			margin: 0 0 14px;
+		}
+		.awards-page section {
+			margin-bottom: 14px;
+		}
+		.awards-page .award {
+			display: grid;
+			grid-template-columns: 1.15fr 2fr;
+			gap: 0 16px;
+			padding: 4px 0;
+			border-top: 1px solid var(--hairline);
+			break-inside: avoid;
+		}
+		.awards-page .award:first-of-type {
+			border-top: none;
+			padding-top: 0;
+		}
+		.awards-page .award h3 {
+			white-space: normal;
+			font-size: 13.5px;
+			line-height: 1.3;
+		}
+		.awards-page .award .meta {
+			display: block;
+			font-family: var(--font-mono);
+			font-size: 10px;
+			letter-spacing: 0.04em;
+			color: var(--muted);
+			margin: 2px 0 0 15px;
+		}
+		.awards-page .award ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		.awards-page .award li {
+			font-size: 11.5px;
+			line-height: 1.4;
+			color: var(--ink-2);
+			margin-bottom: 2px;
+		}
+		.awards-page .award li strong {
+			color: var(--ink);
+		}
+		/* team and judging rows: a year column instead of a piece column */
+		.awards-page .award.row {
+			grid-template-columns: 38px 1fr;
+			gap: 0 10px;
+			font-size: 11.5px;
+			line-height: 1.4;
+			color: var(--ink-2);
+		}
+		.awards-page .award.row .yr {
+			font-family: var(--font-mono);
+			font-size: 10.5px;
+			color: var(--muted);
+		}
+		.awards-page .award.row strong {
+			color: var(--ink);
+			font-weight: 600;
+		}
+		.awards-page .sec-note {
+			font-size: 11.5px;
+			margin: -4px 0 8px;
+		}
 		@media print {
 			/* keep the cream paper in the pdf; exact opts out of the browser
 			   dropping background colors when printing */
@@ -498,7 +574,8 @@
 				print-color-adjust: exact;
 				-webkit-print-color-adjust: exact;
 			}
-			.deep-dive {
+			.deep-dive,
+			.awards-page {
 				break-before: page;
 				margin-top: 0;
 				padding-top: 0;
@@ -821,6 +898,134 @@
 				</p>
 			</div>
 		</div>
+	</div>
+	<div class="awards-page">
+		<div class="masthead">
+			<h1>Awards &amp; judging</h1>
+			<p class="role-line">journalism &middot; 2012&ndash;2018</p>
+		</div>
+		<p class="intro">
+			Honors for my visual journalism at Quartz and FiveThirtyEight,
+			and my turns on the judges&rsquo; side of the table.
+		</p>
+
+		<section class="cat-visjourn">
+			<h2>PERSONAL AWARDS</h2>
+
+			<div class="award">
+				<div>
+					<h3>gun deaths in america</h3>
+					<span class="meta">fivethirtyeight &middot; 2016 &middot; editor</span>
+				</div>
+				<ul>
+					<li><strong>gold</strong>, malofiej 25 &mdash; online features: world &amp; nation</li>
+					<li><strong>online winner</strong>, national academies communication awards</li>
+					<li><strong>award of excellence</strong>, snd best of digital design &mdash; features</li>
+				</ul>
+			</div>
+
+			<div class="award">
+				<div>
+					<h3>the atlas of redistricting</h3>
+					<span class="meta">fivethirtyeight &middot; 2018 &middot; editor</span>
+				</div>
+				<ul>
+					<li><strong>news data app of the year</strong>, data journalism awards</li>
+					<li><strong>bronze</strong>, snd best of digital design &mdash; use of maps</li>
+				</ul>
+			</div>
+
+			<div class="award">
+				<div>
+					<h3>what lies in irma&rsquo;s path</h3>
+					<span class="meta">fivethirtyeight &middot; 2017 &middot; with r. dottle &amp; e. koeze</span>
+				</div>
+				<ul>
+					<li><strong>silver</strong>, information is beautiful awards &mdash; breaking news</li>
+					<li><strong>silver</strong>, malofiej 26 &mdash; online breaking news</li>
+				</ul>
+			</div>
+
+			<div class="award">
+				<div>
+					<h3>which flight will get you there fastest?</h3>
+					<span class="meta">fivethirtyeight &middot; 2015</span>
+				</div>
+				<ul>
+					<li><strong>bronze</strong>, malofiej 24 &mdash; online features: travel, transportation, cars &amp; environment</li>
+				</ul>
+			</div>
+
+			<div class="award">
+				<div>
+					<h3>science isn&rsquo;t broken</h3>
+					<span class="meta">fivethirtyeight &middot; 2015 &middot; with c. aschwanden</span>
+				</div>
+				<ul>
+					<li><strong>silver</strong>, information is beautiful awards &mdash; data journalism</li>
+				</ul>
+			</div>
+
+			<div class="award">
+				<div>
+					<h3>by reading this page you are minting bitcoins</h3>
+					<span class="meta">quartz &middot; 2013 &middot; with s. williams &amp; d. yanofsky</span>
+				</div>
+				<ul>
+					<li><strong>finalist</strong>, sabew best in business &mdash; digital explanatory</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="cat-visjourn">
+			<h2>TEAM AWARDS</h2>
+			<p class="sec-note">
+				FiveThirtyEight, for work I built or edited; most came while I
+				led the data visualization team (may.16&ndash;sep.18).
+			</p>
+
+			<div class="award row">
+				<span class="yr">2018</span>
+				<div><strong>bronze &times; 5</strong>, snd best of digital design &mdash; the atlas of redistricting; do you know where america stands on guns?; olympic skiing; election and world cup coverage</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2018</span>
+				<div><strong>bronze</strong>, malofiej 26 &mdash; online features portfolio; online features: arts, entertainment &amp; culture (&ldquo;how to spot a front-runner on &lsquo;the bachelor&rsquo;&rdquo;)</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2017</span>
+				<div><strong>silver</strong>, malofiej 25 &mdash; online features portfolio</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2016</span>
+				<div><strong>gold</strong>, information is beautiful awards &mdash; <strong>outstanding team</strong>, including the 2016 election forecast, which I built</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2016</span>
+				<div><strong>data journalism website of the year</strong> and <strong>news data app of the year</strong> (swing the election), data journalism awards</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2016</span>
+				<div><strong>silver</strong>, malofiej 24 &mdash; online features portfolio</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2016</span>
+				<div><strong>award of excellence &times; 2</strong>, snd best of digital design &mdash; 2016 election interactives; staff portfolio</div>
+			</div>
+		</section>
+
+		<section class="cat-visjourn">
+			<h2>JUDGING</h2>
+
+			<div class="award row">
+				<span class="yr">2018</span>
+				<div><strong>malofiej 26</strong> juror, pamplona; also gave a talk that year on the connection between data visualization and storytelling</div>
+			</div>
+			<div class="award row">
+				<span class="yr">2017</span>
+				<div><strong>information is beautiful awards</strong> judging panel</div>
+			</div>
+		</section>
 	</div>
 </body>
 </html>
