@@ -6,8 +6,16 @@
   "use strict";
 
   /* The interactive-project teasers moved to native embeds (js/teasers.js);
-     iframes remain only for the article reading peek. */
+     iframes remain only for the article reading peeks. */
   var CONFIGS = {
+    "dissecting-trumps-most-rabid-online-following": {
+      src: "dissecting-trumps-most-rabid-online-following/",
+      width: 1100,
+      top: ".post-info",
+      hbox: [".entry-content"],
+      height: 620,
+      interactive: false,
+    },
     "bitcoin-mining": {
       src: "bitcoin-mining/",
       width: 1100,
